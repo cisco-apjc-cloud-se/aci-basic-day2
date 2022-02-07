@@ -6,3 +6,13 @@ variable "tenants" {
     description = string
   }))
 }
+
+### VRF Input Variable Object ###
+
+variable "vrfs" {
+  type = map(object({
+    vrf_name      = string
+    description   = string
+    tenant_name   = string
+  }))
+}
