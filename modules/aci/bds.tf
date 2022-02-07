@@ -15,7 +15,6 @@ locals {
       for sub_key, subnet in bd.subnets :
         {
           bd_name     = bd.bd_name
-          name_alias  = subnet.name
           description = subnet.description
           ip          = subnet.ip
           scope       = subnet.scope
