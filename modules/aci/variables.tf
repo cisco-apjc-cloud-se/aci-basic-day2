@@ -50,6 +50,7 @@ variable "aps" {
       epg_name  = string
       bd_name   = string
       description = string
+      vmm_enabled = bool
       }))
   }))
 }

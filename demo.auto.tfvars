@@ -47,7 +47,6 @@ bds = {
         scope       = ["public"]
         preferred   = "no"
       }
-
     }
   }
   bd-2 = {
@@ -70,11 +69,13 @@ aps = {
         epg_name = "epg-1"
         bd_name = "bd-1"       ## Bridge Domain to add EPG to
         description = "Demo EPG #1 in BD #1"
+        vmm_enabled = true
       }
       epg-2 = {
         epg_name = "epg-2"
         bd_name = "bd-1"       ## Bridge Domain to add EPG to
         description = "Demo EPG #2 in BD #1"
+        vmm_enabled = true
       }
     }
   }
