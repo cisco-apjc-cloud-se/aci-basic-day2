@@ -1,13 +1,11 @@
+### ACI Credentials & Users - from TFC Variable Set ###
 variable "aci_user" {
-  default = "admin"
 }
 
 variable "aci_password" {
-  default = "C!sco123"
 }
 
 variable "aci_url" {
-  default = "https://10.67.16.238"
 }
 
 // variable "vsphere_user" {

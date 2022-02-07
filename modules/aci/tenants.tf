@@ -5,5 +5,5 @@ resource "aci_tenant" "tenants" {
 
   name        = each.value.name
   description = each.value.description
-  annotation  = "orchestrator:Terraform Cloud"
+  annotation  = "orchestrator:Terraform"
 }
