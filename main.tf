@@ -45,8 +45,8 @@ module "aci" {
   ### Tenants ###
   tenants   = var.tenants
 
-  // ### VRFs ###
-  // vrfs      = var.vrfs
+  ### VRFs ###
+  vrfs      = var.vrfs
   //
   // ### Bridge Domains ###
   // bds       = var.bds
