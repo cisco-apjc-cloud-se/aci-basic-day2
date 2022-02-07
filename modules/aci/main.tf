@@ -10,11 +10,11 @@ terraform {
 
 ## Common Data Sources
 
-// ### Load VMware VMM Domain
-// data "aci_vmm_domain" "vmm" {
-// 	provider_profile_dn = "uni/vmmp-VMware"
-// 	name                = var.vmm_name #"DVS-VMM"
-// }
+### Load VMware VMM Domain
+data "aci_vmm_domain" "vmm" {
+	provider_profile_dn = "uni/vmmp-VMware"
+	name                = var.vmm_name #"DVS-VMM"
+}
 
 // ### Load Common Tenant
 // data "aci_tenant" "common" {

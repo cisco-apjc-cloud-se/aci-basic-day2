@@ -38,12 +38,14 @@ resource "aci_application_epg" "epgs" {
   relation_fv_rs_bd         = aci_bridge_domain.bds[each.value.bd_name].id
 }
 
-//
-// ### Extend to VMM Domain
-// resource "aci_epg_to_domain" "tf-vlan100-vmm" {
-//   application_epg_dn    = aci_application_epg.tf-vlan100.id
-//   tdn                   = "uni/vmmp-VMware/dom-DVS-VMM"
-//   vmm_allow_promiscuous = "accept"
-//   vmm_forged_transmits  = "accept"
-//   vmm_mac_changes       = "accept"
-// }
+
+### Extend to VMM Domain
+resource "aci_epg_to_domain" "dpgs" {
+  for_each = local.ap_epg_map
+
+  application_epg_dn    = aci_application_epg.epgs[format("%s-%s", each.value.ap_name, each.value.epg_name)].id  ## Assumes AP Name & EPG Name also used for map/object key
+  tdn                   = data.aci_vmm_domain.vmm.id #"uni/vmmp-VMware/dom-DVS-VMM"
+  // vmm_allow_promiscuous = "accept"
+  // vmm_forged_transmits  = "accept"
+  // vmm_mac_changes       = "accept"
+}

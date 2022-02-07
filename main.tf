@@ -52,8 +52,8 @@ module "aci" {
   bds       = var.bds
 
   ### Application Profiles & End Point Groups ###
-  aps      = var.aps
-  // vmm_name  = var.vmm_name # "DVS-VMM"
+  aps       = var.aps
+  vmm_name  = var.vmm_name # "DVS-VMM"
 
 }
 

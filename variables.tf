@@ -21,6 +21,11 @@ variable "aci_url" {
 // }
 
 
+### Existing ACI Virtual Machine Manager (VMM) Domain ###
+variable "vmm_name" {
+  type = string
+}
+
 ### Tennant Input Variable Object ###
 
 variable "tenants" {
