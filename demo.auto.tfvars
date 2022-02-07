@@ -92,6 +92,7 @@ aps = {
         bd_name = "bd-1"       ## Bridge Domain to add EPG to
         description = "Demo EPG #2 in BD #1"
         vmm_enabled = true
+        paths = {}
       }
     }
   }
