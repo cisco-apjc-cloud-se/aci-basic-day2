@@ -18,6 +18,7 @@ locals {
           ap_name     = ap.ap_name
           epg_name    = epg.epg_name
           bd_name     = epg.bd_name
+          description = epg.description
         }
     ]
   ])
