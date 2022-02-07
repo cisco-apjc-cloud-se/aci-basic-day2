@@ -48,5 +48,12 @@ variable "bds" {
     vrf_name      = string
     description   = string
     tenant_name   = string
+    subnets = map(object({
+      name          = string
+      description   = string
+      ip            = string
+      scope         = list(string)
+      preferred     = string
+      }))
   }))
 }
