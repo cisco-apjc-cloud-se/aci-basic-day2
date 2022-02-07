@@ -33,14 +33,12 @@ bds = {
     tenant_name = "demo-basic-1"    ## Tenant to add VRF to
     subnets = {
       sub1 = {
-        name        = "Primary Subnet"
         ip          = "192.168.1.1/24"
         description = "Primary Subnet for BD#1"
         scope       = ["public"]
         preferred   = "yes"
       },
       sub2 = {
-        name        = "Secondary Subnet"
         ip          = "192.168.101.1/24"
         description = "Secondary Subnet for BD#1"
         scope       = ["public"]

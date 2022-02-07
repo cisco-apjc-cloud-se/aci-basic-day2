@@ -34,7 +34,6 @@ resource "aci_subnet" "bds" {
   for_each = local.bd_subnet_map
 
   parent_dn           = aci_bridge_domain.bds[each.value.bd_name].id ## Assumes BD Name also used for map/object key
-  name_alias          = each.value.name_alias
   description         = each.value.description
   ip                  = each.value.ip
   scope               = each.value.scope # ["public"]
