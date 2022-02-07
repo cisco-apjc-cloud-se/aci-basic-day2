@@ -1,4 +1,4 @@
-### New VRF in Tenant
+### Create new VRF(s) in Tenant(s) ###
 resource "aci_vrf" "vrfs" {
   for_each = var.vrfs
 

@@ -12,14 +12,30 @@ tenants = {
 
 ### VRFs ###
 vrfs = {
-  demo-basic-1 = {
+  demo-vrf-1 = {
     vrf_name    = "demo-vrf-1"
     description = "VRF #1 for Tenant #1 from Terraform Cloud"
     tenant_name = "demo-basic-1" ## Tenant to add VRF to
   }
-  demo-basic-2 = {
+  demo-vrf-2 = {
     vrf_name    = "demo-vrf-2"
     description = "VRF #2 for Tenant #1 from Terraform Cloud"
     tenant_name = "demo-basic-1" ## Tenant to add VRF to
+  }
+}
+
+### BDs ###
+bds = {
+  demo-bd-1 = {
+    bd_name     = "demo-bd-1"
+    vrf_name    = "demo-vrf-1"      ## VRF to add BD to
+    description = "BD #1 for Tenant #1 from Terraform Cloud"
+    tenant_name = "demo-basic-1"    ## Tenant to add VRF to
+  }
+  demo-bd-2 = {
+    bd_name     = "demo-bd-2"
+    vrf_name    = "demo-vrf-1"      ## VRF to add BD to
+    description = "BD #2 for Tenant #1 from Terraform Cloud"
+    tenant_name = "demo-basic-1"    ## Tenant to add VRF to
   }
 }
