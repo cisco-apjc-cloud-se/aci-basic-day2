@@ -47,12 +47,12 @@ module "aci" {
 
   ### VRFs ###
   vrfs      = var.vrfs
-  
+
   ### Bridge Domains ###
   bds       = var.bds
 
-  // ### End Point Groups ###
-  // epgs      = var.epgs
+  ### Application Profiles & End Point Groups ###
+  aps      = var.aps
   // vmm_name  = var.vmm_name # "DVS-VMM"
 
 }

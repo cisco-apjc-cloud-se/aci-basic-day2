@@ -57,3 +57,18 @@ variable "bds" {
       }))
   }))
 }
+
+### Application Profile Input Variable Object ###
+
+variable "aps" {
+  type = map(object({
+    ap_name     = string
+    tenant_name = string
+    description = string
+    epgs = map(object({
+      epg_name  = string
+      bd_name   = string
+      description = string
+      }))
+  }))
+}
