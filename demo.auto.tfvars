@@ -54,5 +54,6 @@ bds = {
     vrf_name    = "demo-vrf-1"      ## VRF to add BD to
     description = "BD #2 for Tenant #1 from Terraform Cloud"
     tenant_name = "demo-basic-1"    ## Tenant to add VRF to
+    subnets     = {}
   }
 }
