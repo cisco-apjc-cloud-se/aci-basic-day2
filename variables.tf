@@ -74,6 +74,13 @@ variable "aps" {
       bd_name   = string
       description = string
       vmm_enabled = bool
+      paths = map(object({
+        pod       = number
+        leaf_node = number
+        port      = string
+        vlan_id   = number
+        mode      = string
+        }))
       }))
   }))
 }

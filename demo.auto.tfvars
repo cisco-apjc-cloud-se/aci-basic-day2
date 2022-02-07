@@ -70,6 +70,22 @@ aps = {
         bd_name = "bd-1"       ## Bridge Domain to add EPG to
         description = "Demo EPG #1 in BD #1"
         vmm_enabled = true
+        paths = {
+          path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
+            pod       = 1
+            leaf_node = 101
+            port      = "Eth1/10"
+            vlan_id   = 333
+            mode      = "regular" # regular, native, untagged
+          }
+          path2 = { # topology/pod-1/paths-101/pathep-[eth1/23]
+            pod       = 1
+            leaf_node = 102
+            port      = "Eth1/10"
+            vlan_id   = 333
+            mode      = "regular" # regular, native, untagged
+          }
+        }
       }
       epg-2 = {
         epg_name = "epg-2"
