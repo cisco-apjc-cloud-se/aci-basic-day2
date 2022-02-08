@@ -132,7 +132,7 @@ variable "l3outs" {
       provided_contracts = list(string)
       subnets = map(object({
         description = string
-        aggreate    = string
+        aggregate   = string
         ip          = string
         scope       = list(string)
       }))
