@@ -73,7 +73,7 @@ resource "aci_external_network_instance_profile" "extepgs" {
 resource "aci_l3_ext_subnet" "extsubnets" {
   for_each = local.l3out_extepg_subnet_map
 
-  external_network_instance_profile_dn  = aci_external_network_instance_profile.extepgs[each.value.e_key].id
+  external_network_instance_profile_dn  = aci_external_network_instance_profile.extepgs[lower(format("%s-%s", val["l3out_key"], val["e_key"]))].id
   description         = each.value.description
   aggregate           = each.value.aggregate # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
   ip                  = each.value.ip
