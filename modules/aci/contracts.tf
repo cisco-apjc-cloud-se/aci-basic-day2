@@ -16,6 +16,6 @@ resource "aci_contract_subject" "subjects" {
   description   = "Default Subject"
   name          = "defaultSub"
   relation_vz_rs_subj_filt_att = [
-    for filter_name in each.value.filters : aci_filter.filters[filter_name].id ## Assumes Filter Name also used for map/objec key
+    for filter_name in each.value.filters : aci_filter.filters[filter_name].id ## Assumes Filter Name also used for map/object key
   ]
 }

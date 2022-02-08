@@ -116,3 +116,26 @@ variable "contracts" {
     filters = list(string)
   }))
 }
+
+### L3Out Input Variable Object ###
+
+variable "l3outs" {
+  type = map(object({
+    l3out_name = string
+    tenant_name   = string
+    description   = string
+    extepgs = map(object({
+      extepg_name     = string
+      description     = string
+      preferred_group = string
+      consumed_contracts = list(string)
+      provided_contracts = list(string)
+      subnets = map(object({
+        description = string
+        aggreate    = string
+        ip          = string
+        scope       = list(string)
+      }))
+    }))
+  }))
+}

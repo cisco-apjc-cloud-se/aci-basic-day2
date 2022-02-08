@@ -55,6 +55,9 @@ module "aci" {
   aps       = var.aps
   vmm_name  = var.vmm_name # "DVS-VMM"
 
+  ### L3Outs & External EPGs ###
+  l3outs    = var.l3outs
+
   ### Contract & Filters ###
   filters   = var.filters
   contracts = var.contracts

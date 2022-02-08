@@ -221,3 +221,41 @@ contracts = {
     ]
   }
 }
+
+### L3Outs & External EPGs ###
+l3outs = {
+  demo-l3out = {
+    l3out_name = "demo-l3out"
+    description = "Demo L3Out built from Terraform"
+    tenant_name   = "demo-basic-1"    ## Tenant to add filter to
+    extepgs = {
+      rfc1918 = {
+        extepg_name         = "rfc1918"
+        description         = "External users in RFC1918 subnets"
+        preferred_group     = "exclude"
+        consumed_contracts  = []
+        provided_contracts  = []
+        subnets = {
+          10.0.0.0-8 = {
+            description = "10.0.0.0/8"
+            aggreate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+            ip = "10.0.0.0/8"
+            scope = ["import-security","shared-security"]
+          },
+          172.16.0.0-12 = {
+            description = "172.16.0.0/12"
+            aggreate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+            ip = "172.16.0.0/12"
+            scope = ["import-security","shared-security"]
+          },
+          192.168.0.0-16 = {
+            description = "192.168.0.0/16"
+            aggreate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+            ip = "192.168.0.0/16"
+            scope = ["import-security","shared-security"]
+          }
+        }
+      }
+    }
+  }
+}
