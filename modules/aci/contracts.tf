@@ -9,7 +9,7 @@ resource "aci_contract" "contracts" {
   scope       = each.value.scope
 }
 
-resource "aci_contract_subject" "tf-app1-web-to-db-sub" {
+resource "aci_contract_subject" "subjects" {
   for_each = var.contracts
 
   contract_dn   = aci_contract.contracts[each.value.contract_name].id  ## Assumes Contract Name also used for map/object key
