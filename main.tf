@@ -55,8 +55,9 @@ module "aci" {
   aps       = var.aps
   vmm_name  = var.vmm_name # "DVS-VMM"
 
-  ### Filters ###
+  ### Contract & Filters ###
   filters   = var.filters
+  contracts = var.contracts
 
 }
 

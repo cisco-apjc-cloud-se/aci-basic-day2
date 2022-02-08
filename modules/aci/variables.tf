@@ -81,3 +81,14 @@ variable "filters" {
       }))
   }))
 }
+
+### Contracts Input Variable Object ###
+
+variable "contracts" {
+  type = map(object({
+    contract_name = string
+    tenant_name   = string
+    description   = string
+    filters = list(string)
+  }))
+}

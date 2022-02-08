@@ -100,8 +100,8 @@ aps = {
 
 ### Filters ###
 filters = {
-  tf-allow-ipv4 = {
-    filter_name = "tf-allow-ipv4"
+  allow-ipv4 = {
+    filter_name = "allow-ipv4"
     description = "Allow all IPv4 traffic"
     tenant_name = "demo-basic-1"    ## Tenant to add filter to
     entries = {
@@ -117,8 +117,8 @@ filters = {
       }
     }
   },
-  tf-allow-mysql = {
-    filter_name = "tf-allow-mysql"
+  allow-mysql = {
+    filter_name = "allow-mysql"
     description = "Allow MySQL TCP 3306 traffic"
     tenant_name = "demo-basic-1"    ## Tenant to add filter to
     entries = {
@@ -134,8 +134,8 @@ filters = {
       }
     }
   },
-  tf-allow-ssh = {
-    filter_name = "tf-allow-ssh"
+  allow-ssh = {
+    filter_name = "allow-ssh"
     description = "Allow SSH traffic"
     tenant_name = "demo-basic-1"    ## Tenant to add filter to
     entries = {
@@ -151,8 +151,8 @@ filters = {
       }
     }
   },
-  tf-allow-web = {
-    filter_name = "tf-allow-web"
+  allow-web = {
+    filter_name = "allow-web"
     description = "Allow Web traffic on TCP 80, 443 & 8080"
     tenant_name = "demo-basic-1"    ## Tenant to add filter to
     entries = {
@@ -188,4 +188,18 @@ filters = {
       }
     }
   }
+}
+
+
+### Contracts ###
+contracts = {
+  epg1-to-epg2 = {
+    contract_name = "epg1-to-epg2"
+    description   = "Allow traffic from EPG#1 to EPG#2"
+    tenant_name   = "demo-basic-1"    ## Tenant to add filter to
+    filters = [
+      "allow-ipv4"
+    ]
+  }
+  
 }
