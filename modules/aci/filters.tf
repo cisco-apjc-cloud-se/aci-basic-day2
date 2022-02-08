@@ -30,7 +30,7 @@ locals {
   ])
   filter_entry_map = {
     for val in local.filter_entry_list:
-      lower(format("%s-%s", val["f-key"], val["name"])) => val
+      lower(format("%s-%s", val["f_key"], val["name"])) => val
   }
 }
 
