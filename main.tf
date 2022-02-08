@@ -55,6 +55,9 @@ module "aci" {
   aps       = var.aps
   vmm_name  = var.vmm_name # "DVS-VMM"
 
+  ### Filters ###
+  filters   = var.filters
+
 }
 
 ## VMware Module

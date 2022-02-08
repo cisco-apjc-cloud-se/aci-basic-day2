@@ -97,3 +97,95 @@ aps = {
     }
   }
 }
+
+### Filters ###
+filters = {
+  tf-allow-ip = {
+    filter_name = "tf-allow-ip"
+    description = "Allow all IP traffic"
+    tenant_name = "demo-basic-1"    ## Tenant to add filter to
+    entries = {
+      all-ip = {
+        name = "all-ip"
+        description = "Allow all IP traffic"
+        ether_t       = "ipv4"
+        d_from_port   = "unspecified"
+        d_to_port     = "unspecified"
+        prot          = "unspecified"
+        s_from_port   = "unspecified"
+        s_to_port     = "unspecified"
+      }
+    }
+  },
+  tf-allow-mysql = {
+    filter_name = "tf-allow-mysql"
+    description = "Allow MySQL TCP 3306 traffic"
+    tenant_name = "demo-basic-1"    ## Tenant to add filter to
+    entries = {
+      ssh = {
+        name = "ssh"
+        description = "Allow MySQL TCP 3306 traffic"
+        ether_t       = "ipv4"
+        d_from_port   = "3306"
+        d_to_port     = "3306"
+        prot          = "tcp"
+        s_from_port   = "unspecified"
+        s_to_port     = "unspecified"
+      }
+    }
+  },
+  tf-allow-ssh = {
+    filter_name = "tf-allow-ssh"
+    description = "Allow SSH traffic"
+    tenant_name = "demo-basic-1"    ## Tenant to add filter to
+    entries = {
+      ssh = {
+        name = "ssh"
+        description = "Allow SSH traffic"
+        ether_t       = "ipv4"
+        d_from_port   = "ssh" # 22
+        d_to_port     = "ssh" # 22
+        prot          = "tcp"
+        s_from_port   = "unspecified"
+        s_to_port     = "unspecified"
+      }
+    }
+  },
+  tf-allow-web = {
+    filter_name = "tf-allow-web"
+    description = "Allow Web traffic on TCP 80, 443 & 8080"
+    tenant_name = "demo-basic-1"    ## Tenant to add filter to
+    entries = {
+      http = {
+        name = "http"
+        description = "Allow HTTP TCP 80 traffic"
+        ether_t       = "ipv4"
+        d_from_port   = "http" # 80
+        d_to_port     = "http" # 80
+        prot          = "tcp"
+        s_from_port   = "unspecified"
+        s_to_port     = "unspecified"
+      },
+      https = {
+        name = "https"
+        description = "Allow HTTPS TCP 443 traffic"
+        ether_t       = "ipv4"
+        d_from_port   = "https" # 443
+        d_to_port     = "https" # 443
+        prot          = "tcp"
+        s_from_port   = "unspecified"
+        s_to_port     = "unspecified"
+      },
+      http-8080 = {
+        name = "http-8080"
+        description = "Allow HTTP TCP 8080 traffic"
+        ether_t       = "ipv4"
+        d_from_port   = "8080"
+        d_to_port     = "8080"
+        prot          = "tcp"
+        s_from_port   = "unspecified"
+        s_to_port     = "unspecified"
+      }
+    }
+  }
+}
