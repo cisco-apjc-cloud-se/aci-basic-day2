@@ -87,7 +87,6 @@ variable "aps" {
 
 ### Filter Input Variable Object ###
 
-
 variable "filters" {
   type = map(object({
     filter_name = string
@@ -105,20 +104,3 @@ variable "filters" {
       }))
   }))
 }
-
-name = "tf-allow-mysql"
-description = "Allow MySQL TCP 3306 traffic"
-tenant_name = "demo-basic-1"    ## Tenant to add filter to
-entries = {
-  ssh = {
-    name = "ssh"
-    description = "Allow MySQL TCP 3306 traffic"
-    ether_t       = "ipv4"
-    d_from_port   = "3306"
-    d_to_port     = "3306"
-    prot          = "tcp"
-    s_from_port   = "unspecified"
-    s_to_port     = "unspecified"
-  }
-}
-},
