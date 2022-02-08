@@ -100,14 +100,14 @@ aps = {
 
 ### Filters ###
 filters = {
-  tf-allow-ip = {
-    filter_name = "tf-allow-ip"
-    description = "Allow all IP traffic"
+  tf-allow-ipv4 = {
+    filter_name = "tf-allow-ipv4"
+    description = "Allow all IPv4 traffic"
     tenant_name = "demo-basic-1"    ## Tenant to add filter to
     entries = {
       all-ip = {
         name = "all-ip"
-        description = "Allow all IP traffic"
+        description = "Allow all IPv4 traffic"
         ether_t       = "ipv4"
         d_from_port   = "unspecified"
         d_to_port     = "unspecified"
