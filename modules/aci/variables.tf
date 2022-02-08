@@ -89,6 +89,7 @@ variable "contracts" {
     contract_name = string
     tenant_name   = string
     description   = string
+    scope         = string
     filters = list(string)
   }))
 }

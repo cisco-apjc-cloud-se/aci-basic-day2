@@ -197,9 +197,10 @@ contracts = {
     contract_name = "epg1-to-epg2"
     description   = "Allow traffic from EPG#1 to EPG#2"
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
+    scope         = "tenant" # "global", "tenant", "application-profile" and "context"
     filters = [
       "allow-ipv4"
     ]
   }
-  
+
 }
