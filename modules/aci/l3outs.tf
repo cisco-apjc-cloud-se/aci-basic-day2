@@ -34,6 +34,7 @@ locals {
       for e_key, extepg in l3out.extepgs : [
         for s_key, subnet in extepg.subnets :
           {
+            l3out_key       = l3out_key
             e_key           = e_key
             description     = subnet.description
             ip              = subnet.ip
