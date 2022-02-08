@@ -1,7 +1,5 @@
 ### Create new Filter(s) in Tenant VRF(s) ###
 
-## New Filters
-
 resource "aci_filter" "filters" {
   for_each = var.filters
 
