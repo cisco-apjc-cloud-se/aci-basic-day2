@@ -45,7 +45,7 @@ locals {
   ])
   l3out_extepg_subnet_map = {
     for val in local.l3out_extepg_subnet_list:
-      lower(format("%s-%s-%s", val["l3out_key"], val["extepg_name"], val["ip"])) => val
+      lower(format("%s-%s-%s", val["l3out_key"], val["e_key"], val["ip"])) => val
   }
 }
 
