@@ -236,19 +236,19 @@ l3outs = {
         consumed_contracts  = []
         provided_contracts  = []
         subnets = {
-          10.0.0.0-8 = {
+          N-10.0.0.0-8 = {
             description = "10.0.0.0/8"
             aggreate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
             ip = "10.0.0.0/8"
             scope = ["import-security","shared-security"]
           },
-          172.16.0.0-12 = {
+          N-172.16.0.0-12 = {
             description = "172.16.0.0/12"
             aggreate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
             ip = "172.16.0.0/12"
             scope = ["import-security","shared-security"]
           },
-          192.168.0.0-16 = {
+          N-192.168.0.0-16 = {
             description = "192.168.0.0/16"
             aggreate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
             ip = "192.168.0.0/16"
