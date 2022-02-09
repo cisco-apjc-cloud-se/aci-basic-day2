@@ -153,6 +153,25 @@ locals {
       lower(format("%s-%s-%s", val["l3out_key"], val["lp_key"], val["n_key"])) => val
   }
 
+  ## L3Out -> OSPF Map ##
+  l3out_ospf_list = flatten([
+    for l3out_key, l3out in var.l3outs : [
+      for o_key, ospf in l3out.ospf_profiles :
+        {
+          l3out_key           = l3out_key
+          o_key               = o_key
+          description         = ospf.description
+          area_cost           = ospf.area_cost
+          area_id             = ospf.area_id
+          area_type           = ospf.area_type
+        }
+    ]
+  ])
+  l3out_ospf_map = {
+    for val in local.l3out_ospf_list:
+      lower(format("%s-%s", val["l3out_key"], val["o_key"])) => val
+  }
+
 }
 
 ### Create new External EPG(s) under L3Out(s) ###
@@ -225,4 +244,17 @@ resource "aci_logical_node_to_fabric_node" "nodes" {
   logical_node_profile_dn = aci_logical_node_profile.lprofs[format("%s-%s", each.value.l3out_key, each.value.lp_key)].id
   tdn                     = format("topology/pod-%d/node-%d", each.value.pod, each.value.leaf_node)
   rtr_id                  = each.value.loopback_ip
+}
+
+
+### L3Out OSPF External Policies ###
+resource "aci_l3out_ospf_external_policy" "ospf" {
+  for_each = local.l3out_ospf_map
+
+  l3_outside_dn  = aci_l3_outside.l3outs[each.value.l3out_key].id
+  description    = each.value.description
+  area_cost      = each.value.area_cost
+  // area_ctrl      = ["redistribute", "summary"]
+  area_id        = each.value.area_id
+  area_type      = each.value.area_type # "nssa", "regular", "stub"
 }

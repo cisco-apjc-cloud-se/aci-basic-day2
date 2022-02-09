@@ -126,6 +126,12 @@ variable "l3outs" {
     description   = string
     vrf_name      = string
     l3_domain     = string
+    ospf_profiles = map(object({
+      description = string
+      area_cost   = number
+      area_id     = string
+      area_type   = string
+    }))
     logical_profiles = map(object({
       lprof_name  = string
       description = string

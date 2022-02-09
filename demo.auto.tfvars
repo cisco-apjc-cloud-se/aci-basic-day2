@@ -235,6 +235,14 @@ l3outs = {
     tenant_name     = "demo-basic-1"    ## Tenant to add filter to
     vrf_name        = "vrf-1"
     l3_domain       = "LAB-N9348"
+    ospf_profiles   = {
+      ospf-1 = {
+        description = "OSPF Peering to Lab"
+        area_cost   = 1
+        area_id     = "0.0.0.1"
+        area_type   = "nssa"
+      }
+    }
     logical_profiles = {
       lprof-1 = {
         lprof_name  = "demo-l3out"
