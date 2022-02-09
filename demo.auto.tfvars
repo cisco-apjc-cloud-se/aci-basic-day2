@@ -25,6 +25,11 @@ vrfs = {
     description = "VRF #2 for Tenant #1"
     tenant_name = "demo-basic-1" ## Tenant to add VRF to
   }
+  vrf-2 = {
+    vrf_name    = "vrf-3"
+    description = "VRF #3 for Tenant #1"
+    tenant_name = "demo-basic-1" ## Tenant to add VRF to
+  }
 }
 
 ### Bridge Domains & L3 Subnets ###
@@ -74,14 +79,14 @@ aps = {
           path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
             pod       = 1
             leaf_node = 101
-            port      = "Eth1/10"
+            port      = "eth1/10"
             vlan_id   = 333
             mode      = "regular" # regular, native, untagged
           }
           path2 = { # topology/pod-1/paths-101/pathep-[eth1/23]
             pod       = 1
             leaf_node = 102
-            port      = "Eth1/10"
+            port      = "eth1/10"
             vlan_id   = 333
             mode      = "regular" # regular, native, untagged
           }
