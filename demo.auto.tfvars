@@ -234,6 +234,7 @@ l3outs = {
     description     = "Demo L3Out built from Terraform"
     tenant_name     = "demo-basic-1"    ## Tenant to add filter to
     vrf_name        = "vrf-1"
+    l3_domain       = "LAB-N9348"
     logical_profiles = {
       lprof-1 = {
         lprof_name  = "demo-l3out"
