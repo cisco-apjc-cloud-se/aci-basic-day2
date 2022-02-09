@@ -237,6 +237,17 @@ l3outs = {
           demo-l3out-intprof = {
             intprof_name  = "demo-l3out-intprof"
             description   = "Demo L3Out Logical Interface Profile created from Terraform"
+            paths = {
+              path-1 = {
+                description     = "Demo L3 SVI Path"
+                type            = "ext-svi"
+                ip              = "192.168.255.1/30"
+                vlan_id         = 302
+                pod             = 1
+                leaf_node       = path.leaf_node
+                port            = path.port
+              }
+            }
           }
         }
       }

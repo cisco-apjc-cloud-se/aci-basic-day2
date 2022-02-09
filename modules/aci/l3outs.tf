@@ -86,6 +86,36 @@ locals {
       lower(format("%s-%s-%s", val["l3out_key"], val["lp_key"], val["intprof_name"])) => val
   }
 
+  ## L3Out -> Logical Profiles -> Interface Profiles -> Paths Map ##
+  l3out_lprof_intprof_path_list = flatten([
+    for l3out_key, l3out in var.l3outs : [
+      for lp_key, lprof in l3out.logical_profiles : [
+        for i_key, intprof in lprof.interface_profiles : [
+          for path_key, path in intprof.paths :
+          {
+            l3out_key       = l3out_key
+            lp_key          = lp_key
+            i_key           = i_key
+            description     = path.description
+            type            = path.type # if_inst_t  "ext-svi", "l3-port", "sub-interface", "unspecified"
+            ip              = path.ip # addr
+            encap           = path.type == "l3-port" ? "unknown" : format("vlan-%d", path.vlan_id)  # set to "unknown" for l3-port types
+            // encap_scope     = path.vlan_scope # "ctx", "local"
+            pod             = path.pod
+            leaf_node       = path.leaf_node
+            port            = path.port
+
+
+          }
+        ]
+      ]
+    ]
+  ])
+  l3out_lprof_intprof_path_map = {
+    for val in local.l3out_lprof_intprof_path_list:
+      lower(format("%s-%s-%s-%s", val["l3out_key"], val["lp_key"], val["i_key"], val["ip"])) => val
+  }
+
 }
 
 ### Create new External EPG(s) under L3Out(s) ###
@@ -133,7 +163,20 @@ resource "aci_logical_node_profile" "lprofs" {
 resource "aci_logical_interface_profile" "intprofs" {
   for_each = local.l3out_lprof_intprof_map
 
-  logical_node_profile_dn = aci_logical_node_profile.lprofs[each.value.lp_key].id
+  logical_node_profile_dn = aci_logical_node_profile.lprofs[format("%s-%s", each.value.l3out_key, each.value.lp_key)].id
   description             = each.value.description
   name                    = each.value.intprof_name
+}
+
+### L3Out Interface Path Attachments ###
+resource "aci_l3out_path_attachment" "paths" {
+  for_each = local.l3out_lprof_intprof_path_map
+
+  logical_interface_profile_dn  = aci_logical_interface_profile.intprofs[each.value.i_key].id
+  target_dn                     = format("topology/pod-%d/paths-%d/pathep-[%s]", each.value.pod, each.value.leaf_node, each.value.port)
+  if_inst_t                     = each.value.type
+  description                   = each.value.description
+  addr                          = each.value.ip
+  encap                         = each.value.encap
+  // encap_scope = "ctx"
 }
