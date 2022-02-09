@@ -225,9 +225,16 @@ contracts = {
 ### L3Outs & External EPGs ###
 l3outs = {
   demo-l3out = {
-    l3out_name = "demo-l3out"
-    description = "Demo L3Out built from Terraform"
-    tenant_name   = "demo-basic-1"    ## Tenant to add filter to
+    l3out_name      = "demo-l3out"
+    description     = "Demo L3Out built from Terraform"
+    tenant_name     = "demo-basic-1"    ## Tenant to add filter to
+    vrf_name        = "vrf-1"
+    logical_profiles = {
+      demo-l3out = {
+        lprof_name  = "demo-l3out"
+        description = "Demo L3Out Logical Profile created from Terraform"
+      }
+    }
     extepgs = {
       rfc1918 = {
         extepg_name         = "rfc1918"

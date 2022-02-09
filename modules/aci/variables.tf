@@ -101,6 +101,10 @@ variable "l3outs" {
     l3out_name = string
     tenant_name   = string
     description   = string
+    logical_profiles = map(object({
+      lprof_name  = string
+      description = string
+      }))
     extepgs = map(object({
       extepg_name     = string
       description     = string

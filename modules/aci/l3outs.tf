@@ -11,6 +11,7 @@ resource "aci_l3_outside" "l3outs" {
 
 ### Create flattened object of External EPGs' Subnets ###
 locals {
+  ## L3Out -> Ext EPG Map ##
   l3out_extepg_list = flatten([
     for l3out_key, l3out in var.l3outs : [
       for ext_key, extepg in l3out.extepgs :
@@ -29,6 +30,7 @@ locals {
       lower(format("%s-%s", val["l3out_key"], val["extepg_name"])) => val
   }
 
+  ## L3Out -> Ext EPG -> Subnet Map ##
   l3out_extepg_subnet_list = flatten([
     for l3out_key, l3out in var.l3outs : [
       for e_key, extepg in l3out.extepgs : [
@@ -47,6 +49,22 @@ locals {
   l3out_extepg_subnet_map = {
     for val in local.l3out_extepg_subnet_list:
       lower(format("%s-%s-%s", val["l3out_key"], val["e_key"], val["ip"])) => val
+  }
+
+  ## L3Out -> Logical Profiles Map ##
+  l3out_lprof_list = flatten([
+    for l3out_key, l3out in var.l3outs : [
+      for l_key, lprof in l3out.logical_profiles :
+        {
+          l3out_key           = l3out_key
+          lprof_name          = lprof.lprof_name
+          description         = lprof.description
+        }
+    ]
+  ])
+  l3out_lprof_map = {
+    for val in local.l3out_lprof_list:
+      lower(format("%s-%s", val["l3out_key"], val["lprof_name"])) => val
   }
 }
 
@@ -78,4 +96,15 @@ resource "aci_l3_ext_subnet" "extsubnets" {
   aggregate           = each.value.aggregate # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
   ip                  = each.value.ip
   scope               = each.value.scope #["import-security"], ["import-security","shared-security"]
+}
+
+
+
+### L3Out Logical Profiles ###
+resource "aci_logical_node_profile" "lprofs" {
+  for_each = local.l3out_lprof_map
+
+  l3_outside_dn = aci_l3_outside.l3outs[each.value.l3out_key].id
+  description   = each.value.description
+  name          = each.value.lprof_name
 }
