@@ -107,6 +107,15 @@ variable "l3outs" {
       interface_profiles = map(object({
         intprof_name = string
         description  = string
+        paths = map(object({
+          description     = string
+          type            = string
+          ip              = string
+          vlan_id         = number
+          pod             = number
+          leaf_node       = number
+          port            = string
+        }))
       }))
     }))
     extepgs = map(object({
