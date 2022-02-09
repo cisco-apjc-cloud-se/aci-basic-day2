@@ -7,10 +7,10 @@ tenants = {
     name = "demo-basic-1"
     description = "Basic ACI Tenant #1 built from Terraform Cloud"
   }
-  demo-basic-2 = {
-    name = "demo-basic-2"
-    description = "Basic ACI Tenant #2 built from Terraform Cloud"
-  }
+  # demo-basic-2 = {
+  #   name = "demo-basic-2"
+  #   description = "Basic ACI Tenant #2 built from Terraform Cloud"
+  # }
 }
 
 ### VRFs ###
@@ -20,16 +20,16 @@ vrfs = {
     description = "VRF #1 for Tenant #1"
     tenant_name = "demo-basic-1" ## Tenant to add VRF to
   }
-  vrf-2 = {
-    vrf_name    = "vrf-2"
-    description = "VRF #2 for Tenant #1"
-    tenant_name = "demo-basic-1" ## Tenant to add VRF to
-  }
-  vrf-3 = {
-    vrf_name    = "vrf-3"
-    description = "VRF #3 for Tenant #1"
-    tenant_name = "demo-basic-1" ## Tenant to add VRF to
-  }
+  # vrf-2 = {
+  #   vrf_name    = "vrf-2"
+  #   description = "VRF #2 for Tenant #1"
+  #   tenant_name = "demo-basic-1" ## Tenant to add VRF to
+  # }
+  # vrf-3 = {
+  #   vrf_name    = "vrf-3"
+  #   description = "VRF #3 for Tenant #1"
+  #   tenant_name = "demo-basic-1" ## Tenant to add VRF to
+  # }
 }
 
 ### Bridge Domains & L3 Subnets ###
@@ -45,22 +45,22 @@ bds = {
         description = "Primary Subnet for BD#1"
         scope       = ["public"]
         preferred   = "yes"
-      },
-      sub-2 = {
-        ip          = "192.168.101.1/24"
-        description = "Secondary Subnet for BD#1"
-        scope       = ["public"]
-        preferred   = "no"
       }
+      # sub-2 = {
+      #   ip          = "192.168.101.1/24"
+      #   description = "Secondary Subnet for BD#1"
+      #   scope       = ["public"]
+      #   preferred   = "no"
+      # }
     }
   }
-  bd-2 = {
-    bd_name     = "bd-2"
-    vrf_name    = "vrf-1"      ## VRF to add BD to
-    description = "Demo Bridge Domain #2 for Tenant #1"
-    tenant_name = "demo-basic-1"    ## Tenant to add VRF to
-    subnets     = {}
-  }
+  # bd-2 = {
+  #   bd_name     = "bd-2"
+  #   vrf_name    = "vrf-1"      ## VRF to add BD to
+  #   description = "Demo Bridge Domain #2 for Tenant #1"
+  #   tenant_name = "demo-basic-1"    ## Tenant to add VRF to
+  #   subnets     = {}
+  # }
 }
 
 ### Application Profiles & End Point Groups ###
@@ -92,13 +92,13 @@ aps = {
           }
         }
       }
-      epg-2 = {
-        epg_name = "epg-2"
-        bd_name = "bd-1"       ## Bridge Domain to add EPG to
-        description = "Demo EPG #2 in BD #1"
-        vmm_enabled = true
-        paths = {}
-      }
+      # epg-2 = {
+      #   epg_name = "epg-2"
+      #   bd_name = "bd-1"       ## Bridge Domain to add EPG to
+      #   description = "Demo EPG #2 in BD #1"
+      #   vmm_enabled = true
+      #   paths = {}
+      # }
     }
   }
 }
