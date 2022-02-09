@@ -68,7 +68,7 @@ locals {
   }
 
   ## L3Out -> Logical Profiles -> Interface Profiles Map ##
-  l3out_extepg_subnet_list = flatten([
+  l3out_lprof_intprof_list = flatten([
     for l3out_key, l3out in var.l3outs : [
       for lp_key, lprof in l3out.logical_profiles : [
         for i_key, intprof in lprof.interface_profiles :
@@ -81,8 +81,8 @@ locals {
       ]
     ]
   ])
-  l3out_extepg_subnet_map = {
-    for val in local.l3out_extepg_subnet_list:
+  l3out_lprof_intprof_map = {
+    for val in local.l3out_lprof_intprof_list:
       lower(format("%s-%s-%s", val["l3out_key"], val["lp_key"], val["intprof_name"])) => val
   }
 
