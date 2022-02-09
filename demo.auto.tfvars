@@ -242,6 +242,11 @@ l3outs = {
         nodes = {
           node-1 = {
             pod = 1
+            leaf_node = 101
+            loopback_ip = "101.1.1.1"
+          }
+          node-2 = {
+            pod = 1
             leaf_node = 102
             loopback_ip = "102.1.1.1"
           }
