@@ -3,9 +3,10 @@
 resource "aci_l3_outside" "l3outs" {
   for_each = var.l3outs
 
-  tenant_dn      = aci_tenant.tenants[each.value.tenant_name].id  ## Assumes Tenant Name also used for map/object key
-  description    = each.value.description
-  name           = each.value.l3out_name
+  tenant_dn               = aci_tenant.tenants[each.value.tenant_name].id  ## Assumes Tenant Name also used for map/object key
+  description             = each.value.description
+  name                    = each.value.l3out_name
+  relation_l3ext_rs_ectx  = aci_vrf.vrfs[each.value.vrf_name].id  ## Assumes VRF Name also used for map/object key
 }
 
 
