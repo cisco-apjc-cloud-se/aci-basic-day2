@@ -234,7 +234,7 @@ l3outs = {
         lprof_name  = "demo-l3out"
         description = "Demo L3Out Logical Profile created from Terraform"
         interface_profiles = {
-          intprof_name = "demo-l3out-intprof"
+          intprof_name  = "demo-l3out-intprof"
           description   = "Demo L3Out Logical Interface Profile created from Terraform"
         }
       }
