@@ -172,7 +172,7 @@ resource "aci_logical_interface_profile" "intprofs" {
 resource "aci_l3out_path_attachment" "paths" {
   for_each = local.l3out_lprof_intprof_path_map
 
-  logical_interface_profile_dn  = aci_logical_interface_profile.intprofs[each.value.i_key].id
+  logical_interface_profile_dn  = aci_logical_interface_profile.intprofs[format("%s-%s-%s", each.value.l3out_key, each.value.lp_key, each.value.i_key)].id
   target_dn                     = format("topology/pod-%d/paths-%d/pathep-[%s]", each.value.pod, each.value.leaf_node, each.value.port)
   if_inst_t                     = each.value.type
   description                   = each.value.description
