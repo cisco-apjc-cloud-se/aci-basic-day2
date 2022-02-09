@@ -288,20 +288,32 @@ resource "aci_l3out_ospf_external_policy" "ospf" {
 
 ### L3Out OSPF Interface Profile ###
 
-data "aci_ospf_interface_policy" "ospf" {
-  for_each = local.l3out_lprof_intprof_ospf_map
+// data "aci_ospf_interface_policy" "ospf" {
+//   for_each = local.l3out_lprof_intprof_ospf_map
+//
+//   name      = each.value.ospf_policy
+//   tenant_dn = aci_tenant.tenants[each.value.tenant_name].id  ## Assumes Tenant Name also used for map/object key
+// }
+//
+// resource "aci_l3out_ospf_interface_profile" "ospf" {
+//   for_each = local.l3out_lprof_intprof_ospf_map
+//
+//   logical_interface_profile_dn = aci_logical_node_profile.lprofs[format("%s-%s", each.value.l3out_key, each.value.lp_key)].id
+//   // description                  = each.value.description
+//   auth_key                     = each.value.auth_key
+//   // auth_key_id                  = each.value.auth_key_id
+//   // auth_type                    = each.value.auth_type
+//   // relation_ospf_rs_if_pol      = data.aci_ospf_interface_policy.ospf[each.key].id # Same key
+// }
 
-  name      = each.value.ospf_policy
-  tenant_dn = aci_tenant.tenants[each.value.tenant_name].id  ## Assumes Tenant Name also used for map/object key
-}
 
-resource "aci_l3out_ospf_interface_profile" "ospf" {
-  for_each = local.l3out_lprof_intprof_ospf_map
-
-  logical_interface_profile_dn = aci_logical_node_profile.lprofs[format("%s-%s", each.value.l3out_key, each.value.lp_key)].id
-  // description                  = each.value.description
-  auth_key                     = each.value.auth_key
-  // auth_key_id                  = each.value.auth_key_id
-  // auth_type                    = each.value.auth_type
-  // relation_ospf_rs_if_pol      = data.aci_ospf_interface_policy.ospf[each.key].id # Same key
+resource "aci_l3out_ospf_interface_profile" "example" {
+  logical_interface_profile_dn = aci_logical_interface_profile.lprofs["demo-l3out-lprof-1"].id
+  description                  = "from terraform"
+  annotation                   = "example"
+  auth_key                     = "key"
+  auth_key_id                  = "255"
+  auth_type                    = "none"
+  // name_alias                   = "example"
+  // relation_ospf_rs_if_pol      = aci_ospf_interface_policy.example.id
 }
