@@ -57,6 +57,7 @@ locals {
       for lp_key, lprof in l3out.logical_profiles :
         {
           l3out_key           = l3out_key
+          lp_key              = lp_key
           lprof_name          = lprof.lprof_name
           description         = lprof.description
         }
@@ -64,7 +65,7 @@ locals {
   ])
   l3out_lprof_map = {
     for val in local.l3out_lprof_list:
-      lower(format("%s-%s", val["l3out_key"], val["lprof_name"])) => val
+      lower(format("%s-%s", val["l3out_key"], val["lp_key"])) => val
   }
 
   ## L3Out -> Logical Profiles -> Interface Profiles Map ##
