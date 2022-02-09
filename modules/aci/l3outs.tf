@@ -1,3 +1,13 @@
+
+
+### Lookup existing L3 domains ###
+data "aci_l3_domain_profile" "l3domain" {
+  for_each = var.l3outs
+
+  name = each.value.l3_domain
+}
+
+
 ### Create new L3Out(s) in Tenant(s) ###
 
 resource "aci_l3_outside" "l3outs" {
@@ -7,7 +17,8 @@ resource "aci_l3_outside" "l3outs" {
   description                   = each.value.description
   name                          = each.value.l3out_name
   relation_l3ext_rs_ectx        = aci_vrf.vrfs[each.value.vrf_name].id  ## Assumes VRF Name also used for map/object key
-  relation_l3ext_rs_l3_dom_att  = each.value.l3_domain
+  relation_l3ext_rs_l3_dom_att  = data.aci_l3_domain_profile.l3domain[each.key].id ## same key used
+
 }
 
 
