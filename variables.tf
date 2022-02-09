@@ -124,6 +124,7 @@ variable "l3outs" {
     l3out_name = string
     tenant_name   = string
     description   = string
+    vrf_name      = string
     logical_profiles = map(object({
       lprof_name  = string
       description = string
