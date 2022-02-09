@@ -130,8 +130,8 @@ variable "l3outs" {
       interface_profiles = map(object({
         intprof_name = string
         description  = string
-        }))
       }))
+    }))
     extepgs = map(object({
       extepg_name     = string
       description     = string
