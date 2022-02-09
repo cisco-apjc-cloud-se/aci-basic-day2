@@ -75,6 +75,7 @@ locals {
           {
             l3out_key       = l3out_key
             lp_key          = lp_key
+            i_key           = i_key
             intprof_name    = intprof.intprof_name
             description     = intprof.description
           }
@@ -83,7 +84,7 @@ locals {
   ])
   l3out_lprof_intprof_map = {
     for val in local.l3out_lprof_intprof_list:
-      lower(format("%s-%s-%s", val["l3out_key"], val["lp_key"], val["intprof_name"])) => val
+      lower(format("%s-%s-%s", val["l3out_key"], val["lp_key"], val["i_key"])) => val
   }
 
   ## L3Out -> Logical Profiles -> Interface Profiles -> Paths Map ##
@@ -96,6 +97,7 @@ locals {
             l3out_key       = l3out_key
             lp_key          = lp_key
             i_key           = i_key
+            path_key        = path_key
             description     = path.description
             type            = path.type # if_inst_t  "ext-svi", "l3-port", "sub-interface", "unspecified"
             ip              = path.ip # addr
@@ -113,7 +115,7 @@ locals {
   ])
   l3out_lprof_intprof_path_map = {
     for val in local.l3out_lprof_intprof_path_list:
-      lower(format("%s-%s-%s-%s", val["l3out_key"], val["lp_key"], val["i_key"], val["ip"])) => val
+      lower(format("%s-%s-%s-%s", val["l3out_key"], val["lp_key"], val["i_key"], val["path_key"])) => val
   }
 
 }
