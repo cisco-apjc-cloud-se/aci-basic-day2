@@ -25,7 +25,7 @@ vrfs = {
     description = "VRF #2 for Tenant #1"
     tenant_name = "demo-basic-1" ## Tenant to add VRF to
   }
-  vrf-2 = {
+  vrf-3 = {
     vrf_name    = "vrf-3"
     description = "VRF #3 for Tenant #1"
     tenant_name = "demo-basic-1" ## Tenant to add VRF to
