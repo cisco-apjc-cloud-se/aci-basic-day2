@@ -104,6 +104,10 @@ variable "l3outs" {
     logical_profiles = map(object({
       lprof_name  = string
       description = string
+      interface_profiles = map(object({
+        intprof_name = string
+        description  = string
+        }))
       }))
     extepgs = map(object({
       extepg_name     = string

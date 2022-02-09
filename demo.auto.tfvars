@@ -153,7 +153,7 @@ filters = {
   },
   allow-web = {
     filter_name = "allow-web"
-    description = "Allow Web traffic on TCP 80, 443 & 8080"
+    description = "Allow Web traffic on TCP 80, 443 and 8080"
     tenant_name = "demo-basic-1"    ## Tenant to add filter to
     entries = {
       http = {
@@ -233,6 +233,10 @@ l3outs = {
       demo-l3out = {
         lprof_name  = "demo-l3out"
         description = "Demo L3Out Logical Profile created from Terraform"
+        interface_profiles = {
+          intprof_name = "demo-l3out-intprof"
+          description   = "Demo L3Out Logical Interface Profile created from Terraform"
+        }
       }
     }
     extepgs = {

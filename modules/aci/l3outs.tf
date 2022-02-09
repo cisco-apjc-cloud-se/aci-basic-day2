@@ -54,7 +54,7 @@ locals {
   ## L3Out -> Logical Profiles Map ##
   l3out_lprof_list = flatten([
     for l3out_key, l3out in var.l3outs : [
-      for l_key, lprof in l3out.logical_profiles :
+      for lp_key, lprof in l3out.logical_profiles :
         {
           l3out_key           = l3out_key
           lprof_name          = lprof.lprof_name
@@ -66,6 +66,26 @@ locals {
     for val in local.l3out_lprof_list:
       lower(format("%s-%s", val["l3out_key"], val["lprof_name"])) => val
   }
+
+  ## L3Out -> Logical Profiles -> Interface Profiles Map ##
+  l3out_extepg_subnet_list = flatten([
+    for l3out_key, l3out in var.l3outs : [
+      for lp_key, lprof in l3out.logical_profiles : [
+        for i_key, intprof in lprof.interface_profiles :
+          {
+            l3out_key       = l3out_key
+            lp_key          = lp_key
+            intprof_name    = intprof.intprof_name
+            description     = intprof.description
+          }
+      ]
+    ]
+  ])
+  l3out_extepg_subnet_map = {
+    for val in local.l3out_extepg_subnet_list:
+      lower(format("%s-%s-%s", val["l3out_key"], val["lp_key"], val["intprof_name"])) => val
+  }
+
 }
 
 ### Create new External EPG(s) under L3Out(s) ###
@@ -107,4 +127,13 @@ resource "aci_logical_node_profile" "lprofs" {
   l3_outside_dn = aci_l3_outside.l3outs[each.value.l3out_key].id
   description   = each.value.description
   name          = each.value.lprof_name
+}
+
+### L3Out Logical Interface Profiles ###
+resource "aci_logical_interface_profile" "intprofs" {
+  for_each = local.l3out_lprof_intprof_map
+
+  logical_node_profile_dn = aci_logical_node_profile.lprofs[each.value.lp_key].id
+  description             = each.value.description
+  name                    = each.value.intprof_name
 }
