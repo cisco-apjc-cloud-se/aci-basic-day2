@@ -132,6 +132,27 @@ locals {
       lower(format("%s-%s-%s-%s", val["l3out_key"], val["lp_key"], val["i_key"], val["path_key"])) => val
   }
 
+  ## L3Out -> Logical Profiles -> Nodes Map ##
+  l3out_lprof_node_list = flatten([
+    for l3out_key, l3out in var.l3outs : [
+      for lp_key, lprof in l3out.logical_profiles : [
+        for n_key, node in lprof.nodes :
+          {
+            l3out_key       = l3out_key
+            lp_key          = lp_key
+            n_key           = n_key
+            pod             = node.pod
+            leaf_node       = node.leaf_node
+            loopback_ip     = node.loopback_ip
+          }
+      ]
+    ]
+  ])
+  l3out_lprof_node_map = {
+    for val in local.l3out_lprof_node_list:
+      lower(format("%s-%s-%s", val["l3out_key"], val["lp_key"], val["n_key"])) => val
+  }
+
 }
 
 ### Create new External EPG(s) under L3Out(s) ###
@@ -195,4 +216,13 @@ resource "aci_l3out_path_attachment" "paths" {
   addr                          = each.value.ip
   encap                         = each.value.encap
   // encap_scope = "ctx"
+}
+
+### L3Out Configured Nodes ###
+resource "aci_logical_node_to_fabric_node" "nodes" {
+  for_each = local.l3out_lprof_node_map
+
+  logical_node_profile_dn = aci_logical_node_profile.lprofs[format("%s-%s", each.value.l3out_key, each.value.lp_key)].id
+  tdn                     = format("topology/pod-%d/node-%d", each.value.pod, each.value.leaf_node)
+  rtr_id                  = each.value.loopback_ip
 }

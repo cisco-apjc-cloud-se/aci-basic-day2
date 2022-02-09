@@ -239,6 +239,13 @@ l3outs = {
       lprof-1 = {
         lprof_name  = "demo-l3out"
         description = "Demo L3Out Logical Profile created from Terraform"
+        nodes = {
+          node-1 = {
+            pod = 1
+            leaf_node = 102
+            loopback_ip = "102.1.1.1"
+          }
+        }
         interface_profiles = {
           intprof-1 = {
             intprof_name  = "demo-l3out-intprof"
