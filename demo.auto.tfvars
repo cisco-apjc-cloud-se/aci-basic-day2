@@ -244,8 +244,8 @@ l3outs = {
                 ip              = "192.168.255.1/30"
                 vlan_id         = 302
                 pod             = 1
-                leaf_node       = path.leaf_node
-                port            = path.port
+                leaf_node       = 102
+                port            = "eth1/1"
               }
             }
           }
