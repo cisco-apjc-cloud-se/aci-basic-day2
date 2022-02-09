@@ -263,6 +263,15 @@ l3outs = {
           intprof-1 = {
             intprof_name  = "demo-l3out-intprof"
             description   = "Demo L3Out Logical Interface Profile created from Terraform"
+            ospf_profiles = {
+              ospf-1 = {
+                description = "OSPF Interface Auth and Policy Config"
+                auth_key    = ""
+                auth_key_id = 255
+                auth_type   = "none"
+                ospf_policy = "OSPF-INT"
+              }
+            }
             paths = {
               path-1 = {
                 description     = "Demo L3 SVI Path"

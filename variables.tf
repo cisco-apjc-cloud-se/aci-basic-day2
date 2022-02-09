@@ -143,6 +143,13 @@ variable "l3outs" {
       interface_profiles = map(object({
         intprof_name = string
         description  = string
+        ospf_profiles = map(object({
+          description = string
+          auth_key    = string
+          auth_key_id = number
+          auth_type   = string
+          ospf_policy = string
+        }))
         paths = map(object({
           description     = string
           type            = string

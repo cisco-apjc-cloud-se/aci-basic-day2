@@ -172,6 +172,33 @@ locals {
       lower(format("%s-%s", val["l3out_key"], val["o_key"])) => val
   }
 
+  ## L3Out -> Logical Profiles -> Interface Profiles -> OSPF Config Map ##
+  l3out_lprof_intprof_ospf_list = flatten([
+    for l3out_key, l3out in var.l3outs : [
+      for lp_key, lprof in l3out.logical_profiles : [
+        for i_key, intprof in lprof.interface_profiles : [
+          for o_key, ospf in intprof.ospf_profiles :
+          {
+            l3out_key       = l3out_key
+            lp_key          = lp_key
+            i_key           = i_key
+            o_key           = o_key
+            tenant_name     = l3out.tenant_name
+            description     = ospf.description
+            auth_key        = ospf.auth_key
+            auth_key_id     = ospf.auth_key_id
+            auth_type       = ospf.auth_type
+            ospf_policy     = ospf.ospf_policy
+          }
+        ]
+      ]
+    ]
+  ])
+  l3out_lprof_intprof_ospf_map = {
+    for val in local.l3out_lprof_intprof_ospf_list:
+      lower(format("%s-%s-%s-%s", val["l3out_key"], val["lp_key"], val["i_key"], val["o_key"])) => val
+  }
+
 }
 
 ### Create new External EPG(s) under L3Out(s) ###
@@ -257,4 +284,24 @@ resource "aci_l3out_ospf_external_policy" "ospf" {
   // area_ctrl      = ["redistribute", "summary"]
   area_id        = each.value.area_id
   area_type      = each.value.area_type # "nssa", "regular", "stub"
+}
+
+### L3Out OSPF Interface Profile ###
+
+data "aci_ospf_interface_policy" "ospf" {
+  for_each = local.l3out_lprof_intprof_ospf_map
+
+  name      = each.value.ospf_policy
+  tenant_dn = aci_tenant.tenants[each.value.tenant_name].id  ## Assumes Tenant Name also used for map/object key
+}
+
+resource "aci_l3out_ospf_interface_profile" "ospf" {
+  for_each = local.l3out_lprof_intprof_ospf_map
+
+  logical_interface_profile_dn = aci_logical_node_profile.lprofs[format("%s-%s", each.value.l3out_key, each.value.lp_key)].id
+  description                  = each.value.description
+  auth_key                     = each.value.auth_key
+  auth_key_id                  = each.value.auth_key_id
+  auth_type                    = each.value.auth_type
+  relation_ospf_rs_if_pol      = data.aci_ospf_interface_policy.ospf[each.key].id # Same key
 }
