@@ -188,7 +188,7 @@ locals {
             auth_key        = ospf.auth_key
             auth_key_id     = ospf.auth_key_id
             auth_type       = ospf.auth_type
-            ospf_policy     = ospf.ospf_policy
+            // ospf_policy     = ospf.ospf_policy
           }
         ]
       ]
