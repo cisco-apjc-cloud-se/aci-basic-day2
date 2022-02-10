@@ -20,16 +20,16 @@ vrfs = {
     description = "VRF #1 for Tenant #1"
     tenant_name = "demo-basic-1" ## Tenant to add VRF to
   }
-  vrf-2 = {
-    vrf_name    = "vrf-2"
-    description = "VRF #2 for Tenant #1"
-    tenant_name = "demo-basic-1" ## Tenant to add VRF to
-  }
-  vrf-3 = {
-    vrf_name    = "vrf-3"
-    description = "VRF #3 for Tenant #1"
-    tenant_name = "demo-basic-1" ## Tenant to add VRF to
-  }
+  # vrf-2 = {
+  #   vrf_name    = "vrf-2"
+  #   description = "VRF #2 for Tenant #1"
+  #   tenant_name = "demo-basic-1" ## Tenant to add VRF to
+  # }
+  # vrf-3 = {
+  #   vrf_name    = "vrf-3"
+  #   description = "VRF #3 for Tenant #1"
+  #   tenant_name = "demo-basic-1" ## Tenant to add VRF to
+  # }
 }
 
 ### Bridge Domains & L3 Subnets ###
@@ -46,21 +46,21 @@ bds = {
         scope       = ["public"]
         preferred   = "yes"
       },
-      sub-2 = {
-        ip          = "192.168.101.1/24"
-        description = "Secondary Subnet for BD#1"
-        scope       = ["public"]
-        preferred   = "no"
-      }
+      # sub-2 = {
+      #   ip          = "192.168.101.1/24"
+      #   description = "Secondary Subnet for BD#1"
+      #   scope       = ["public"]
+      #   preferred   = "no"
+      # }
     }
   }
-  bd-2 = {
-    bd_name     = "bd-2"
-    vrf_name    = "vrf-1"      ## VRF to add BD to
-    description = "Demo Bridge Domain #2 for Tenant #1"
-    tenant_name = "demo-basic-1"    ## Tenant to add VRF to
-    subnets     = {}
-  }
+  # bd-2 = {
+  #   bd_name     = "bd-2"
+  #   vrf_name    = "vrf-1"      ## VRF to add BD to
+  #   description = "Demo Bridge Domain #2 for Tenant #1"
+  #   tenant_name = "demo-basic-1"    ## Tenant to add VRF to
+  #   subnets     = {}
+  # }
 }
 
 ### Application Profiles & End Point Groups ###
@@ -269,7 +269,7 @@ l3outs = {
                 auth_key    = "key"
                 auth_key_id = 255
                 auth_type   = "none"
-                ospf_policy = "OSPF-INT"
+                ospf_policy = "unspecified"
               }
             }
             paths = {
