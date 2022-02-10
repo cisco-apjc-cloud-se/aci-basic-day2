@@ -288,12 +288,12 @@ resource "aci_l3out_ospf_external_policy" "ospf" {
 
 ### L3Out OSPF Interface Profile ###
 
-data "aci_ospf_interface_policy" "ospf" {
-  for_each = local.l3out_lprof_intprof_ospf_map
-
-  name      = each.value.ospf_policy
-  tenant_dn = aci_tenant.tenants[each.value.tenant_name].id  ## Assumes Tenant Name also used for map/object key
-}
+// data "aci_ospf_interface_policy" "ospf" {
+//   for_each = local.l3out_lprof_intprof_ospf_map
+//
+//   name      = each.value.ospf_policy
+//   tenant_dn = aci_tenant.tenants[each.value.tenant_name].id  ## Assumes Tenant Name also used for map/object key
+// }
 
 resource "aci_l3out_ospf_interface_profile" "ospf" {
   for_each = local.l3out_lprof_intprof_ospf_map
@@ -303,5 +303,5 @@ resource "aci_l3out_ospf_interface_profile" "ospf" {
   auth_key                     = each.value.auth_key
   auth_key_id                  = each.value.auth_key_id
   auth_type                    = each.value.auth_type
-  relation_ospf_rs_if_pol      = data.aci_ospf_interface_policy.ospf[each.key].id # Same key
+  // relation_ospf_rs_if_pol      = data.aci_ospf_interface_policy.ospf[each.key].id # Same key
 }

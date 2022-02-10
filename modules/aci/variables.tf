@@ -125,7 +125,7 @@ variable "l3outs" {
           auth_key    = string
           auth_key_id = number
           auth_type   = string
-          ospf_policy = string
+          // ospf_policy = optional(string)
         }))
         paths = map(object({
           description     = string
