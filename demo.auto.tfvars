@@ -269,7 +269,7 @@ l3outs = {
                 auth_key    = "key"
                 auth_key_id = 255
                 auth_type   = "none"
-                ospf_policy = "unspecified"
+                ospf_policy = "default"
               }
             }
             paths = {
