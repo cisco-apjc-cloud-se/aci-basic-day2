@@ -72,6 +72,7 @@ variable "aps" {
       description = string
       vmm_enabled = bool
       mapped_esg = string
+      preferred_group = string
       paths = map(object({
         pod       = number
         leaf_node = number

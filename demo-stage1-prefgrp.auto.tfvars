@@ -121,6 +121,7 @@ aps = {
         vmm_enabled = true
         ### STAGE 1 - Map EPG to ESG
         mapped_esg = "esg-1" # "esg-1"
+        preferred_group = "include"  ## Must be the same as ESG!
         paths = {
           # path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
           #   pod       = 1
@@ -144,6 +145,7 @@ aps = {
       #   description = "Demo EPG #2 in BD #1"
       #   vmm_enabled = true
       #   mapped_esg = "" # "esg-2"
+      #   preferred_group = "exclude"
       #   paths = {}
       # }
     }

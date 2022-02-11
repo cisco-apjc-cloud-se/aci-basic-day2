@@ -22,7 +22,7 @@ vrfs = {
     vrf_name    = "vrf-1"
     description = "VRF #1 for Tenant #1"
     tenant_name = "demo-basic-1" ## Tenant to add VRF to
-    preferred_group = "disabled" 
+    preferred_group = "disabled"
   }
   # vrf-2 = {
   #   vrf_name    = "vrf-2"
@@ -115,6 +115,7 @@ aps = {
         description = "Demo EPG #1 in BD #1"
         vmm_enabled = true
         mapped_esg = "" # "esg-1"
+        preferred_group = "exclude"
         paths = {
           # path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
           #   pod       = 1
@@ -138,6 +139,7 @@ aps = {
       #   description = "Demo EPG #2 in BD #1"
       #   vmm_enabled = true
       #   mapped_esg = "" # "esg-2"
+      #   preferred_group = "exclude"
       #   paths = {}
       # }
     }

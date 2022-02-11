@@ -134,6 +134,7 @@ resource "aci_application_epg" "epgs" {
   application_profile_dn    = aci_application_profile.aps[each.value.ap_name].id ## Assumes App Profile Name also used for map/object key
   name                      = each.value.epg_name
   description               = each.value.description
+  pref_gr_memb              = each.value.preferred_group
   relation_fv_rs_bd         = aci_bridge_domain.bds[each.value.bd_name].id
 }
 
