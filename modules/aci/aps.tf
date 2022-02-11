@@ -76,7 +76,7 @@ locals {
       for esg_key, esg in ap.esgs :
         {
           ap_name         = ap.ap_name
-          esg_name        = esg.epg_name
+          esg_name        = esg.esg_name
           vrf_name        = esg.vrf_name
           description     = esg.description
           preferred_group = esg.preferred_group
