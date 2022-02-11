@@ -175,7 +175,7 @@ resource "aci_endpoint_security_group" "esgs" {
 resource "aci_endpoint_security_group_epg_selector" "epgs" {
   for_each = local.ap_epg_esg_map
 
-  endpoint_security_group_dn  = aci_endpoint_security_group.esgs[each.value.esg_name].id  ## Assuems ESG Name used for map/object key
+  endpoint_security_group_dn  = aci_endpoint_security_group.esgs[format("%s-%s", each.value.ap_name, each.value.esg_name)].id  ## Assuems ESG Name used for map/object key
   match_epg_dn                = aci_application_epg.epgs[format("%s-%s", each.value.ap_name, each.value.epg_name)].id  ## Assumes AP Name & EPG Name also used for map/object key
 
 }
