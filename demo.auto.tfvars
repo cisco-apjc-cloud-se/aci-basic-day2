@@ -108,7 +108,7 @@ aps = {
         bd_name = "bd-1"       ## Bridge Domain to add EPG to
         description = "Demo EPG #1 in BD #1"
         vmm_enabled = true
-        selected_esg = "esg-1"
+        mapped_esg = "esg-1"
         paths = {
           path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
             pod       = 1
@@ -131,7 +131,7 @@ aps = {
         bd_name = "bd-1"       ## Bridge Domain to add EPG to
         description = "Demo EPG #2 in BD #1"
         vmm_enabled = true
-        selected_esg = "esg-2"
+        mapped_esg = "esg-2"
         paths = {}
       }
     }
