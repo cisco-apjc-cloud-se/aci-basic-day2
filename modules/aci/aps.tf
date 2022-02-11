@@ -17,6 +17,7 @@ locals {
     for ap_key, ap in var.aps : [
       for epg_key, epg in ap.epgs :
         {
+          tenant_name = ap.tenant_name
           ap_name     = ap.ap_name
           epg_name    = epg.epg_name
           bd_name     = epg.bd_name

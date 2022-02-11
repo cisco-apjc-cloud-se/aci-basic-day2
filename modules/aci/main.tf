@@ -8,7 +8,6 @@ terraform {
   }
 }
 
-
 ## Common Data Sources
 
 ### Load VMware VMM Domain
