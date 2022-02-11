@@ -44,9 +44,9 @@ variable "tenants" {
 
 variable "vrfs" {
   type = map(object({
-    vrf_name      = string
-    description   = string
-    tenant_name   = string
+    vrf_name        = string
+    description     = string
+    tenant_name     = string
     preferred_group = string
   }))
 }
