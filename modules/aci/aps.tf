@@ -21,6 +21,7 @@ locals {
           epg_name    = epg.epg_name
           bd_name     = epg.bd_name
           description = epg.description
+          selected_esg = epg.selected_esg
         }
       ]
     ])
@@ -176,9 +177,9 @@ resource "aci_endpoint_security_group" "esgs" {
 
 ### Map EPGs to ESGs ###
 resource "aci_endpoint_security_group_epg_selector" "epgs" {
-  for_each = local.ap_epg_esg_map
+  for_each = local.ap_epg_map
 
-  endpoint_security_group_dn  = aci_endpoint_security_group.esgs[format("%s-%s", each.value.ap_name, each.value.esg_name)].id  ## Assuems ESG Name used for map/object key
+  endpoint_security_group_dn  = aci_endpoint_security_group.esgs[format("%s-%s", each.value.ap_name, each.value.selected_esg)].id  ## Assumes ESG Name used for map/object key
   match_epg_dn                = aci_application_epg.epgs[format("%s-%s", each.value.ap_name, each.value.epg_name)].id  ## Assumes AP Name & EPG Name also used for map/object key
 
 }
