@@ -242,7 +242,7 @@ contracts = {
       "allow-ipv4"
     ]
   },
-  esg3-to-esg1 = {
+  rfc1918-to-esg1 = {
     contract_name = "rfc1918-to-esg1"
     description   = "Allow traffic from External RFC1918 to ESG#1"
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
@@ -251,7 +251,7 @@ contracts = {
       "allow-ipv4"
     ]
   },
-  esg3-to-esg2 = {
+  rfc1918-to-esg2 = {
     contract_name = "rfc1918-to-esg2"
     description   = "Allow traffic from External RFC1918 to EPG#2"
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
