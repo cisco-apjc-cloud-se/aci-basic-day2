@@ -82,7 +82,7 @@ aps = {
         }
         provided_contracts = {
           prov-1 = {
-            contract_name = "exepg1-to-esg1"
+            contract_name = "rfc1918-to-esg1"
           }
         }
       }
