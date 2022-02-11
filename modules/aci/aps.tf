@@ -91,24 +91,24 @@ locals {
       lower(format("%s-%s", val["ap_name"], val["esg_name"])) => val
     }
 
-  ### App Profile -> EPG -> Selected ESGs ###
-  ap_epg_esg_list = flatten([
-    for ap_key, ap in var.aps : [
-      for epg_key, epg in ap.epgs : [
-        for esg_name in epg.selected_esgs :  ## List not Map
-          {
-            ap_name     = ap.ap_name
-            epg_name    = epg.epg_name
-            esg_name    = esg_name
-          }
-          // if length(epg.selected_esgs) > 0 ## Not needed?
-        ]
-      ]
-   ])
-  ap_epg_esg_map = {
-    for val in local.ap_epg_esg_list:
-      lower(format("%s-%s-%s", val["ap_name"], val["epg_name"], val["esg_name"])) => val
-    }
+  # ### App Profile -> EPG -> Selected ESGs ###
+  # ap_epg_esg_list = flatten([
+  #   for ap_key, ap in var.aps : [
+  #     for epg_key, epg in ap.epgs : [
+  #       for esg_name in epg.selected_esgs :  ## List not Map
+  #         {
+  #           ap_name     = ap.ap_name
+  #           epg_name    = epg.epg_name
+  #           esg_name    = esg_name
+  #         }
+  #         // if length(epg.selected_esgs) > 0 ## Not needed?
+  #       ]
+  #     ]
+  #  ])
+  # ap_epg_esg_map = {
+  #   for val in local.ap_epg_esg_list:
+  #     lower(format("%s-%s-%s", val["ap_name"], val["epg_name"], val["esg_name"])) => val
+  #   }
 }
 
 ### Create EPG(s) for AP(s) ###
