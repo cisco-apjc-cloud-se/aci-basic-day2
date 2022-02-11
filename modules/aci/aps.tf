@@ -48,6 +48,22 @@ locals {
       lower(format("%s-%s", val["ap_name"], val["epg_name"])) => val
     }
 
+  ### App Profile -> EPG with Static Paths Map ###
+  ap_epg_phys_list = flatten([
+    for ap_key, ap in var.aps : [
+      for epg_key, epg in ap.epgs :
+        {
+          ap_name     = ap.ap_name
+          epg_name    = epg.epg_name
+        }
+        if length(epg.paths) > 0
+      ]
+    ])
+  ap_epg_phys_map = {
+    for val in local.ap_epg_phys_list:
+      lower(format("%s-%s", val["ap_name"], val["epg_name"])) => val
+    }
+
   ### App Profile -> EPG -> Static Paths Map ###
   ap_epg_paths_list = flatten([
     for ap_key, ap in var.aps : [
@@ -123,7 +139,7 @@ resource "aci_application_epg" "epgs" {
 
 ### Associate Physical Domain(s) for Static EPGs ###
 resource "aci_epg_to_domain" "phys" {
-  for_each = local.ap_epg_paths_map  ## Re-use this as these must need physical domain
+  for_each = local.ap_epg_phys_map
 
   application_epg_dn    = aci_application_epg.epgs[format("%s-%s", each.value.ap_name, each.value.epg_name)].id  ## Assumes AP Name & EPG Name also used for map/object key
   tdn                   = data.aci_physical_domain.phys.id
