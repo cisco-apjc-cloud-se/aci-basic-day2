@@ -77,6 +77,7 @@ aps = {
   ap-1 = {
     ap_name = "ap-1"
     tenant_name = "demo-basic-1"    ## Tenant to add AP to
+    description = "App Profile #1 for Tenant #1"
     esgs = {
       ### STAGE 1 - Enable ESGs - one per EPG
       esg-1 = {
