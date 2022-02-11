@@ -212,10 +212,10 @@ resource "aci_external_network_instance_profile" "extepgs" {
   pref_gr_memb        = each.value.preferred_group
 
   relation_fv_rs_cons = [
-    for contract_name in each.value.consumed_contracts : aci_contract.contracts[contract_name].id ## Assumes Contract Name also used for map/object key
+    for key, contract_name in each.value.consumed_contracts : aci_contract.contracts[contract_name].id ## Assumes Contract Name also used for map/object key
   ] # aci_contract.tf-rfc1918-to-vlan100.id
   relation_fv_rs_prov = [
-    for contract_name in each.value.provided_contracts : aci_contract.contracts[contract_name].id ## Assumes Contract Name also used for map/object key
+    for key, contract_name in each.value.provided_contracts : aci_contract.contracts[contract_name].id ## Assumes Contract Name also used for map/object key
   ] # aci_contract.tf-vlan100-to-rfc1918.id,
 
 }
