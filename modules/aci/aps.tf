@@ -22,6 +22,7 @@ locals {
           epg_name    = epg.epg_name
           bd_name     = epg.bd_name
           description = epg.description
+          preferred_group = epg.preferred_group
         }
       ]
     ])
