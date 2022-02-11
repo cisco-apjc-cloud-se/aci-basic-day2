@@ -16,6 +16,11 @@ data "aci_vmm_domain" "vmm" {
 	name                = var.vmm_name #"DVS-VMM"
 }
 
+### Load Physical Domain
+data "aci_physical_domain" "phys" {
+  name  = var.phys_name 
+}
+
 // ### Load Common Tenant
 // data "aci_tenant" "common" {
 //   name  = "common"

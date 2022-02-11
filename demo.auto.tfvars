@@ -1,6 +1,9 @@
 ### Existing VMM Domain Name ###
 vmm_name = "DVS-VMM"
 
+### Existing Physical Domain Name ###
+phys_name = "LAB-N9348"
+
 ### Tenants ###
 tenants = {
   demo-basic-1 = {

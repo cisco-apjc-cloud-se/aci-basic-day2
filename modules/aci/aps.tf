@@ -121,6 +121,13 @@ resource "aci_application_epg" "epgs" {
   relation_fv_rs_bd         = aci_bridge_domain.bds[each.value.bd_name].id
 }
 
+### Associate Physical Domain(s) for Static EPGs ###
+resource "aci_epg_to_domain" "phys" {
+  for_each = local.ap_epg_paths_map  ## Re-use this as these must need physical domain
+
+  application_epg_dn    = aci_application_epg.epgs[format("%s-%s", each.value.ap_name, each.value.epg_name)].id  ## Assumes AP Name & EPG Name also used for map/object key
+  tdn                   = data.aci_physical_domain.phys.id
+}
 
 ### Create VMware Distributed Port Groups via ACI VMM Domain ###
 resource "aci_epg_to_domain" "dpgs" {

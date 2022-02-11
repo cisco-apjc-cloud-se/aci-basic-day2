@@ -54,6 +54,7 @@ module "aci" {
   ### Application Profiles & End Point Groups ###
   aps       = var.aps
   vmm_name  = var.vmm_name # "DVS-VMM"
+  phys_name = var.phys_name # "LAB-N9348"
 
   ### L3Outs & External EPGs ###
   l3outs    = var.l3outs

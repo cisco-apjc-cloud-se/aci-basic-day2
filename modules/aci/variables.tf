@@ -3,6 +3,12 @@ variable "vmm_name" {
   type = string
 }
 
+### Existing Physical Domain for Static EPGs ###
+variable "phys_name" {
+  type = string
+}
+
+
 ### Tennant Input Variable Object ###
 
 variable "tenants" {
