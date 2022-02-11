@@ -89,6 +89,25 @@ locals {
     for val in local.ap_esg_list:
       lower(format("%s-%s", val["ap_name"], val["esg_name"])) => val
     }
+
+  ### App Profile -> EPG -> Selected ESGs ###
+  ap_epg_esg_list = flatten([
+    for ap_key, ap in var.aps : [
+      for epg_key, epg in ap.epgs : [
+        for esg_name in epg.selected_esgs :  ## List not Map
+          {
+            ap_name     = ap.ap_name
+            epg_name    = epg.epg_name
+            esg_name    = esg_name
+          }
+          // if length(epg.selected_esgs) > 0 ## Not needed?
+        ]
+      ]
+   ])
+  ap_epg_esg_map = {
+    for val in local.ap_epg_esg_list:
+      lower(format("%s-%s-%s", val["ap_name"], val["epg_name"], val["esg_name"])) => val
+    }
 }
 
 ### Create EPG(s) for AP(s) ###
@@ -149,5 +168,14 @@ resource "aci_endpoint_security_group" "esgs" {
       target_dn = aci_contract.contracts[relation_fv_rs_prov.value.contract_name].id ## Assumes Contract Name also used for map/object key
     }
   }
+
+}
+
+### Map EPGs to ESGs ###
+resource "aci_endpoint_security_group_epg_selector" "epgs" {
+  for_each = local.ap_epg_esg_map
+
+  endpoint_security_group_dn  = aci_endpoint_security_group.esgs[each.value.esg_name].id  ## Assuems ESG Name used for map/object key
+  match_epg_dn                = aci_application_epg.epgs[format("%s-%s", each.value.ap_name, each.value.epg_name)].id  ## Assumes AP Name & EPG Name also used for map/object key
 
 }
