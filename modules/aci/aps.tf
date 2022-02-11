@@ -11,6 +11,8 @@ resource "aci_application_profile" "aps" {
 
 ### Create flattened object for APs' EPGs ###
 locals {
+
+  ### App Profile -> EPG Map ###
   ap_epg_list = flatten([
     for ap_key, ap in var.aps : [
       for epg_key, epg in ap.epgs :
@@ -27,6 +29,7 @@ locals {
       lower(format("%s-%s", val["ap_name"], val["epg_name"])) => val
     }
 
+  ### App Profile -> EPG -> VMM Map ###
   ap_epg_vmm_list = flatten([
     for ap_key, ap in var.aps : [
       for epg_key, epg in ap.epgs :
@@ -44,6 +47,7 @@ locals {
       lower(format("%s-%s", val["ap_name"], val["epg_name"])) => val
     }
 
+  ### App Profile -> EPG -> Static Paths Map ###
   ap_epg_paths_list = flatten([
     for ap_key, ap in var.aps : [
       for epg_key, epg in ap.epgs : [
@@ -64,6 +68,26 @@ locals {
   ap_epg_paths_map = {
     for val in local.ap_epg_paths_list:
       lower(format("%s-%s-%d-%d-%s", val["ap_name"], val["epg_name"], val["pod"], val["leaf_node"], val["port"])) => val
+    }
+
+  ### App Profile -> ESG Map ###
+  ap_esg_list = flatten([
+    for ap_key, ap in var.aps : [
+      for esg_key, esg in ap.esgs :
+        {
+          ap_name         = ap.ap_name
+          esg_name        = esg.epg_name
+          vrf_name        = esg.vrf_name
+          description     = esg.description
+          preferred_group = esg.preferred_group
+          consumed_contracts = esg.consumed_contracts
+          provided_contracts = esg.provided_contracts
+        }
+      ]
+    ])
+  ap_esg_map = {
+    for val in local.ap_esg_list:
+      lower(format("%s-%s", val["ap_name"], val["esg_name"])) => val
     }
 }
 
@@ -97,4 +121,33 @@ resource "aci_epg_to_static_path" "spaths" {
   tdn                 = format("topology/pod-%d/paths-%d/pathep-[%s]", each.value.pod, each.value.leaf_node, each.value.port) #"topology/pod-1/paths-129/pathep-[eth1/3]"
   encap               = format("vlan-%d", each.value.vlan_id)
   mode                = each.value.mode
+}
+
+
+### Create new Endpoint Security Group(s) ###
+
+resource "aci_endpoint_security_group" "esgs" {
+  for_each = local.ap_esg_map
+
+  application_profile_dn    = aci_application_profile.aps[each.value.ap_name].id ## Assumes App Profile Name also used for map/object key
+  name                      = each.value.esg_name
+  description               = each.value.description
+  pref_gr_memb              = each.value.preferred_group
+
+  relation_fv_rs_scope      = aci_vrf.vrfs[each.value.vrf_name].id  ## Assumes VRF Name also used for map/object key
+
+  dynamic "relation_fv_rs_cons" {
+    for_each = each.value.consumed_contracts
+    content {
+      target_dn = aci_contract.contracts[relation_fv_rs_cons.value.contract_name].id ## Assumes Contract Name also used for map/object key
+    }
+  }
+
+  dynamic "relation_fv_rs_prov" {
+    for_each = each.value.provided_contracts
+    content {
+      target_dn = aci_contract.contracts[relation_fv_rs_prov.value.contract_name].id ## Assumes Contract Name also used for map/object key
+    }
+  }
+
 }

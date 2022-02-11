@@ -46,6 +46,18 @@ variable "aps" {
     ap_name     = string
     tenant_name = string
     description = string
+    esgs = map(object({
+      esg_name        = string
+      vrf_name        = string
+      description     = string
+      preferred_group = string
+      consumed_contracts = map(object({
+        contract_name = string
+      }))
+      provided_contracts = map(object({
+        contract_name = string
+      }))
+    }))
     epgs = map(object({
       epg_name  = string
       bd_name   = string

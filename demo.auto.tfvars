@@ -69,6 +69,54 @@ aps = {
     ap_name = "ap-1"
     tenant_name = "demo-basic-1"    ## Tenant to add AP to
     description = "App Profile #1 for Tenant #1"
+    esgs = {
+      esg-1 = {
+        esg_name        = "esg-1"
+        description     = "Demo ESG #1 for AP #1"
+        preferred_group = "excluded"
+        vrf_name        = "vrf-1"
+        consumed_contracts = {
+          cons-1 = {
+            contract_name = "esg1-to-esg2"
+          }
+        }
+        provided_contracts = {
+          prov-1 = {
+            contract_name = "esg3-to-esg1"
+          }
+        }
+      }
+      esg-2 = {
+        esg_name        = "esg-2"
+        description     = "Demo ESG #2 for AP #1"
+        preferred_group = "excluded"
+        vrf_name        = "vrf-1"
+        consumed_contracts = {}
+        provided_contracts = {
+          prov-1 = {
+            contract_name = "esg1-to-esg2"
+          }
+          prov-2 = {
+            contract_name = "esg3-to-esg2"
+          }
+        }
+      }
+      esg-3 = {
+        esg_name        = "esg-3"
+        description     = "Demo External ESG #3 for AP #1"
+        preferred_group = "excluded"
+        vrf_name        = "vrf-1"
+        consumed_contracts = {
+          cons-1 = {
+            contract_name = "esg3-to-esg1"
+          }
+          cons-2 = {
+            contract_name = "esg3-to-esg2"
+          }
+        }
+        provided_contracts = {}
+      }
+    }
     epgs = {
       epg-1 = {
         epg_name = "epg-1"
@@ -198,27 +246,27 @@ filters = {
 
 ### Contracts ###
 contracts = {
-  epg1-to-epg2 = {
-    contract_name = "epg1-to-epg2"
-    description   = "Allow traffic from EPG#1 to EPG#2"
+  esg1-to-esg2 = {
+    contract_name = "esg1-to-esg2"
+    description   = "Allow traffic from ESG#1 to ESG#2"
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
     scope         = "tenant" # "global", "tenant", "application-profile" and "context"
     filters = [
       "allow-ipv4"
     ]
   },
-  exepg1-to-epg1 = {
-    contract_name = "exepg1-to-epg1"
-    description   = "Allow traffic from External EPG#1 to EPG#1"
+  esg3-to-esg1 = {
+    contract_name = "esg3-to-epg1"
+    description   = "Allow traffic from External ESG#3 to ESG#1"
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
     scope         = "tenant" # "global", "tenant", "application-profile" and "context"
     filters = [
       "allow-ipv4"
     ]
   },
-  exepg1-to-epg2 = {
-    contract_name = "exepg1-to-epg2"
-    description   = "Allow traffic from External EPG#1 to EPG#2"
+  esg3-to-esg2 = {
+    contract_name = "esg3-to-esg2"
+    description   = "Allow traffic from External ESG#3 to EPG#2"
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
     scope         = "tenant" # "global", "tenant", "application-profile" and "context"
     filters = [
