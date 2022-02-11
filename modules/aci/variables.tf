@@ -36,6 +36,7 @@ variable "bds" {
     vrf_name      = string
     description   = string
     tenant_name   = string
+    arp_flood     = string
     subnets = map(object({
       description   = string
       ip            = string

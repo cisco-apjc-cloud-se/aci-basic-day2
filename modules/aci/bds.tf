@@ -5,6 +5,7 @@ resource "aci_bridge_domain" "bds" {
   tenant_dn                   = aci_tenant.tenants[each.value.tenant_name].id  ## Assumes Tenant Name also used for map/object key
   description                 = each.value.description
   name                        = each.value.bd_name
+  arp_flood                   = each.value.arp_flood # "yes", "no"
   relation_fv_rs_ctx          = aci_vrf.vrfs[each.value.vrf_name].id  ## Assumes VRF Name also used for map/object key
 }
 

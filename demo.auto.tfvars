@@ -42,6 +42,7 @@ bds = {
     vrf_name    = "vrf-1"      ## VRF to add BD to
     description = "Demo Bridge Domain #1 for Tenant #1"
     tenant_name = "demo-basic-1"    ## Tenant to add VRF to
+    arp_flood   = "yes" ## "yes", "no"
     subnets = {
       # sub-1 = {
       #   ip          = "192.168.1.1/24"
