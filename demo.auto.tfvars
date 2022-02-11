@@ -256,7 +256,7 @@ contracts = {
     ]
   },
   esg3-to-esg1 = {
-    contract_name = "esg3-to-epg1"
+    contract_name = "esg3-to-esg1"
     description   = "Allow traffic from External ESG#3 to ESG#1"
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
     scope         = "tenant" # "global", "tenant", "application-profile" and "context"
