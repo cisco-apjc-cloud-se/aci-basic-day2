@@ -101,7 +101,7 @@ locals {
           description = epg.description
           mapped_esg = epg.mapped_esg
         }
-        if mapped_esg <> ""
+        if epg.mapped_esg != ""
       ]
     ])
   ap_epg_esg_map = {
