@@ -138,7 +138,7 @@ variable "l3outs" {
           auth_key    = string
           auth_key_id = number
           auth_type   = string
-          // ospf_policy = optional(string)
+          // ospf_policy = string
         }))
         paths = map(object({
           description     = string
@@ -155,8 +155,12 @@ variable "l3outs" {
       extepg_name     = string
       description     = string
       preferred_group = string
-      consumed_contracts = list(string)
-      provided_contracts = list(string)
+      consumed_contracts = map(object({
+        contract_name = string
+      }))
+      provided_contracts = map(object({
+        contract_name = string
+      }))
       subnets = map(object({
         description = string
         aggregate   = string

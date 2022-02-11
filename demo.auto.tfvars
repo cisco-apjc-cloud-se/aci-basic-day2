@@ -82,7 +82,7 @@ aps = {
         }
         provided_contracts = {
           prov-1 = {
-            contract_name = "esg3-to-esg1"
+            contract_name = "exepg1-to-esg1"
           }
         }
       }
@@ -97,24 +97,9 @@ aps = {
             contract_name = "esg1-to-esg2"
           }
           prov-2 = {
-            contract_name = "esg3-to-esg2"
+            contract_name = "rfc1918-to-esg2"
           }
         }
-      }
-      esg-3 = {
-        esg_name        = "esg-3"
-        description     = "Demo External ESG #3 for AP #1"
-        preferred_group = "exclude"
-        vrf_name        = "vrf-1"
-        consumed_contracts = {
-          cons-1 = {
-            contract_name = "esg3-to-esg1"
-          }
-          cons-2 = {
-            contract_name = "esg3-to-esg2"
-          }
-        }
-        provided_contracts = {}
       }
     }
     epgs = {
@@ -258,8 +243,8 @@ contracts = {
     ]
   },
   esg3-to-esg1 = {
-    contract_name = "esg3-to-esg1"
-    description   = "Allow traffic from External ESG#3 to ESG#1"
+    contract_name = "rfc1918-to-esg1"
+    description   = "Allow traffic from External RFC1918 to ESG#1"
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
     scope         = "tenant" # "global", "tenant", "application-profile" and "context"
     filters = [
@@ -267,8 +252,8 @@ contracts = {
     ]
   },
   esg3-to-esg2 = {
-    contract_name = "esg3-to-esg2"
-    description   = "Allow traffic from External ESG#3 to EPG#2"
+    contract_name = "rfc1918-to-esg2"
+    description   = "Allow traffic from External RFC1918 to EPG#2"
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
     scope         = "tenant" # "global", "tenant", "application-profile" and "context"
     filters = [
@@ -342,8 +327,15 @@ l3outs = {
         extepg_name         = "rfc1918"
         description         = "External users in RFC1918 subnets"
         preferred_group     = "exclude"
-        consumed_contracts  = []
-        provided_contracts  = []
+        consumed_contracts = {
+          cons-1 = {
+            contract_name = "rfc1918-to-esg1"
+          }
+          cons-2 = {
+            contract_name = "rfc1918-to-esg2"
+          }
+        }
+        provided_contracts = {}
         subnets = {
           N-10-0-0-0-8 = {
             description = "10.0.0.0/8"
