@@ -22,6 +22,7 @@ vrfs = {
     vrf_name    = "vrf-1"
     description = "VRF #1 for Tenant #1"
     tenant_name = "demo-basic-1" ## Tenant to add VRF to
+    preferred_group = "disabled" 
   }
   # vrf-2 = {
   #   vrf_name    = "vrf-2"
@@ -63,6 +64,7 @@ bds = {
   #   vrf_name    = "vrf-1"      ## VRF to add BD to
   #   description = "Demo Bridge Domain #2 for Tenant #1"
   #   tenant_name = "demo-basic-1"    ## Tenant to add VRF to
+  #   arp_flood   = "yes" ## "yes", "no"
   #   subnets     = {}
   # }
 }

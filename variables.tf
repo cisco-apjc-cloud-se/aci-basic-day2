@@ -47,6 +47,7 @@ variable "vrfs" {
     vrf_name      = string
     description   = string
     tenant_name   = string
+    preferred_group = string
   }))
 }
 
