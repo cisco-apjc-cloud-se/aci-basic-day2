@@ -159,7 +159,6 @@ resource "aci_endpoint_security_group" "esgs" {
     for_each = each.value.consumed_contracts
     content {
       prio      = "unspecified" # Requried?
-      match_t   = "AtleastOne"  # Required?
       target_dn = aci_contract.contracts[relation_fv_rs_cons.value.contract_name].id ## Assumes Contract Name also used for map/object key
     }
   }
