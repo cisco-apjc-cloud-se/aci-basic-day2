@@ -1,3 +1,9 @@
+### ACI Fabric Application Centric Migration - Stage 1 ###
+### - L3 Subnet on Bridge Domain(s)                    ###
+### - L3Out with OSPF Peering, External EPG            ###
+### - Preferred Group Enabled                          ###
+
+
 ### Existing VMM Domain Name ###
 vmm_name = "DVS-VMM"
 
