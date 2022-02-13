@@ -7,7 +7,7 @@ resource "aci_bridge_domain" "bds" {
   name                        = each.value.bd_name
   arp_flood                   = each.value.arp_flood # "yes", "no"
   relation_fv_rs_ctx          = aci_vrf.vrfs[each.value.vrf_name].id  ## Assumes VRF Name also used for map/object key
-  // relation_fv_rs_bd_to_out    = e
+  relation_fv_rs_bd_to_out    = lookup(local.bd_l3out_list_map, each.key)
 }
 
 ### Create flattened object or BDs' Subnets ###
@@ -33,7 +33,10 @@ locals {
   ### Bridge Domain -> L3Out Maps ###
   bd_l3out_list_map = {
     for bd_key, bd in var.bds :
-      bd_key => bd.l3outs
+      bd_key => [
+        for l3out in bd.l3outs:
+          aci_l3_outside.l3outs[l3out].id
+      ]
   }
   // bd_l3out_list = flatten([
   //   for bd_key, bd in var.bds : [

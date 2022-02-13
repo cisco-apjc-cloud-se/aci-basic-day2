@@ -46,7 +46,7 @@ bds = {
     tenant_name = "demo-basic-1"    ## Tenant to add VRF to
     ### STAGE 1 - No longer required
     arp_flood   = "no" ## "yes", "no"
-    l3outs      = [] ## List of associated L3outs for BD's Subnets
+    l3outs      = ["demo-l3out"] ## List of associated L3outs for BD's Subnets
     subnets = {
       ### STAGE 1 - Move Gateway to Bridge Domain
       sub-1 = {
