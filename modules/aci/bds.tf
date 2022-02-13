@@ -7,11 +7,13 @@ resource "aci_bridge_domain" "bds" {
   name                        = each.value.bd_name
   arp_flood                   = each.value.arp_flood # "yes", "no"
   relation_fv_rs_ctx          = aci_vrf.vrfs[each.value.vrf_name].id  ## Assumes VRF Name also used for map/object key
+  // relation_fv_rs_bd_to_out    = e
 }
 
 ### Create flattened object or BDs' Subnets ###
 locals {
-   bd_subnet_list = flatten([
+  ### Bridge Domain -> Subnet Maps ###
+  bd_subnet_list = flatten([
     for bd_key, bd in var.bds : [
       for sub_key, subnet in bd.subnets :
         {
@@ -27,6 +29,23 @@ locals {
     for val in local.bd_subnet_list:
       lower(format("%s-%s", val["bd_name"], val["ip"])) => val
   }
+
+  ### Bridge Domain -> L3Out Maps ###
+  bd_l3out_list_map = {
+    for bd_key, bd in var.bds :
+      bd_key => bd.l3outs
+  }
+  // bd_l3out_list = flatten([
+  //   for bd_key, bd in var.bds : [
+  //     for l3out in bd.l3outs :
+  //
+  //   ]
+  // ])
+  // bd_l3out_map = {
+  //   for val in local.bd_l3out_list:
+  //     lower(format("%s-%s", val["bd_name"], val["ip"])) => val
+  // }
+
 }
 
 ### L3 Subnet for Bridge Domain(s) ###
