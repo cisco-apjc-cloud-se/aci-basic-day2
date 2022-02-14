@@ -131,7 +131,7 @@ aps = {
         description = "App #1 Web Tier EPG"
         vmm_enabled = true
         mapped_esg = "web" # "esg-1"
-        preferred_group = "exclude"  ## Must be the same as ESG!
+        preferred_group = "include"  ## Must be the same as ESG initially
         paths = {}
       }
       db = {
@@ -140,7 +140,7 @@ aps = {
         description = "App #1 DB Tier EPG"
         vmm_enabled = true
         mapped_esg = "db" # "esg-1"
-        preferred_group = "exclude"  ## Must be the same as ESG!
+        preferred_group = "include"  ## Must be the same as ESG initially
         paths = {}
       }
     }
@@ -210,7 +210,7 @@ aps = {
         description = "App #2 Web Tier EPG"
         vmm_enabled = true
         mapped_esg = "web" # "esg-1"
-        preferred_group = "exclude"  ## Must be the same as ESG!
+        preferred_group = "include"  ## Must be the same as ESG initially
         paths = {}
       }
       db = {
@@ -219,7 +219,7 @@ aps = {
         description = "App #2 DB Tier EPG"
         vmm_enabled = true
         mapped_esg = "db" # "esg-1"
-        preferred_group = "exclude"  ## Must be the same as ESG!
+        preferred_group = "include"  ## Must be the same as ESG initially
         paths = {}
       }
     }
@@ -289,7 +289,7 @@ aps = {
         description = "App #3 Web Tier EPG"
         vmm_enabled = true
         mapped_esg = "web" # "esg-1"
-        preferred_group = "exclude"  ## Must be the same as ESG!
+        preferred_group = "include"  ## Must be the same as ESG initially
         paths = {}
       }
       db = {
@@ -298,7 +298,7 @@ aps = {
         description = "App #3 DB Tier EPG"
         vmm_enabled = true
         mapped_esg = "db" # "esg-1"
-        preferred_group = "exclude"  ## Must be the same as ESG!
+        preferred_group = "include"  ## Must be the same as ESG initially 
         paths = {}
       }
     }
@@ -368,7 +368,7 @@ aps = {
         description = "App #4 Web Tier EPG"
         vmm_enabled = true
         mapped_esg = "web" # "esg-1"
-        preferred_group = "exclude"  ## Must be the same as ESG!
+        preferred_group = "include"  ## Must be the same as ESG initially
         paths = {}
       }
       db = {
@@ -377,7 +377,7 @@ aps = {
         description = "App #4 DB Tier EPG"
         vmm_enabled = true
         mapped_esg = "db" # "esg-1"
-        preferred_group = "exclude"  ## Must be the same as ESG!
+        preferred_group = "include"  ## Must be the same as ESG initially
         paths = {}
       }
     }
