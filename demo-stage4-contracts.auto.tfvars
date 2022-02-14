@@ -629,31 +629,31 @@ l3outs = {
         }
       }
       ### STAGE 4 - New DB Admin Users Group, Add Contracts ###
-      # dbadmins = {
-      #   extepg_name         = "dbadmins"
-      #   description         = "DB Admin Users"
-      #   preferred_group     = "exclude"
-      #   consumed_contracts = {
-      #     cons-1 = {
-      #       contract_name = "dbadmins-to-db"
-      #     }
-      #   }
-      #   provided_contracts = {}
-      #   contract_master_epgs = {
-      #     # epg-1 = {
-      #     #   l3out_name = "demo-l3out"
-      #     #   epg_name= "rfc1918"
-      #     # }
-      #   }
-      #   subnets = {
-      #     H-10-67-29-4 = {
-      #       description = "10.67.29.4/32"
-      #       aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
-      #       ip = "10.67.29.4/32"
-      #       scope = ["import-security"]
-      #     }
-      #   }
-      # }
+      dbadmins = {
+        extepg_name         = "dbadmins"
+        description         = "DB Admin Users"
+        preferred_group     = "exclude"
+        consumed_contracts = {
+          cons-1 = {
+            contract_name = "dbadmins-to-db"
+          }
+        }
+        provided_contracts = {}
+        contract_master_epgs = {
+          epg-1 = {
+            l3out_name = "demo-l3out"
+            epg_name= "rfc1918"
+          }
+        }
+        subnets = {
+          H-10-67-29-4 = {
+            description = "10.67.29.4/32"
+            aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+            ip = "10.67.29.4/32"
+            scope = ["import-security"]
+          }
+        }
+      }
     }
   }
 }
