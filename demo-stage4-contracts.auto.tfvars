@@ -124,7 +124,6 @@ aps = {
       #   preferred_group = "include"  ## Must be the same as ESG!
       #   paths = {}
       # }
-      ### Stage 3 - New Web & DB Tier EPGs ###
       web = {
         epg_name = "web"
         bd_name = "bd-303"       ## Bridge Domain to add EPG to
@@ -203,7 +202,6 @@ aps = {
       #   preferred_group = "include"  ## Must be the same as ESG!
       #   paths = {}
       # }
-      ### Stage 3 - New Web & DB Tier EPGs ###
       web = {
         epg_name = "web"
         bd_name = "bd-303"       ## Bridge Domain to add EPG to
@@ -282,7 +280,6 @@ aps = {
       #   preferred_group = "include"  ## Must be the same as ESG!
       #   paths = {}
       # }
-      ### Stage 3 - New Web & DB Tier EPGs ###
       web = {
         epg_name = "web"
         bd_name = "bd-304"       ## Bridge Domain to add EPG to
@@ -298,7 +295,7 @@ aps = {
         description = "App #3 DB Tier EPG"
         vmm_enabled = true
         mapped_esg = "db" # "esg-1"
-        preferred_group = "include"  ## Must be the same as ESG initially 
+        preferred_group = "include"  ## Must be the same as ESG initially
         paths = {}
       }
     }
@@ -361,7 +358,6 @@ aps = {
       #   preferred_group = "include"  ## Must be the same as ESG!
       #   paths = {}
       # }
-      ### Stage 4 - Remove Preferred Group ###
       web = {
         epg_name = "web"
         bd_name = "bd-304"       ## Bridge Domain to add EPG to
@@ -598,12 +594,17 @@ l3outs = {
       }
     }
     extepgs = {
+      ### STAGE 4 - Add Contracts - Remove Preferred Group ###
       rfc1918 = {
         extepg_name         = "rfc1918"
         description         = "External users in RFC1918 subnets"
         ### STAGE 4 - Remove Preferred Group
         preferred_group     = "exclude"
-        consumed_contracts = {}
+        consumed_contracts = {
+          cons-1 = {
+            contract_name = "rfc1918-to-web"
+          }
+        }
         provided_contracts = {}
         subnets = {
           N-10-0-0-0-8 = {
@@ -626,12 +627,16 @@ l3outs = {
           }
         }
       }
-      ### STAGE 4 - New DB Admin Users Group
+      ### STAGE 4 - New DB Admin Users Group, Add Contracts ###
       dbadmins = {
         extepg_name         = "dbadmins"
         description         = "DB Admin Users"
         preferred_group     = "exclude"
-        consumed_contracts = {}
+        consumed_contracts = {
+          cons-1 = {
+            contract_name = "dbadmins-to-db"
+          }
+        }
         provided_contracts = {}
         subnets = {
           H-10-67-29-4 = {
