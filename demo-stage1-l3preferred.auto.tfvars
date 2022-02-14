@@ -22,7 +22,8 @@ vrfs = {
     vrf_name    = "vrf-1"
     description = "VRF #1 for Tenant #1"
     tenant_name = "demo-basic-1" ## Tenant to add VRF to
-    preferred_group = "disabled"
+    ### STAGE 1 - Enable Preferred Group on VRF
+    preferred_group = "enabled"
   }
 }
 
