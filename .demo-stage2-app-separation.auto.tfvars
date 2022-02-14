@@ -22,7 +22,6 @@ vrfs = {
     vrf_name    = "vrf-1"
     description = "VRF #1 for Tenant #1"
     tenant_name = "demo-basic-1" ## Tenant to add VRF to
-    ### STAGE 1 - Enable Preferred Group on VRF
     preferred_group = "enabled"
   }
 }
@@ -34,12 +33,10 @@ bds = {
     vrf_name    = "vrf-1"      ## VRF to add BD to
     description = " Bridge Domain for Legacy VLAN 303 in Tenant #1"
     tenant_name = "demo-basic-1"    ## Tenant to add VRF to
-    ### STAGE 1 - ARP Flood No Longer Required, Set BD vMAC to HSRP MAC & Map to L3Out
     arp_flood   = "no" ## "yes", "no"
     mac_address = "00:00:0C:9F:F1:2F"  ## HSRP v2 MAC!
     l3outs      = ["demo-l3out"] ## List of associated L3outs for BD's Subnets
     subnets = {
-      ### STAGE 1 - Move Gateway to Bridge Domain
       sub-1 = {
         ip          = "10.66.209.81/28"
         description = "Primary Subnet for BD VLAN 303"
@@ -53,12 +50,10 @@ bds = {
     vrf_name    = "vrf-1"      ## VRF to add BD to
     description = " Bridge Domain for Legacy VLAN 304 in Tenant #1"
     tenant_name = "demo-basic-1"    ## Tenant to add VRF to
-    ### STAGE 1 - ARP Flood No Longer Required, Set BD vMAC to HSRP MAC & Map to L3Out
     arp_flood   = "no" ## "yes", "no"
     mac_address = "00:00:0C:9F:F1:30"  ## HSRP v2 MAC!
     l3outs      = ["demo-l3out"] ## List of associated L3outs for BD's Subnets
     subnets = {
-      ### STAGE 1 - Move Gateway to Bridge Domain
       sub-1 = {
         ip          = "10.66.209.97/28"
         description = "Primary Subnet for BD VLAN 304"
@@ -75,12 +70,10 @@ aps = {
     ap_name = "legacy"
     tenant_name = "demo-basic-1"    ## Tenant to add AP to
     description = "App Profile for Legacy Network Centric VLANs"
-    ### STAGE 1 - Enable ESGs - one per EPG
     esgs = {
       legacy-esg = {
         esg_name        = "legacy-esg"
         description     = "Legacy Networks ESG"
-        ### STAGE 1 - Enabled Preferred Group
         preferred_group = "include"
         vrf_name        = "vrf-1"
         consumed_contracts = {}
@@ -93,12 +86,9 @@ aps = {
         bd_name = "bd-303"       ## Bridge Domain to add EPG to
         description = "EPG for VLAN 303"
         vmm_enabled = true
-        ### STAGE 1 - Map EPG to ESG
         mapped_esg = "legacy-esg" # "esg-1"
         preferred_group = "include"  ## Must be the same as ESG!
         paths = {
-          ### STAGE 1 - Static EPG to Upstream Switch No Longer Required
-
           # path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
           #   pod       = 1
           #   leaf_node = 101
@@ -106,13 +96,13 @@ aps = {
           #   vlan_id   = 333
           #   mode      = "regular" # regular, native, untagged
           # }
-          # path2 = { # topology/pod-1/paths-101/pathep-[eth1/23]
-          #   pod       = 1
-          #   leaf_node = 102
-          #   port      = "eth1/1"
-          #   vlan_id   = 303
-          #   mode      = "regular" # regular, native, untagged
-          # }
+          path2 = { # topology/pod-1/paths-101/pathep-[eth1/23]
+            pod       = 1
+            leaf_node = 102
+            port      = "eth1/1"
+            vlan_id   = 303
+            mode      = "regular" # regular, native, untagged
+          }
         }
       }
       vl-304 = {
@@ -120,12 +110,9 @@ aps = {
         bd_name = "bd-304"       ## Bridge Domain to add EPG to
         description = "EPG for VLAN 304"
         vmm_enabled = true
-        ### STAGE 1 - Map EPG to ESG
         mapped_esg = "legacy-esg" # "esg-1"
         preferred_group = "include"  ## Must be the same as ESG!
         paths = {
-          ### STAGE 1 - Static EPG to Upstream Switch No Longer Required
-
           # path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
           #   pod       = 1
           #   leaf_node = 101
@@ -133,13 +120,118 @@ aps = {
           #   vlan_id   = 333
           #   mode      = "regular" # regular, native, untagged
           # }
-          # path2 = { # topology/pod-1/paths-101/pathep-[eth1/23]
-          #   pod       = 1
-          #   leaf_node = 102
-          #   port      = "eth1/1"
-          #   vlan_id   = 304
-          #   mode      = "regular" # regular, native, untagged
-          # }
+          path2 = { # topology/pod-1/paths-101/pathep-[eth1/23]
+            pod       = 1
+            leaf_node = 102
+            port      = "eth1/1"
+            vlan_id   = 304
+            mode      = "regular" # regular, native, untagged
+          }
+        }
+      }
+    }
+  }
+  app-1 = {
+    ap_name = "app-1"
+    tenant_name = "demo-basic-1"    ## Tenant to add AP to
+    description = "App Profile for Separated App #1"
+    esgs = {
+      app-1 = {
+        esg_name        = "app-1"
+        description     = "App #1 ESG"
+        preferred_group = "include"
+        vrf_name        = "vrf-1"
+        consumed_contracts = {}
+        provided_contracts = {}
+      }
+    }
+    epgs = {
+      app-1 = {
+        epg_name = "app-1"
+        bd_name = "bd-303"       ## Bridge Domain to add EPG to
+        description = "App #1 EPG"
+        vmm_enabled = true
+        mapped_esg = "app-1" # "esg-1"
+        preferred_group = "include"  ## Must be the same as ESG!
+        paths = {}
+      }
+    }
+  }
+  app-2 = {
+    ap_name = "app-2"
+    tenant_name = "demo-basic-1"    ## Tenant to add AP to
+    description = "App Profile for Separated App #2"
+    esgs = {
+      app-2 = {
+        esg_name        = "app-2"
+        description     = "App #2 ESG"
+        preferred_group = "include"
+        vrf_name        = "vrf-1"
+        consumed_contracts = {}
+        provided_contracts = {}
+      }
+    }
+    epgs = {
+      app-2 = {
+        epg_name = "app-2"
+        bd_name = "bd-303"       ## Bridge Domain to add EPG to
+        description = "App #2 EPG"
+        vmm_enabled = true
+        mapped_esg = "app-2" # "esg-1"
+        preferred_group = "include"  ## Must be the same as ESG!
+        paths = {}
+      }
+    }
+  }
+  app-3 = {
+    ap_name = "app-3"
+    tenant_name = "demo-basic-1"    ## Tenant to add AP to
+    description = "App Profile for Separated App #3"
+    esgs = {
+      app-3 = {
+        esg_name        = "app-3"
+        description     = "App #3 ESG"
+        preferred_group = "include"
+        vrf_name        = "vrf-1"
+        consumed_contracts = {}
+        provided_contracts = {}
+      }
+    }
+    epgs = {
+      app-3 = {
+        epg_name = "app-3"
+        bd_name = "bd-304"       ## Bridge Domain to add EPG to
+        description = "App #3 EPG"
+        vmm_enabled = true
+        mapped_esg = "app-3" # "esg-1"
+        preferred_group = "include"  ## Must be the same as ESG!
+        paths = {}
+      }
+    }
+  }
+  app-4 = {
+    ap_name = "app-4"
+    tenant_name = "demo-basic-1"    ## Tenant to add AP to
+    description = "App Profile for Separated App #4"
+    esgs = {
+      app-4 = {
+        esg_name        = "app-4"
+        description     = "App #4 ESG"
+        preferred_group = "include"
+        vrf_name        = "vrf-1"
+        consumed_contracts = {}
+        provided_contracts = {}
+      }
+    }
+    epgs = {
+      app-4 = {
+        epg_name = "app-4"
+        bd_name = "bd-304"       ## Bridge Domain to add EPG to
+        description = "App #4 EPG"
+        vmm_enabled = true
+        mapped_esg = "app-4" # "esg-1"
+        preferred_group = "include"  ## Must be the same as ESG!
+        paths = {}
         }
       }
     }
