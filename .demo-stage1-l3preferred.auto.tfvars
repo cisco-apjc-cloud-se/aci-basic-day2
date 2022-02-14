@@ -33,8 +33,9 @@ bds = {
     vrf_name    = "vrf-1"      ## VRF to add BD to
     description = " Bridge Domain for Legacy VLAN 303 in Tenant #1"
     tenant_name = "demo-basic-1"    ## Tenant to add VRF to
-    ### STAGE 1 - ARP Flood No Longer Required
+    ### STAGE 1 - ARP Flood No Longer Required, Set BD vMAC to HSRP MAC & Map to L3Out
     arp_flood   = "no" ## "yes", "no"
+    mac_address = "00:00:0c:9f:f1:2f"  ## HSRP v2 MAC!
     l3outs      = ["demo-l3out"] ## List of associated L3outs for BD's Subnets
     subnets = {
       ### STAGE 1 - Move Gateway to Bridge Domain
@@ -51,8 +52,9 @@ bds = {
     vrf_name    = "vrf-1"      ## VRF to add BD to
     description = " Bridge Domain for Legacy VLAN 304 in Tenant #1"
     tenant_name = "demo-basic-1"    ## Tenant to add VRF to
-    ### STAGE 1 - ARP Flood No Longer Required
+    ### STAGE 1 - ARP Flood No Longer Required, Set BD vMAC to HSRP MAC & Map to L3Out
     arp_flood   = "no" ## "yes", "no"
+    mac_address = "00:00:0c:9f:f1:30"  ## HSRP v2 MAC!
     l3outs      = ["demo-l3out"] ## List of associated L3outs for BD's Subnets
     subnets = {
       ### STAGE 1 - Move Gateway to Bridge Domain

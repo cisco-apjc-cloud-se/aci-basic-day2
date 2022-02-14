@@ -38,6 +38,7 @@ variable "bds" {
     description   = string
     tenant_name   = string
     arp_flood     = string
+    mac_address   = string
     l3outs        = list(string)
     subnets = map(object({
       description   = string
