@@ -232,7 +232,6 @@ aps = {
         mapped_esg = "app-4" # "esg-1"
         preferred_group = "include"  ## Must be the same as ESG!
         paths = {}
-        }
       }
     }
   }
