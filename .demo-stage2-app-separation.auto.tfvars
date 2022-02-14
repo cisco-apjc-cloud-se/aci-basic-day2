@@ -88,22 +88,7 @@ aps = {
         vmm_enabled = true
         mapped_esg = "legacy-esg" # "esg-1"
         preferred_group = "include"  ## Must be the same as ESG!
-        paths = {
-          # path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
-          #   pod       = 1
-          #   leaf_node = 101
-          #   port      = "eth1/1"
-          #   vlan_id   = 333
-          #   mode      = "regular" # regular, native, untagged
-          # }
-          path2 = { # topology/pod-1/paths-101/pathep-[eth1/23]
-            pod       = 1
-            leaf_node = 102
-            port      = "eth1/1"
-            vlan_id   = 303
-            mode      = "regular" # regular, native, untagged
-          }
-        }
+        paths = {}
       }
       vl-304 = {
         epg_name = "vl-304"
@@ -112,22 +97,7 @@ aps = {
         vmm_enabled = true
         mapped_esg = "legacy-esg" # "esg-1"
         preferred_group = "include"  ## Must be the same as ESG!
-        paths = {
-          # path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
-          #   pod       = 1
-          #   leaf_node = 101
-          #   port      = "eth1/1"
-          #   vlan_id   = 333
-          #   mode      = "regular" # regular, native, untagged
-          # }
-          path2 = { # topology/pod-1/paths-101/pathep-[eth1/23]
-            pod       = 1
-            leaf_node = 102
-            port      = "eth1/1"
-            vlan_id   = 304
-            mode      = "regular" # regular, native, untagged
-          }
-        }
+        paths = {}
       }
     }
   }
