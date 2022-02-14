@@ -641,6 +641,7 @@ l3outs = {
         provided_contracts = {}
         contract_master_epgs = {
           epg-1 = {
+            l3out_name = "demo-l3out"
             epg_name= "rfc1918"
           }
         }

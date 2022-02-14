@@ -219,7 +219,7 @@ resource "aci_external_network_instance_profile" "extepgs" {
   ] # aci_contract.tf-vlan100-to-rfc1918.id,
 
   relation_fv_rs_sec_inherited = [
-    for key, contract in each.value.inherited_contracts : aci_contract.contracts[contract.contract_name].id ## Assumes Contract Name also used for map/object key
+    for key, extepg in each.value.inherited_contracts : aci_external_network_instance_profile.extepgs[format("%s-%s", extepg.l3out_name ,extepg.epg_name)].id ## Assumes L3Out & Ext EPG Names also used for map/object key
   ]
 }
 

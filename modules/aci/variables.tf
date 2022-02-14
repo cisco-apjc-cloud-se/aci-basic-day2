@@ -173,6 +173,7 @@ variable "l3outs" {
         contract_name = string
       }))
       contract_master_epgs = map(object({
+        l3out_name = string
         epg_name = string
       }))
       subnets = map(object({
