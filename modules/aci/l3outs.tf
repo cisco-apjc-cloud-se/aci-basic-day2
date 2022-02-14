@@ -36,10 +36,34 @@ locals {
           consumed_contracts  = extepg.consumed_contracts
           provided_contracts  = extepg.provided_contracts
         }
+        ## Only if NO inherited contract master
+        if length(extepg.contract_master_epgs) == 0
     ]
   ])
   l3out_extepg_map = {
     for val in local.l3out_extepg_list:
+      lower(format("%s-%s", val["l3out_key"], val["extepg_name"])) => val
+  }
+
+  ## L3Out -> Ext EPG Map with Inherited Contract Master EPGs ##
+  l3out_extepg_inherited_list = flatten([
+    for l3out_key, l3out in var.l3outs : [
+      for ext_key, extepg in l3out.extepgs :
+        {
+          l3out_key             = l3out_key
+          extepg_name           = extepg.extepg_name
+          description           = extepg.description
+          preferred_group       = extepg.preferred_group
+          consumed_contracts    = extepg.consumed_contracts
+          provided_contracts    = extepg.provided_contracts
+          contract_master_epgs  = extepg.contract_master_epgs
+        }
+        ## Only if inherited contract master
+        if length(extepg.contract_master_epgs) > 0
+    ]
+  ])
+  l3out_extepg_inherited_map = {
+    for val in local.l3out_extepg_inherited_list:
       lower(format("%s-%s", val["l3out_key"], val["extepg_name"])) => val
   }
 
@@ -204,7 +228,26 @@ locals {
 ### Create new External EPG(s) under L3Out(s) ###
 
 resource "aci_external_network_instance_profile" "extepgs" {
+  ### External EPGs with No Inherited Contract Master EPGs ###
   for_each = local.l3out_extepg_map
+
+  l3_outside_dn       = aci_l3_outside.l3outs[each.value.l3out_key].id
+  description         = each.value.description
+  name                = each.value.extepg_name
+  pref_gr_memb        = each.value.preferred_group
+
+  relation_fv_rs_cons = [
+    for key, contract in each.value.consumed_contracts : aci_contract.contracts[contract.contract_name].id ## Assumes Contract Name also used for map/object key
+  ] # aci_contract.tf-rfc1918-to-vlan100.id
+  relation_fv_rs_prov = [
+    for key, contract in each.value.provided_contracts : aci_contract.contracts[contract.contract_name].id ## Assumes Contract Name also used for map/object key
+  ] # aci_contract.tf-vlan100-to-rfc1918.id,
+
+}
+
+resource "aci_external_network_instance_profile" "extepgs_inherited" {
+  ### External EPGs with Inherited Contract Master EPGs - Needed to Avoid Cyclic Loop ###
+  for_each = local.l3out_extepg_inherited_map
 
   l3_outside_dn       = aci_l3_outside.l3outs[each.value.l3out_key].id
   description         = each.value.description
@@ -222,6 +265,7 @@ resource "aci_external_network_instance_profile" "extepgs" {
     for key, extepg in each.value.inherited_contracts : aci_external_network_instance_profile.extepgs[format("%s-%s", extepg.l3out_name ,extepg.epg_name)].id ## Assumes L3Out & Ext EPG Names also used for map/object key
   ]
 }
+
 
 
 resource "aci_l3_ext_subnet" "extsubnets" {
