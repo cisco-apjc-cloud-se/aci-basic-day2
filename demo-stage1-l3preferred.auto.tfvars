@@ -36,7 +36,7 @@ bds = {
     tenant_name = "demo-basic-1"    ## Tenant to add VRF to
     ### STAGE 1 - ARP Flood No Longer Required, Set BD vMAC to HSRP MAC & Map to L3Out
     arp_flood   = "no" ## "yes", "no"
-    mac_address = "00:00:0c:9f:f1:2f"  ## HSRP v2 MAC!
+    mac_address = "00:00:0C:9F:F1:2F"  ## HSRP v2 MAC!
     l3outs      = ["demo-l3out"] ## List of associated L3outs for BD's Subnets
     subnets = {
       ### STAGE 1 - Move Gateway to Bridge Domain
@@ -55,7 +55,7 @@ bds = {
     tenant_name = "demo-basic-1"    ## Tenant to add VRF to
     ### STAGE 1 - ARP Flood No Longer Required, Set BD vMAC to HSRP MAC & Map to L3Out
     arp_flood   = "no" ## "yes", "no"
-    mac_address = "00:00:0c:9f:f1:30"  ## HSRP v2 MAC!
+    mac_address = "00:00:0C:9F:F1:30"  ## HSRP v2 MAC!
     l3outs      = ["demo-l3out"] ## List of associated L3outs for BD's Subnets
     subnets = {
       ### STAGE 1 - Move Gateway to Bridge Domain
