@@ -101,7 +101,7 @@ aps = {
   #       paths = {}
   #     }
   #   }
-  }
+  # }
   app-1 = {
     ap_name = "app-1"
     tenant_name = "demo-basic-1"    ## Tenant to add AP to
