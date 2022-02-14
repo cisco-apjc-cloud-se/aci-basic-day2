@@ -282,6 +282,7 @@ l3outs = {
         preferred_group     = "include"
         consumed_contracts = {}
         provided_contracts = {}
+        contract_master_epgs = {}
         subnets = {
           N-10-0-0-0-8 = {
             description = "10.0.0.0/8"

@@ -606,6 +606,7 @@ l3outs = {
           }
         }
         provided_contracts = {}
+        contract_master_epgs = {}
         subnets = {
           N-10-0-0-0-8 = {
             description = "10.0.0.0/8"
@@ -638,6 +639,11 @@ l3outs = {
           }
         }
         provided_contracts = {}
+        contract_master_epgs = {
+          epg-1 = {
+            epg_name= "rfc1918"
+          }
+        }
         subnets = {
           H-10-67-29-4 = {
             description = "10.67.29.4/32"
