@@ -262,7 +262,7 @@ resource "aci_external_network_instance_profile" "extepgs_inherited" {
   ] # aci_contract.tf-vlan100-to-rfc1918.id,
 
   relation_fv_rs_sec_inherited = [
-    for key, extepg in each.value.inherited_contracts : aci_external_network_instance_profile.extepgs[format("%s-%s", extepg.l3out_name ,extepg.epg_name)].id ## Assumes L3Out & Ext EPG Names also used for map/object key
+    for key, extepg in each.value.contract_master_epgs : aci_external_network_instance_profile.extepgs[format("%s-%s", extepg.l3out_name ,extepg.epg_name)].id ## Assumes L3Out & Ext EPG Names also used for map/object key
   ]
 }
 
@@ -271,7 +271,10 @@ resource "aci_external_network_instance_profile" "extepgs_inherited" {
 resource "aci_l3_ext_subnet" "extsubnets" {
   for_each = local.l3out_extepg_subnet_map
 
-  external_network_instance_profile_dn  = aci_external_network_instance_profile.extepgs[lower(format("%s-%s", each.value.l3out_key, each.value.e_key))].id
+  external_network_instance_profile_dn  = try(
+                                            aci_external_network_instance_profile.extepgs[lower(format("%s-%s", each.value.l3out_key, each.value.e_key))].id,
+                                            aci_external_network_instance_profile.extepgs_inherited[lower(format("%s-%s", each.value.l3out_key, each.value.e_key))].id
+                                          )
   description         = each.value.description
   aggregate           = each.value.aggregate # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
   ip                  = each.value.ip
