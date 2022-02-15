@@ -387,21 +387,21 @@ filters = {
         name = "dns-udp"
         description = "Allow ICMP traffic"
         ether_t       = "ipv4"
-        d_from_port   = "unspecified"
-        d_to_port     = "unspecified"
+        d_from_port   = "53"
+        d_to_port     = "53"
         prot          = "udp"
-        s_from_port   = "53"
-        s_to_port     = "53"
+        s_from_port   = "unspecified"
+        s_to_port     = "unspecified"
       }
       dns-tcp = {
         name = "dns-tcp"
         description = "Allow ICMP traffic"
         ether_t       = "ipv4"
-        d_from_port   = "unspecified"
-        d_to_port     = "unspecified"
+        d_from_port   = "53"
+        d_to_port     = "53"
         prot          = "tcp"
-        s_from_port   = "53"
-        s_to_port     = "53"
+        s_from_port   = "unspecified"
+        s_to_port     = "unspecified"
       }
     }
   }
