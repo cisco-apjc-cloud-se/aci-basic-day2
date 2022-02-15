@@ -80,6 +80,9 @@ aps = {
           cons-1 = {
             contract_name = "app1-web-to-db"
           }
+          cons-2 = {
+            contract_name = "servers-to-internet"
+          }
         }
         provided_contracts = {
           prov-1 = {
@@ -95,7 +98,11 @@ aps = {
         description     = "App #1 DB Tier ESG"
         preferred_group = "exclude"
         vrf_name        = "vrf-1"
-        consumed_contracts = {}
+        consumed_contracts = {
+          cons-1 = {
+            contract_name = "servers-to-internet"
+          }
+        }
         provided_contracts = {
           prov-1 = {
             contract_name = "app1-web-to-db"
@@ -141,6 +148,9 @@ aps = {
           cons-1 = {
             contract_name = "app2-web-to-db"
           }
+          cons-2 = {
+            contract_name = "servers-to-internet"
+          }
         }
         provided_contracts = {
           prov-1 = {
@@ -156,7 +166,11 @@ aps = {
         description     = "App #2 DB Tier ESG"
         preferred_group = "exclude"
         vrf_name        = "vrf-1"
-        consumed_contracts = {}
+        consumed_contracts = {
+          cons-1 = {
+            contract_name = "servers-to-internet"
+          }
+        }
         provided_contracts = {
           prov-1 = {
             contract_name = "app2-web-to-db"
@@ -202,6 +216,9 @@ aps = {
           cons-1 = {
             contract_name = "app3-web-to-db"
           }
+          cons-2 = {
+            contract_name = "servers-to-internet"
+          }
         }
         provided_contracts = {
           prov-1 = {
@@ -217,7 +234,11 @@ aps = {
         description     = "App #3 DB Tier ESG"
         preferred_group = "exclude"
         vrf_name        = "vrf-1"
-        consumed_contracts = {}
+        consumed_contracts = {
+          cons-1 = {
+            contract_name = "servers-to-internet"
+          }
+        }
         provided_contracts = {
           prov-1 = {
             contract_name = "app3-web-to-db"
@@ -263,6 +284,9 @@ aps = {
           cons-1 = {
             contract_name = "app4-web-to-db"
           }
+          cons-2 = {
+            contract_name = "servers-to-internet"
+          }
         }
         provided_contracts = {
           prov-1 = {
@@ -278,7 +302,11 @@ aps = {
         description     = "App #4 DB Tier ESG"
         preferred_group = "exclude"
         vrf_name        = "vrf-1"
-        consumed_contracts = {}
+        consumed_contracts = {
+          cons-1 = {
+            contract_name = "servers-to-internet"
+          }
+        }
         provided_contracts = {
           prov-1 = {
             contract_name = "app4-web-to-db"
@@ -498,6 +526,18 @@ contracts = {
       "allow-ssh"
     ]
   }
+  ### STAGE 5 - External Traffic Egress
+  servers-to-internet = {
+    contract_name = "servers-to-internet"
+    description   = "Allow limited traffic from all servers to external servers"
+    tenant_name   = "demo-basic-1"    ## Tenant to add filter to
+    scope         = "tenant" # "global", "tenant", "application-profile" and "context"
+    filters = [
+      "allow-ssh",
+      "allow-icmp",
+      "allow-web"
+    ]
+  }
 }
 
 ### L3Outs & External EPGs ###
@@ -640,6 +680,27 @@ l3outs = {
             description = "10.67.16.241/32"
             aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
             ip = "10.67.16.241/32"
+            scope = ["import-security"]
+          }
+        }
+      }
+      ### STAGE 5 - New Internet Server User Group for External Egress Traffic
+      internet = {
+        extepg_name         = "internet"
+        description         = "External Servers"
+        preferred_group     = "exclude"
+        consumed_contracts = {}
+        provided_contracts = {
+          prov-1 = {
+            contract_name = "servers-to-internet"
+          }
+        }
+        contract_master_epgs = {}
+        subnets = {
+          N-0-0-0-0 = {
+            description = "0.0.0.0/0"
+            aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+            ip = "0.0.0.0/0"
             scope = ["import-security"]
           }
         }
