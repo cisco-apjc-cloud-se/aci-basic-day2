@@ -1,5 +1,7 @@
 # ACI Day 2 Automation with Terraform Cloud for Business and Intersight Service for Terraform
 
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/cisco-apjc-cloud-se/aci-basic-day2)
+
 ## Overview
 This example focuses on automating common Day 2 services typically configured under the Tenant tab in the ACI GUI.  
 
