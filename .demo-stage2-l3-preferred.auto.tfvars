@@ -22,7 +22,7 @@ vrfs = {
     vrf_name    = "vrf-1"
     description = "VRF #1 for Tenant #1"
     tenant_name = "demo-basic-1" ## Tenant to add VRF to
-    ### STAGE 1 - Enable Preferred Group on VRF
+    ### STAGE 2 - Enable Preferred Group on VRF
     preferred_group = "enabled"
   }
 }
@@ -34,12 +34,12 @@ bds = {
     vrf_name    = "vrf-1"      ## VRF to add BD to
     description = " Bridge Domain for Legacy VLAN 303 in Tenant #1"
     tenant_name = "demo-basic-1"    ## Tenant to add VRF to
-    ### STAGE 1 - ARP Flood No Longer Required, Set BD vMAC to HSRP MAC & Map to L3Out
+    ### STAGE 2 - ARP Flood No Longer Required, Set BD vMAC to HSRP MAC & Map to L3Out
     arp_flood   = "no" ## "yes", "no"
     mac_address = "00:00:0C:9F:F1:2F"  ## HSRP v2 MAC!
     l3outs      = ["demo-l3out"] ## List of associated L3outs for BD's Subnets
     subnets = {
-      ### STAGE 1 - Move Gateway to Bridge Domain
+      ### STAGE 2 - Move Gateway to Bridge Domain
       sub-1 = {
         ip          = "10.66.209.81/28"
         description = "Primary Subnet for BD VLAN 303"
@@ -53,12 +53,12 @@ bds = {
     vrf_name    = "vrf-1"      ## VRF to add BD to
     description = " Bridge Domain for Legacy VLAN 304 in Tenant #1"
     tenant_name = "demo-basic-1"    ## Tenant to add VRF to
-    ### STAGE 1 - ARP Flood No Longer Required, Set BD vMAC to HSRP MAC & Map to L3Out
+    ### STAGE 2 - ARP Flood No Longer Required, Set BD vMAC to HSRP MAC & Map to L3Out
     arp_flood   = "no" ## "yes", "no"
     mac_address = "00:00:0C:9F:F1:30"  ## HSRP v2 MAC!
     l3outs      = ["demo-l3out"] ## List of associated L3outs for BD's Subnets
     subnets = {
-      ### STAGE 1 - Move Gateway to Bridge Domain
+      ### STAGE 2 - Move Gateway to Bridge Domain
       sub-1 = {
         ip          = "10.66.209.97/28"
         description = "Primary Subnet for BD VLAN 304"
@@ -75,12 +75,12 @@ aps = {
     ap_name = "legacy"
     tenant_name = "demo-basic-1"    ## Tenant to add AP to
     description = "App Profile for Legacy Network Centric VLANs"
-    ### STAGE 1 - Enable ESGs - one per EPG
+    ### STAGE 2 - Enable ESGs - one per EPG
     esgs = {
       legacy-esg = {
         esg_name        = "legacy-esg"
         description     = "Legacy Networks ESG"
-        ### STAGE 1 - Enabled Preferred Group
+        ### STAGE 2 - Enabled Preferred Group
         preferred_group = "include"
         vrf_name        = "vrf-1"
         consumed_contracts = {}
@@ -93,11 +93,11 @@ aps = {
         bd_name = "bd-303"       ## Bridge Domain to add EPG to
         description = "EPG for VLAN 303"
         vmm_enabled = true
-        ### STAGE 1 - Map EPG to ESG
+        ### STAGE 2 - Map EPG to ESG
         mapped_esg = "legacy-esg" # "esg-1"
         preferred_group = "include"  ## Must be the same as ESG!
         paths = {
-          ### STAGE 1 - Static EPG to Upstream Switch No Longer Required
+          ### STAGE 2 - Static EPG to Upstream Switch No Longer Required
 
           # path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
           #   pod       = 1
@@ -120,11 +120,11 @@ aps = {
         bd_name = "bd-304"       ## Bridge Domain to add EPG to
         description = "EPG for VLAN 304"
         vmm_enabled = true
-        ### STAGE 1 - Map EPG to ESG
+        ### STAGE 2 - Map EPG to ESG
         mapped_esg = "legacy-esg" # "esg-1"
         preferred_group = "include"  ## Must be the same as ESG!
         paths = {
-          ### STAGE 1 - Static EPG to Upstream Switch No Longer Required
+          ### STAGE 2 - Static EPG to Upstream Switch No Longer Required
 
           # path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
           #   pod       = 1
@@ -155,7 +155,7 @@ contracts = {}
 
 ### L3Outs & External EPGs ###
 l3outs = {
-  ### STAGE 1 - ENABLE L3OUT with OSPF & External EPG (RFC1918)
+  ### STAGE 2 - Enable L3Out with OSPF & External EPG (RFC1918)
   demo-l3out = {
     l3out_name      = "demo-l3out"
     description     = "Demo L3Out built from Terraform"

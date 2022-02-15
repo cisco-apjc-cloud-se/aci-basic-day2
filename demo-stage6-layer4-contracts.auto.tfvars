@@ -342,8 +342,7 @@ aps = {
 
 ### Filters ###
 filters = {
-  ### STAGE 4 - Add Layer 4 Filters ###
-
+  ### STAGE 6 - Remove IPv4 Filter ###
   # allow-ipv4 = {
   #   filter_name = "allow-ipv4"
   #   description = "Allow all IPv4 traffic"
@@ -361,6 +360,7 @@ filters = {
   #     }
   #   }
   # }
+  ### STAGE 6 - Add new Layer 4 Filters ###
   allow-icmp = {
     filter_name = "allow-icmp"
     description = "Allow ICMP traffic"
@@ -480,7 +480,7 @@ filters = {
 
 
 ### Contracts ###
-### STAGE 5 - Add Layer 4 Filters to Contracts ###
+### STAGE 6 - Add Layer 4 Filters to Contracts ###
 contracts = {
   app1-web-to-db = {
     contract_name = "app1-web-to-db"
@@ -543,7 +543,7 @@ contracts = {
       "allow-mysql"
     ]
   }
-  ### STAGE 5 - New Web Admins Contract for SSH Access
+  ### STAGE 6 - New Web Admins Contract for SSH Access
   webadmins-to-web = {
     contract_name = "webadmins-to-web"
     description   = "Allow SSH traffic from Web Admins to all App Web Tiers"
@@ -553,7 +553,7 @@ contracts = {
       "allow-ssh"
     ]
   }
-  ### STAGE 5 - External Traffic Egress
+  ### STAGE 6 - External Traffic Egress
   servers-to-internet = {
     contract_name = "servers-to-internet"
     description   = "Allow limited traffic from all servers to external servers"
@@ -686,7 +686,7 @@ l3outs = {
           }
         }
       }
-      ### STAGE 5 - New Web Admin User Group
+      ### STAGE 6 - New Web Admin User Group
       webadmins = {
         extepg_name         = "webadmins"
         description         = "Web Admin Users"
@@ -712,7 +712,7 @@ l3outs = {
           }
         }
       }
-      ### STAGE 5 - New Internet Server User Group for External Egress Traffic
+      ### STAGE 6 - New Internet Server User Group for External Egress Traffic
       internet = {
         extepg_name         = "internet"
         description         = "External Servers"

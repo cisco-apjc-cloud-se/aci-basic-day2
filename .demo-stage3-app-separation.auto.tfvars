@@ -101,6 +101,7 @@ aps = {
       }
     }
   }
+  ### STAGE 3 - New Application-Specific Profiles, ESGs & EPGs ###
   app-1 = {
     ap_name = "app-1"
     tenant_name = "demo-basic-1"    ## Tenant to add AP to
@@ -216,7 +217,6 @@ contracts = {}
 
 ### L3Outs & External EPGs ###
 l3outs = {
-  ### STAGE 1 - ENABLE L3OUT with OSPF & External EPG (RFC1918)
   demo-l3out = {
     l3out_name      = "demo-l3out"
     description     = "Demo L3Out built from Terraform"

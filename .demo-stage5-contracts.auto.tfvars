@@ -71,7 +71,7 @@ aps = {
     tenant_name = "demo-basic-1"    ## Tenant to add AP to
     description = "App Profile for Separated App #1"
     esgs = {
-      ### Stage 4 - Tidy-up Legacy ESG ###
+      ### STAGE 5 - Tidy-up Legacy ESG ###
       # app-1 = {
       #   esg_name        = "app-1"
       #   description     = "App #1 ESG"
@@ -80,7 +80,6 @@ aps = {
       #   consumed_contracts = {}
       #   provided_contracts = {}
       # }
-      ### Stage 4 - Add Contracts to ESGs ###
       web = {
         esg_name        = "web"
         description     = "App #1 Web Tier ESG"
@@ -114,7 +113,7 @@ aps = {
       }
     }
     epgs = {
-      ### Stage 4 - Tidy-up Legacy EPG ###
+      ### STAGE 5 - Tidy-up Legacy EPG ###
       # app-1 = {
       #   epg_name = "app-1"
       #   bd_name = "bd-303"       ## Bridge Domain to add EPG to
@@ -149,7 +148,7 @@ aps = {
     tenant_name = "demo-basic-1"    ## Tenant to add AP to
     description = "App Profile for Separated App #2"
     esgs = {
-      ### Stage 4 - Tidy-up Legacy ESG ###
+      ### STAGE 5 - Tidy-up Legacy ESG ###
       # app-2 = {
       #   esg_name        = "app-2"
       #   description     = "App #2 ESG"
@@ -158,7 +157,6 @@ aps = {
       #   consumed_contracts = {}
       #   provided_contracts = {}
       # }
-      ### Stage 3 - New Web & DB Tier ESGs ###
       web = {
         esg_name        = "web"
         description     = "App #2 Web Tier ESG"
@@ -192,7 +190,7 @@ aps = {
       }
     }
     epgs = {
-      ### Stage 4 - Tidy-up Legacy EPG ###
+      ### STAGE 5 - Tidy-up Legacy EPG ###
       # app-2 = {
       #   epg_name = "app-2"
       #   bd_name = "bd-303"       ## Bridge Domain to add EPG to
@@ -227,7 +225,7 @@ aps = {
     tenant_name = "demo-basic-1"    ## Tenant to add AP to
     description = "App Profile for Separated App #3"
     esgs = {
-      ### Stage 4 - Tidy-up Legacy ESG ###
+      ### STAGE 5 - Tidy-up Legacy ESG ###
       # app-3 = {
       #   esg_name        = "app-3"
       #   description     = "App #3 ESG"
@@ -236,7 +234,6 @@ aps = {
       #   consumed_contracts = {}
       #   provided_contracts = {}
       # }
-      ### Stage 3 - New Web & DB Tier ESGs ###
       web = {
         esg_name        = "web"
         description     = "App #3 Web Tier ESG"
@@ -270,7 +267,7 @@ aps = {
       }
     }
     epgs = {
-      ### Stage 4 - Tidy-up Legacy EPG ###
+      ### STAGE 5 - Tidy-up Legacy EPG ###
       # app-3 = {
       #   epg_name = "app-3"
       #   bd_name = "bd-304"       ## Bridge Domain to add EPG to
@@ -305,7 +302,7 @@ aps = {
     tenant_name = "demo-basic-1"    ## Tenant to add AP to
     description = "App Profile for Separated App #4"
     esgs = {
-      ### Stage 4 - Tidy-up Legacy ESG ###
+      ### STAGE 5 - Tidy-up Legacy ESG ###
       # app-4 = {
       #   esg_name        = "app-4"
       #   description     = "App #4 ESG"
@@ -314,7 +311,7 @@ aps = {
       #   consumed_contracts = {}
       #   provided_contracts = {}
       # }
-      ### Stage 4 - Add Contracts - Remove Preferred Group ###
+      ### STAGE 5 - Add Contracts - Remove Preferred Group ###
       web = {
         esg_name        = "web"
         description     = "App #4 Web Tier ESG"
@@ -348,7 +345,7 @@ aps = {
       }
     }
     epgs = {
-      ### Stage 4 - Tidy-up Legacy EPG ###
+      ### STAGE 5 - Tidy-up Legacy EPG ###
       # app-4 = {
       #   epg_name = "app-4"
       #   bd_name = "bd-304"       ## Bridge Domain to add EPG to
@@ -382,7 +379,7 @@ aps = {
 
 ### Filters ###
 filters = {
-  ### STAGE 4 - Add New Filters ###
+  ### STAGE 5 - Add New Filters ###
   allow-ipv4 = {
     filter_name = "allow-ipv4"
     description = "Allow all IPv4 traffic"
@@ -404,7 +401,7 @@ filters = {
 
 
 ### Contracts ###
-### STAGE 4 - Add New Contracts ###
+### STAGE 5 - Add New Contracts ###
 contracts = {
   app1-web-to-db = {
     contract_name = "app1-web-to-db"
@@ -523,11 +520,11 @@ l3outs = {
       }
     }
     extepgs = {
-      ### STAGE 4 - Add Contracts - Remove Preferred Group ###
+      ### STAGE 5 - Add Contracts - Remove Preferred Group ###
       rfc1918 = {
         extepg_name         = "rfc1918"
         description         = "External users in RFC1918 subnets"
-        ### STAGE 4 - Remove Preferred Group
+        ### STAGE 5 - Remove Preferred Group
         preferred_group     = "exclude"
         consumed_contracts = {
           cons-1 = {
@@ -557,7 +554,7 @@ l3outs = {
           }
         }
       }
-      ### STAGE 4 - New DB Admin Users Group, Add Contracts ###
+      ### STAGE 5 - New DB Admin Users Group, Add Contracts ###
       dbadmins = {
         extepg_name         = "dbadmins"
         description         = "DB Admin Users"

@@ -66,7 +66,7 @@ bds = {
 
 ### Application Profiles & End Point Groups ###
 aps = {
-  ### Stage 3 - Tidy-up Legacy APs & EPGs ###
+  ### STAGE 4 - Tidy-up Legacy APs & EPGs ###
   # legacy = {
   #   ap_name = "legacy"
   #   tenant_name = "demo-basic-1"    ## Tenant to add AP to
@@ -115,7 +115,7 @@ aps = {
         consumed_contracts = {}
         provided_contracts = {}
       }
-      ### Stage 3 - New Web & DB Tier ESGs ###
+      ### STAGE 4 - New Web & DB Tier ESGs ###
       web = {
         esg_name        = "web"
         description     = "App #1 Web Tier ESG"
@@ -143,7 +143,7 @@ aps = {
         preferred_group = "include"  ## Must be the same as ESG!
         paths = {}
       }
-      ### Stage 3 - New Web & DB Tier EPGs ###
+      ### STAGE 4 - New Web & DB Tier EPGs ###
       web = {
         epg_name = "web"
         bd_name = "bd-303"       ## Bridge Domain to add EPG to
@@ -177,7 +177,7 @@ aps = {
         consumed_contracts = {}
         provided_contracts = {}
       }
-      ### Stage 3 - New Web & DB Tier ESGs ###
+      ### STAGE 4 - New Web & DB Tier ESGs ###
       web = {
         esg_name        = "web"
         description     = "App #2 Web Tier ESG"
@@ -205,7 +205,7 @@ aps = {
         preferred_group = "include"  ## Must be the same as ESG!
         paths = {}
       }
-      ### Stage 3 - New Web & DB Tier EPGs ###
+      ### STAGE 4 - New Web & DB Tier EPGs ###
       web = {
         epg_name = "web"
         bd_name = "bd-303"       ## Bridge Domain to add EPG to
@@ -239,7 +239,7 @@ aps = {
         consumed_contracts = {}
         provided_contracts = {}
       }
-      ### Stage 3 - New Web & DB Tier ESGs ###
+      ### STAGE 4 - New Web & DB Tier ESGs ###
       web = {
         esg_name        = "web"
         description     = "App #3 Web Tier ESG"
@@ -267,7 +267,7 @@ aps = {
         preferred_group = "include"  ## Must be the same as ESG!
         paths = {}
       }
-      ### Stage 3 - New Web & DB Tier EPGs ###
+      ### STAGE 4 - New Web & DB Tier EPGs ###
       web = {
         epg_name = "web"
         bd_name = "bd-304"       ## Bridge Domain to add EPG to
@@ -301,7 +301,7 @@ aps = {
         consumed_contracts = {}
         provided_contracts = {}
       }
-      ### Stage 3 - New Web & DB Tier ESGs ###
+      ### STAGE 4 - New Web & DB Tier ESGs ###
       web = {
         esg_name        = "web"
         description     = "App #4 Web Tier ESG"
@@ -329,7 +329,7 @@ aps = {
         preferred_group = "include"  ## Must be the same as ESG!
         paths = {}
       }
-      ### Stage 3 - New Web & DB Tier EPGs ###
+      ### STAGE 4 - New Web & DB Tier EPGs ###
       web = {
         epg_name = "web"
         bd_name = "bd-304"       ## Bridge Domain to add EPG to
@@ -361,7 +361,6 @@ contracts = {}
 
 ### L3Outs & External EPGs ###
 l3outs = {
-  ### STAGE 1 - ENABLE L3OUT with OSPF & External EPG (RFC1918)
   demo-l3out = {
     l3out_name      = "demo-l3out"
     description     = "Demo L3Out built from Terraform"
