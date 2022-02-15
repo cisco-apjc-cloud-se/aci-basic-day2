@@ -433,7 +433,7 @@ contracts = {
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
     scope         = "tenant" # "global", "tenant", "application-profile" and "context"
     filters = [
-      "allow-icmp"
+      "allow-icmp",
       "allow-mysql"
     ]
   }
@@ -443,7 +443,7 @@ contracts = {
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
     scope         = "tenant" # "global", "tenant", "application-profile" and "context"
     filters = [
-      "allow-icmp"
+      "allow-icmp",
       "allow-mysql"
     ]
   }
@@ -453,7 +453,7 @@ contracts = {
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
     scope         = "tenant" # "global", "tenant", "application-profile" and "context"
     filters = [
-      "allow-icmp"
+      "allow-icmp",
       "allow-mysql"
     ]
   }
@@ -463,7 +463,7 @@ contracts = {
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
     scope         = "tenant" # "global", "tenant", "application-profile" and "context"
     filters = [
-      "allow-icmp"
+      "allow-icmp",
       "allow-mysql"
     ]
   }
@@ -473,7 +473,7 @@ contracts = {
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
     scope         = "tenant" # "global", "tenant", "application-profile" and "context"
     filters = [
-      "allow-icmp"
+      "allow-icmp",
       "allow-web"
     ]
   }
@@ -483,8 +483,8 @@ contracts = {
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
     scope         = "tenant" # "global", "tenant", "application-profile" and "context"
     filters = [
-      "allow-icmp"
-      "allow-ssh"
+      "allow-icmp",
+      "allow-ssh",
       "allow-mysql"
     ]
   }
