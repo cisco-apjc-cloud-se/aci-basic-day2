@@ -24,6 +24,8 @@ This includes the management of:
 * Optional Contracts & Filters
   * Bound to ESGs and External EPGs
 
+![Logical Topology](/images/logical-topology.png)
+
 In this example, we are using a custom Terraform module and set of input variable files (.auto.tfvars).  Each input variable file represents a customers ACI maturity journey from basic L2 services only to a full application-centric segmentation deployment with Layer 4 filters (ACLs) between applications, tiers & user groups.
 
 **NOTE:** 5 of the 6 input auto.tfvars files are hidden.  To change between stages rename and unhide the required stage file (i.e. remove "." prefix) and hide the current file (i.e. add "." prefix) before executing the Terraform plan.
@@ -87,6 +89,7 @@ The ACI module makes the following assumptions:
 * A Physical domain and associated VLAN pool has been defined under Fabric Access Policies in the APIC GUI
 * A VMware Virtual Machine Manager (VMM) domain and associated VLAN pool has been created under Virtual Networking in the APIC GUI
 
+![Physical Topology](/images/topology.png)
 
 ## Link to Github Repositories
 https://github.com/cisco-apjc-cloud-se/aci-basic-day2
