@@ -432,19 +432,19 @@ l3outs = {
             description = "10.0.0.0/8"
             aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
             ip = "10.0.0.0/8"
-            scope = ["import-security","shared-security"]
+            scope = ["import-security"]
           },
           N-172-16-0-0-12 = {
             description = "172.16.0.0/12"
             aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
             ip = "172.16.0.0/12"
-            scope = ["import-security","shared-security"]
+            scope = ["import-security"]
           },
           N-192-168-0-0-16 = {
             description = "192.168.0.0/16"
             aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
             ip = "192.168.0.0/16"
-            scope = ["import-security","shared-security"]
+            scope = ["import-security"]
           }
         }
       }
