@@ -378,6 +378,33 @@ filters = {
       }
     }
   }
+  allow-dns = {
+    filter_name = "allow-dns"
+    description = "Allow DNS traffic"
+    tenant_name = "demo-basic-1"    ## Tenant to add filter to
+    entries = {
+      dns-udp = {
+        name = "dns-udp"
+        description = "Allow ICMP traffic"
+        ether_t       = "ipv4"
+        d_from_port   = "unspecified"
+        d_to_port     = "unspecified"
+        prot          = "udp"
+        s_from_port   = "53"
+        s_to_port     = "53"
+      }
+      dns-tcp = {
+        name = "dns-tcp"
+        description = "Allow ICMP traffic"
+        ether_t       = "ipv4"
+        d_from_port   = "unspecified"
+        d_to_port     = "unspecified"
+        prot          = "tcp"
+        s_from_port   = "53"
+        s_to_port     = "53"
+      }
+    }
+  }
   allow-mysql = {
     filter_name = "allow-mysql"
     description = "Allow MySQL TCP 3306 traffic"
@@ -533,6 +560,7 @@ contracts = {
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
     scope         = "tenant" # "global", "tenant", "application-profile" and "context"
     filters = [
+      "allow-dns",
       "allow-ssh",
       "allow-icmp",
       "allow-web"
