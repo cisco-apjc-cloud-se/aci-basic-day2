@@ -1,4 +1,5 @@
 # ACI Day 2 Automation with Terraform Cloud for Business and Intersight Service for Terraform
+Keywords: ACI, Terraform, IST, IaC, Day 2
 
 ## Overview
 This example focuses on automating common Day 2 services typically configured under the Tenant tab in the ACI GUI.  
