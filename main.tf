@@ -25,7 +25,8 @@ provider "aci" {
 
 ## ACI Networking Module
 module "aci" {
-  source = "./modules/aci"
+  # source = "./modules/aci"
+  source = "github.com/cisco-apjc-cloud-se/terraform-aci-day2"
 
   ### Tenants ###
   tenants   = var.tenants
