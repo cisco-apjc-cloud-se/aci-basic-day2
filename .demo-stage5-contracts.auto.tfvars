@@ -404,6 +404,7 @@ filters = {
 ### STAGE 5 - Add New Contracts ###
 contracts = {
   app1-web-to-db = {
+    existing      = false
     contract_name = "app1-web-to-db"
     description   = "Allow all traffic from Web to DB Tier"
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
@@ -413,6 +414,7 @@ contracts = {
     ]
   }
   app2-web-to-db = {
+    existing      = false
     contract_name = "app2-web-to-db"
     description   = "Allow all traffic from Web to DB Tier"
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
@@ -422,6 +424,7 @@ contracts = {
     ]
   }
   app3-web-to-db = {
+    existing      = false
     contract_name = "app2-web-to-db"
     description   = "Allow all traffic from Web to DB Tier"
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
@@ -431,6 +434,7 @@ contracts = {
     ]
   }
   app4-web-to-db = {
+    existing      = false
     contract_name = "app2-web-to-db"
     description   = "Allow all traffic from Web to DB Tier"
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
@@ -440,6 +444,7 @@ contracts = {
     ]
   }
   rfc1918-to-web = {
+    existing      = false
     contract_name = "rfc1918-to-web"
     description   = "Allow all traffic from External RFC1918 to all App Web Tiers"
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
@@ -449,6 +454,7 @@ contracts = {
     ]
   }
   dbadmins-to-db = {
+    existing      = false
     contract_name = "dbadmins-to-db"
     description   = "Allow all traffic from DB Admins to all App DB Tiers"
     tenant_name   = "demo-basic-1"    ## Tenant to add filter to
