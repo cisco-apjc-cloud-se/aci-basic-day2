@@ -14,6 +14,10 @@ tenants = {
     name = "demo-basic-2"
     description = "Basic ACI Tenant #2 built from Terraform Cloud"
   }
+  demo-basic-3 = {
+    name = "demo-basic-3"
+    description = "Basic ACI Tenant #3 built from Terraform Cloud"
+  }
 }
 
 ### VRFs ###
