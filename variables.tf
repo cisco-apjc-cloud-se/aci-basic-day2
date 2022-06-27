@@ -36,6 +36,7 @@ variable "phys_name" {
 variable "tenants" {
   type = map(object({
     name        = string
+    existing    = bool
     description = string
   }))
 }

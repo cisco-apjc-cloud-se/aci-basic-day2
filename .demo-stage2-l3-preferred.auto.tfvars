@@ -7,11 +7,13 @@ phys_name = "LAB-N9348"
 ### Tenants ###
 tenants = {
   demo-basic-1 = {
-    name = "demo-basic-1"
+    name        = "demo-basic-1"
+    existing    = false
     description = "Basic ACI Tenant #1 built from Terraform Cloud"
   }
   demo-basic-2 = {
     name = "demo-basic-2"
+    existing    = false
     description = "Basic ACI Tenant #2 built from Terraform Cloud"
   }
 }
