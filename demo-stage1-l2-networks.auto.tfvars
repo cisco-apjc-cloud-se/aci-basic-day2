@@ -68,62 +68,62 @@ bds = {
 
 ### Application Profiles & End Point Groups ###
 aps = {
-  # legacy = {
-  #   ap_name = "legacy"
-  #   tenant_name = "demo-basic-1"    ## Tenant to add AP to
-  #   description = "App Profile for Legacy Network Centric VLANs"
-  #   esgs = {}
-  #   epgs = {
-  #     vl-303 = {
-  #       epg_name = "vl-303"
-  #       bd_name = "bd-303"       ## Bridge Domain to add EPG to
-  #       description = "EPG for VLAN 303"
-  #       vmm_enabled = true
-  #       mapped_esg = ""
-  #       preferred_group = "exclude"
-  #       paths = {
-  #         # path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
-  #         #   pod       = 1
-  #         #   leaf_node = 101
-  #         #   port      = "eth1/1"
-  #         #   vlan_id   = 333
-  #         #   mode      = "regular" # regular, native, untagged
-  #         # }
-  #         path2 = { # topology/pod-1/paths-101/pathep-[eth1/23]
-  #           pod       = 1
-  #           leaf_node = 102
-  #           port      = "eth1/1"
-  #           vlan_id   = 303
-  #           mode      = "regular" # regular, native, untagged
-  #         }
-  #       }
-  #     }
-  #     vl-304 = {
-  #       epg_name = "vl-304"
-  #       bd_name = "bd-304"       ## Bridge Domain to add EPG to
-  #       description = "EPG for VLAN 304"
-  #       vmm_enabled = true
-  #       mapped_esg = ""
-  #       preferred_group = "exclude"
-  #       paths = {
-  #         # path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
-  #         #   pod       = 1
-  #         #   leaf_node = 101
-  #         #   port      = "eth1/1"
-  #         #   vlan_id   = 333
-  #         #   mode      = "regular" # regular, native, untagged
-  #         # }
-  #         path2 = { # topology/pod-1/paths-101/pathep-[eth1/23]
-  #           pod       = 1
-  #           leaf_node = 102
-  #           port      = "eth1/1"
-  #           vlan_id   = 304
-  #           mode      = "regular" # regular, native, untagged
-  #         }
-  #       }
-  #     }
-  #   }
-  # }
+  legacy = {
+    ap_name = "legacy"
+    tenant_name = "demo-basic-1"    ## Tenant to add AP to
+    description = "App Profile for Legacy Network Centric VLANs"
+    esgs = {}
+    epgs = {
+      vl-303 = {
+        epg_name = "vl-303"
+        bd_name = "bd-303"       ## Bridge Domain to add EPG to
+        description = "EPG for VLAN 303"
+        vmm_enabled = true
+        mapped_esg = ""
+        preferred_group = "exclude"
+        paths = {
+          # path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
+          #   pod       = 1
+          #   leaf_node = 101
+          #   port      = "eth1/1"
+          #   vlan_id   = 333
+          #   mode      = "regular" # regular, native, untagged
+          # }
+          path2 = { # topology/pod-1/paths-101/pathep-[eth1/23]
+            pod       = 1
+            leaf_node = 102
+            port      = "eth1/1"
+            vlan_id   = 303
+            mode      = "regular" # regular, native, untagged
+          }
+        }
+      }
+      vl-304 = {
+        epg_name = "vl-304"
+        bd_name = "bd-304"       ## Bridge Domain to add EPG to
+        description = "EPG for VLAN 304"
+        vmm_enabled = true
+        mapped_esg = ""
+        preferred_group = "exclude"
+        paths = {
+          # path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
+          #   pod       = 1
+          #   leaf_node = 101
+          #   port      = "eth1/1"
+          #   vlan_id   = 333
+          #   mode      = "regular" # regular, native, untagged
+          # }
+          path2 = { # topology/pod-1/paths-101/pathep-[eth1/23]
+            pod       = 1
+            leaf_node = 102
+            port      = "eth1/1"
+            vlan_id   = 304
+            mode      = "regular" # regular, native, untagged
+          }
+        }
+      }
+    }
+  }
 }
 
 ### Filters ###
