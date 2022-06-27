@@ -139,14 +139,14 @@ variable "filters" {
 ### Contracts Input Variable Object ###
 
 variable "contracts" {
-  # type = map(object({
-  #   contract_name = string
-  #   existing      = optional(bool)
-  #   tenant_name   = string
-  #   description   = string
-  #   scope         = string
-  #   filters = list(string)
-  # }))
+  type = map(object({
+    contract_name = string
+    existing      = optional(bool)
+    tenant_name   = string
+    description   = string
+    scope         = string
+    filters = list(string)
+  }))
 }
 
 ### L3Out Input Variable Object ###
