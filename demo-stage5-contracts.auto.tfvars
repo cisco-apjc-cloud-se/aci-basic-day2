@@ -164,7 +164,7 @@ aps = {
           }
         }
         mapped_esg = "db" # "esg-1"
-        preferred_group = "include"  ## Must be the same as ESG initially
+        preferred_group = "exclude"  ## Must be the same as ESG initially
         paths = {}
       }
     }
@@ -242,7 +242,7 @@ aps = {
           }
         }
         mapped_esg = "web" # "esg-1"
-        preferred_group = "include"  ## Must be the same as ESG initially
+        preferred_group = "exclude"  ## Must be the same as ESG initially
         paths = {}
       }
       db = {
@@ -261,7 +261,7 @@ aps = {
           }
         }
         mapped_esg = "db" # "esg-1"
-        preferred_group = "include"  ## Must be the same as ESG initially
+        preferred_group = "exclude"  ## Must be the same as ESG initially
         paths = {}
       }
     }
@@ -339,7 +339,7 @@ aps = {
           }
         }
         mapped_esg = "web" # "esg-1"
-        preferred_group = "include"  ## Must be the same as ESG initially
+        preferred_group = "exclude"  ## Must be the same as ESG initially
         paths = {}
       }
       db = {
@@ -358,7 +358,7 @@ aps = {
           }
         }
         mapped_esg = "db" # "esg-1"
-        preferred_group = "include"  ## Must be the same as ESG initially
+        preferred_group = "exclude"  ## Must be the same as ESG initially
         paths = {}
       }
     }
@@ -437,7 +437,7 @@ aps = {
           }
         }
         mapped_esg = "web" # "esg-1"
-        preferred_group = "include"  ## Must be the same as ESG initially
+        preferred_group = "exclude"  ## Must be the same as ESG initially
         paths = {}
       }
       db = {
@@ -456,7 +456,7 @@ aps = {
           }
         }
         mapped_esg = "db" # "esg-1"
-        preferred_group = "include"  ## Must be the same as ESG initially
+        preferred_group = "exclude"  ## Must be the same as ESG initially
         paths = {}
       }
     }
