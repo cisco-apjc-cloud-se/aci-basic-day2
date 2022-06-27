@@ -116,7 +116,7 @@ aps = {
         domains = {
           vmm = {
             name = "DVS-VMM"
-            type = "vmm"
+            type = "vmware"
           }
           phys = {
             name = "LAB-N9348"
