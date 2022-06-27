@@ -30,26 +30,26 @@ vrfs = {
 
 ### Bridge Domains & L3 Subnets ###
 bds = {
-  # bd-303 = {
-  #   bd_name     = "bd-303"
-  #   vrf_name    = "vrf-1"      ## VRF to add BD to
-  #   description = " Bridge Domain for Legacy VLAN 303 in Tenant #1"
-  #   tenant_name = "demo-basic-1"    ## Tenant to add VRF to
-  #   mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
-  #   arp_flood   = "yes" ## "yes", "no"
-  #   l3outs      = [] ## List of associated L3outs for BD's Subnets
-  #   subnets = {}
-  # }
-  # bd-304 = {
-  #   bd_name     = "bd-304"
-  #   vrf_name    = "vrf-1"      ## VRF to add BD to
-  #   description = " Bridge Domain for Legacy VLAN 304 in Tenant #1"
-  #   tenant_name = "demo-basic-1"    ## Tenant to add VRF to
-  #   mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
-  #   arp_flood   = "yes" ## "yes", "no"
-  #   l3outs      = [] ## List of associated L3outs for BD's Subnets
-  #   subnets = {}
-  # }
+  bd-303 = {
+    bd_name     = "bd-303"
+    vrf_name    = "vrf-1"      ## VRF to add BD to
+    description = " Bridge Domain for Legacy VLAN 303 in Tenant #1"
+    tenant_name = "demo-basic-1"    ## Tenant to add VRF to
+    mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
+    arp_flood   = "yes" ## "yes", "no"
+    l3outs      = [] ## List of associated L3outs for BD's Subnets
+    subnets = {}
+  }
+  bd-304 = {
+    bd_name     = "bd-304"
+    vrf_name    = "vrf-1"      ## VRF to add BD to
+    description = " Bridge Domain for Legacy VLAN 304 in Tenant #1"
+    tenant_name = "demo-basic-1"    ## Tenant to add VRF to
+    mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
+    arp_flood   = "yes" ## "yes", "no"
+    l3outs      = [] ## List of associated L3outs for BD's Subnets
+    subnets = {}
+  }
   # bd-305 = {
   #   bd_name     = "bd-305"
   #   vrf_name    = "vrf-1"      ## VRF to add BD to
