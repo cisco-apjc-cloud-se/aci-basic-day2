@@ -6,6 +6,10 @@ phys_name = "LAB-N9348"
 
 ### Tenants ###
 tenants = {
+  common = {
+    name = "common"
+    existing = true
+  }
   demo-basic-1 = {
     name        = "demo-basic-1"
     existing    = false

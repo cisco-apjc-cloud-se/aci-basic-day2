@@ -36,8 +36,8 @@ variable "phys_name" {
 variable "tenants" {
   type = map(object({
     name        = string
-    existing    = bool
-    description = string
+    existing    = optional(bool)
+    description = optional(string)
   }))
 }
 
@@ -46,6 +46,7 @@ variable "tenants" {
 variable "vrfs" {
   type = map(object({
     vrf_name        = string
+    existing        = optional(bool)
     description     = string
     tenant_name     = string
     preferred_group = string
@@ -57,6 +58,7 @@ variable "vrfs" {
 variable "bds" {
   type = map(object({
     bd_name       = string
+    existing      = optional(bool)
     vrf_name      = string
     description   = string
     tenant_name   = string
@@ -114,6 +116,7 @@ variable "aps" {
 variable "filters" {
   type = map(object({
     filter_name = string
+    existing    = optional(bool)
     tenant_name = string
     description = string
     entries = map(object({
@@ -134,6 +137,7 @@ variable "filters" {
 variable "contracts" {
   # type = map(object({
   #   contract_name = string
+  #   existing      = optional(bool)
   #   tenant_name   = string
   #   description   = string
   #   scope         = string
@@ -145,7 +149,8 @@ variable "contracts" {
 
 variable "l3outs" {
   type = map(object({
-    l3out_name = string
+    l3out_name    = string
+    existing      = optional(bool)
     tenant_name   = string
     description   = string
     vrf_name      = string
