@@ -97,7 +97,11 @@ variable "aps" {
       epg_name  = string
       bd_name   = string
       description = string
-      vmm_enabled = bool
+      # vmm_enabled = bool
+      domains = map(object({
+        name = string
+        type = string
+        }))
       mapped_esg = string
       preferred_group = string
       paths = map(object({

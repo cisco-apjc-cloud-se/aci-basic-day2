@@ -78,7 +78,17 @@ aps = {
         epg_name = "vl-303"
         bd_name = "bd-303"       ## Bridge Domain to add EPG to
         description = "EPG for VLAN 303"
-        vmm_enabled = true
+        # vmm_enabled = true
+        domains = {
+          vmm = {
+            name = "DVS-VMM"
+            type = "vmm"
+          }
+          phys = {
+            name = "LAB-N9348"
+            type = "physical"
+          }
+        }
         mapped_esg = ""
         preferred_group = "exclude"
         paths = {
@@ -102,7 +112,17 @@ aps = {
         epg_name = "vl-304"
         bd_name = "bd-304"       ## Bridge Domain to add EPG to
         description = "EPG for VLAN 304"
-        vmm_enabled = true
+        # vmm_enabled = true
+        domains = {
+          vmm = {
+            name = "DVS-VMM"
+            type = "vmm"
+          }
+          phys = {
+            name = "LAB-N9348"
+            type = "physical"
+          }
+        }
         mapped_esg = ""
         preferred_group = "exclude"
         paths = {
