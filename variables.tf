@@ -20,16 +20,16 @@ variable "aci_url" {
 //   default = "10.67.16.179"
 // }
 
-
-### Existing ACI Virtual Machine Manager (VMM) Domain ###
-variable "vmm_name" {
-  type = string
-}
-
-### Existing Physical Domain for Static EPGs ###
-variable "phys_name" {
-  type = string
-}
+# 
+# ### Existing ACI Virtual Machine Manager (VMM) Domain ###
+# variable "vmm_name" {
+#   type = string
+# }
+#
+# ### Existing Physical Domain for Static EPGs ###
+# variable "phys_name" {
+#   type = string
+# }
 
 ### Tennant Input Variable Object ###
 
