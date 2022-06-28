@@ -14,3 +14,7 @@ output "vrf_map" {
 output "bd_map" {
   value = module.aci_tenants.bd_map
 }
+
+output "ap_map" {
+  value = module.aci_tenants.ap_map
+}

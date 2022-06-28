@@ -29,7 +29,9 @@ tenants = {
         epgs = {
           vl-303 = {
             epg_name = "vl-303"
-            bd_name = "bd-303"       ## Bridge Domain to add EPG to
+            bd = {
+              bd_name = "bd-303"       ## Bridge Domain to add EPG to
+            }
             description = "EPG for VLAN 303"
             # vmm_enabled = true
             domains = {
@@ -63,7 +65,9 @@ tenants = {
           }
           vl-304 = {
             epg_name = "vl-304"
-            bd_name = "bd-304"       ## Bridge Domain to add EPG to
+            bd = {
+              bd_name = "bd-304"       ## Bridge Domain to add EPG to
+            }
             description = "EPG for VLAN 304"
             # vmm_enabled = true
             domains = {
