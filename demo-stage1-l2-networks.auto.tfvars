@@ -3,7 +3,7 @@ tenants = {
   ### Tenants ###
   common = {
     name = "common"
-    existing = true
+    use_existing = true
     aps = {}
     networking = {
       vrfs = {}
@@ -16,9 +16,9 @@ tenants = {
     }
   }
   demo-basic-1 = {
-    name        = "demo-basic-1"
-    existing    = false
-    description = "Basic ACI Tenant #1 built from Terraform Cloud"
+    name          = "demo-basic-1"
+    use_existing  = false
+    description   = "Basic ACI Tenant #1 built from Terraform Cloud"
     ### Application Profiles & End Point Groups ###
     aps = {
       legacy = {
@@ -148,7 +148,7 @@ tenants = {
   }
   demo-basic-2 = {
     name = "demo-basic-2"
-    existing    = false
+    use_existing = false
     description = "Basic ACI Tenant #2 built from Terraform Cloud"
     aps = {}
     networking = {
