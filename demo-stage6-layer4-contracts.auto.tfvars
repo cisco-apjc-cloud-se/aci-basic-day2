@@ -6,6 +6,10 @@ phys_name = "LAB-N9348"
 
 ### Tenants ###
 tenants = {
+  common = {
+    name = "common"
+    existing = true
+  }
   demo-basic-1 = {
     name        = "demo-basic-1"
     existing    = false
@@ -120,18 +124,38 @@ aps = {
         epg_name = "web"
         bd_name = "bd-303"       ## Bridge Domain to add EPG to
         description = "App #1 Web Tier EPG"
-        vmm_enabled = true
+        # vmm_enabled = true
+        domains = {
+          vmm = {
+            name = "DVS-VMM"
+            type = "vmware"
+          }
+          phys = {
+            name = "LAB-N9348"
+            type = "physical"
+          }
+        }
         mapped_esg = "web" # "esg-1"
-        preferred_group = "include"  ## Must be the same as ESG initially
+        preferred_group = "exclude"  ## Must be the same as ESG initially
         paths = {}
       }
       db = {
         epg_name = "db"
         bd_name = "bd-303"       ## Bridge Domain to add EPG to
         description = "App #1 DB Tier EPG"
-        vmm_enabled = true
+        # vmm_enabled = true
+        domains = {
+          vmm = {
+            name = "DVS-VMM"
+            type = "vmware"
+          }
+          phys = {
+            name = "LAB-N9348"
+            type = "physical"
+          }
+        }
         mapped_esg = "db" # "esg-1"
-        preferred_group = "include"  ## Must be the same as ESG initially
+        preferred_group = "exclude"  ## Must be the same as ESG initially
         paths = {}
       }
     }
@@ -188,18 +212,38 @@ aps = {
         epg_name = "web"
         bd_name = "bd-303"       ## Bridge Domain to add EPG to
         description = "App #2 Web Tier EPG"
-        vmm_enabled = true
+        # vmm_enabled = true
+        domains = {
+          vmm = {
+            name = "DVS-VMM"
+            type = "vmware"
+          }
+          phys = {
+            name = "LAB-N9348"
+            type = "physical"
+          }
+        }
         mapped_esg = "web" # "esg-1"
-        preferred_group = "include"  ## Must be the same as ESG initially
+        preferred_group = "exclude"  ## Must be the same as ESG initially
         paths = {}
       }
       db = {
         epg_name = "db"
         bd_name = "bd-303"       ## Bridge Domain to add EPG to
         description = "App #2 DB Tier EPG"
-        vmm_enabled = true
+        # vmm_enabled = true
+        domains = {
+          vmm = {
+            name = "DVS-VMM"
+            type = "vmware"
+          }
+          phys = {
+            name = "LAB-N9348"
+            type = "physical"
+          }
+        }
         mapped_esg = "db" # "esg-1"
-        preferred_group = "include"  ## Must be the same as ESG initially
+        preferred_group = "exclude"  ## Must be the same as ESG initially
         paths = {}
       }
     }
@@ -256,18 +300,38 @@ aps = {
         epg_name = "web"
         bd_name = "bd-304"       ## Bridge Domain to add EPG to
         description = "App #3 Web Tier EPG"
-        vmm_enabled = true
+        # vmm_enabled = true
+        domains = {
+          vmm = {
+            name = "DVS-VMM"
+            type = "vmware"
+          }
+          phys = {
+            name = "LAB-N9348"
+            type = "physical"
+          }
+        }
         mapped_esg = "web" # "esg-1"
-        preferred_group = "include"  ## Must be the same as ESG initially
+        preferred_group = "exclude"  ## Must be the same as ESG initially
         paths = {}
       }
       db = {
         epg_name = "db"
         bd_name = "bd-304"       ## Bridge Domain to add EPG to
         description = "App #3 DB Tier EPG"
-        vmm_enabled = true
+        # vmm_enabled = true
+        domains = {
+          vmm = {
+            name = "DVS-VMM"
+            type = "vmware"
+          }
+          phys = {
+            name = "LAB-N9348"
+            type = "physical"
+          }
+        }
         mapped_esg = "db" # "esg-1"
-        preferred_group = "include"  ## Must be the same as ESG initially
+        preferred_group = "exclude"  ## Must be the same as ESG initially
         paths = {}
       }
     }
@@ -324,18 +388,38 @@ aps = {
         epg_name = "web"
         bd_name = "bd-304"       ## Bridge Domain to add EPG to
         description = "App #4 Web Tier EPG"
-        vmm_enabled = true
+        # vmm_enabled = true
+        domains = {
+          vmm = {
+            name = "DVS-VMM"
+            type = "vmware"
+          }
+          phys = {
+            name = "LAB-N9348"
+            type = "physical"
+          }
+        }
         mapped_esg = "web" # "esg-1"
-        preferred_group = "include"  ## Must be the same as ESG initially
+        preferred_group = "exclude"  ## Must be the same as ESG initially
         paths = {}
       }
       db = {
         epg_name = "db"
         bd_name = "bd-304"       ## Bridge Domain to add EPG to
         description = "App #4 DB Tier EPG"
-        vmm_enabled = true
+        # vmm_enabled = true
+        domains = {
+          vmm = {
+            name = "DVS-VMM"
+            type = "vmware"
+          }
+          phys = {
+            name = "LAB-N9348"
+            type = "physical"
+          }
+        }
         mapped_esg = "db" # "esg-1"
-        preferred_group = "include"  ## Must be the same as ESG initially
+        preferred_group = "exclude"  ## Must be the same as ESG initially
         paths = {}
       }
     }
