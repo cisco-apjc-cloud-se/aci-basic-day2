@@ -145,7 +145,7 @@ aps = {
           }
         }
         mapped_esg = "web" # "esg-1"
-        preferred_group = "include"  ## Must be the same as ESG initially
+        preferred_group = "exclude"  ## Must be the same as ESG initially
         paths = {}
       }
       db = {
