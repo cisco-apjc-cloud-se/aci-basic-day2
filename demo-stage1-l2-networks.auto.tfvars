@@ -1,10 +1,15 @@
 ### Tenant Model ###
 tenants = {
+  ### Tenants ###
   common = {
     name = "common"
     existing = true
     aps = {}
-    networking = {}
+    networking = {
+      vrfs = {}
+      bds = {}
+      l3outs = {}
+    }
     contracts = {
       std_contracts = {}
       filters = {}
@@ -146,7 +151,11 @@ tenants = {
     existing    = false
     description = "Basic ACI Tenant #2 built from Terraform Cloud"
     aps = {}
-    networking = {}
+    networking = {
+      vrfs = {}
+      bds = {}
+      l3outs = {}
+    }
     contracts = {
       std_contracts = {}
       filters = {}
