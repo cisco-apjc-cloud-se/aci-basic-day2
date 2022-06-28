@@ -5,7 +5,10 @@ tenants = {
     existing = true
     aps = {}
     networking = {}
-    contracts = {}
+    contracts = {
+      std_contracts = {}
+      filters = {}
+    }
   }
   demo-basic-1 = {
     name        = "demo-basic-1"
@@ -133,7 +136,10 @@ tenants = {
       ### Layer3 Outs and External EPGs ###
       l3outs = {}
     }
-    contracts = {}
+    contracts = {
+      std_contracts = {}
+      filters = {}
+    }
   }
   demo-basic-2 = {
     name = "demo-basic-2"
@@ -141,6 +147,9 @@ tenants = {
     description = "Basic ACI Tenant #2 built from Terraform Cloud"
     aps = {}
     networking = {}
-    contracts = {}
+    contracts = {
+      std_contracts = {}
+      filters = {}
+    }
   }
 }
