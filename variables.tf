@@ -264,7 +264,7 @@ variable "tenants" {
         }))
     }))
     ### Networking ###
-    networking = map(object({
+    networking = object({
       #### VRFS ####
       vrfs = map(object({
         vrf_name        = string
@@ -359,9 +359,9 @@ variable "tenants" {
           }))
         }))
       }))
-    }))
+    })
     ### Contracts & Filters ###
-    contracts = map(object({
+    contracts = object({
       #### Standard Contracts ###
       std_contracts = map(object({
         contract_name = string
@@ -388,6 +388,6 @@ variable "tenants" {
           s_to_port   = string
           }))
       }))
-    }))
+    })
   }))
 }
