@@ -1,19 +1,19 @@
 ### Tenant Model ###
 tenants = {
-  common = {
-    name = "common"
-    existing = true
-    aps = {}
-    networking = {
-      vrfs = {}
-      bds = {}
-      l3outs = {}
-    }
-    contracts = {
-      std_contracts = {}
-      filters = {}
-    }
-  }
+  # common = {
+  #   name = "common"
+  #   existing = true
+  #   aps = {}
+  #   networking = {
+  #     vrfs = {}
+  #     bds = {}
+  #     l3outs = {}
+  #   }
+  #   contracts = {
+  #     std_contracts = {}
+  #     filters = {}
+  #   }
+  # }
   demo-basic-1 = {
     name        = "demo-basic-1"
     existing    = false
@@ -144,19 +144,19 @@ tenants = {
       filters = {}
     }
   }
-  demo-basic-2 = {
-    name = "demo-basic-2"
-    existing    = false
-    description = "Basic ACI Tenant #2 built from Terraform Cloud"
-    aps = {}
-    networking = {
-      vrfs = {}
-      bds = {}
-      l3outs = {}
-    }
-    contracts = {
-      std_contracts = {}
-      filters = {}
-    }
-  }
+  # demo-basic-2 = {
+  #   name = "demo-basic-2"
+  #   existing    = false
+  #   description = "Basic ACI Tenant #2 built from Terraform Cloud"
+  #   aps = {}
+  #   networking = {
+  #     vrfs = {}
+  #     bds = {}
+  #     l3outs = {}
+  #   }
+  #   contracts = {
+  #     std_contracts = {}
+  #     filters = {}
+  #   }
+  # }
 }
