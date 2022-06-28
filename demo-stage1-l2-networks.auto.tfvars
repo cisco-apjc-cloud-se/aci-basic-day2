@@ -1,19 +1,12 @@
 ### Tenant Model ###
 tenants = {
-  # common = {
-  #   name = "common"
-  #   existing = true
-  #   aps = {}
-  #   networking = {
-  #     vrfs = {}
-  #     bds = {}
-  #     l3outs = {}
-  #   }
-  #   contracts = {
-  #     std_contracts = {}
-  #     filters = {}
-  #   }
-  # }
+  common = {
+    name = "common"
+    existing = true
+    aps = {}
+    networking = {}
+    contracts = {}
+  }
   # demo-basic-1 = {
   #   name        = "demo-basic-1"
   #   existing    = false
