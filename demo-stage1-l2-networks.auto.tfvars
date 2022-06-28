@@ -4,8 +4,15 @@ tenants = {
     name = "common"
     existing = true
     aps = {}
-    networking = {}
-    contracts = {}
+    networking = {
+      vrfs = {}
+      bds = {}
+      l3outs = {}
+    }
+    contracts = {
+      std_contracts = {}
+      filters = {}
+    }
   }
   demo-basic-1 = {
     name        = "demo-basic-1"
@@ -132,14 +139,24 @@ tenants = {
       }
       l3outs = {}
     }
-    contracts = {}
+    contracts = {
+      std_contracts = {}
+      filters = {}
+    }
   }
   demo-basic-2 = {
     name = "demo-basic-2"
     existing    = false
     description = "Basic ACI Tenant #2 built from Terraform Cloud"
     aps = {}
-    networking = {}
-    contracts = {}
+    networking = {
+      vrfs = {}
+      bds = {}
+      l3outs = {}
+    }
+    contracts = {
+      std_contracts = {}
+      filters = {}
+    }
   }
 }
