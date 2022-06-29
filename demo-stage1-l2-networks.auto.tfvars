@@ -44,7 +44,7 @@ tenants = {
                 type = "physical"
               }
             }
-            mapped_esg = ""
+            mapped_esg = {}
             preferred_group = "exclude"
             paths = {
               # path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
@@ -80,7 +80,7 @@ tenants = {
                 type = "physical"
               }
             }
-            mapped_esg = ""
+            mapped_esg = {}
             preferred_group = "exclude"
             paths = {
               # path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
