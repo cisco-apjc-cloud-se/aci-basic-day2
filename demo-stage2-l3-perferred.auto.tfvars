@@ -178,7 +178,9 @@ tenants = {
         }
         bd-305 = {
           bd_name     = "bd-305"
-          vrf_name    = "vrf-1"      ## VRF to add BD to
+          vrf = {
+            vrf_name    = "vrf-1"      ## VRF to add BD to
+          }
           description = " Bridge Domain for Legacy VLAN 305 in Tenant #1"
           mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
           arp_flood   = "yes" ## "yes", "no"
