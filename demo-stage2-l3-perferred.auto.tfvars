@@ -32,7 +32,9 @@ tenants = {
             description     = "Legacy Networks ESG"
             ### STAGE 2 - Enabled Preferred Group
             preferred_group = "include"
-            vrf_name        = "vrf-1"
+            vrf = {
+              vrf_name        = "vrf-1"
+            }
             consumed_contracts = {}
             provided_contracts = {}
           }
@@ -61,7 +63,7 @@ tenants = {
             preferred_group = "include"
             paths = {
               ### STAGE 2 - Static EPG to Upstream Switch No Longer Required
-              
+
               # # path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
               # #   pod       = 1
               # #   leaf_node = 101
