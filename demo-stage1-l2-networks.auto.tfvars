@@ -11,7 +11,7 @@ tenants = {
       l3outs = {}
     }
     contracts = {
-      std_contracts = {}
+      standard = {}
       filters = {}
     }
   }
@@ -150,7 +150,7 @@ tenants = {
       l3outs = {}
     }
     contracts = {
-      std_contracts = {}
+      standard = {}
       filters = {}
     }
   }
@@ -165,7 +165,7 @@ tenants = {
       l3outs = {}
     }
     contracts = {
-      std_contracts = {}
+      standard = {}
       filters = {}
     }
   }
