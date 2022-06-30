@@ -14,6 +14,10 @@ output "vrf_map" {
 output "bd_map" {
   value = module.aci_tenants.bd_map
 }
+
+output "contract_map" {
+  value = module.aci_tenants.contract_map
+}
 #
 # output "ap_map" {
 #   value = module.aci_tenants.ap_map
