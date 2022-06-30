@@ -206,7 +206,7 @@ tenants = {
               area_type   = "nssa"
             }
           }
-          logical_profiles = {
+          logical_node_profiles = {
             lprof-1 = {
               lprof_name  = "demo-l3out"
               description = "Demo L3Out Logical Profile created from Terraform"
