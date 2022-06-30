@@ -181,16 +181,10 @@ tenants = {
               app2-web-to-db = {
                 contract_name = "app2-web-to-db"
               }
-              servers-to-internet = {
-                contract_name = "servers-to-internet"
-              }
             }
             provided_contracts = {
               rfc1918-to-web = {
                 contract_name = "rfc1918-to-web"
-              }
-              webadmins-to-web = {
-                contract_name = "webadmins-to-web"
               }
             }
           }
