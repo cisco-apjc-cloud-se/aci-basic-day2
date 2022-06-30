@@ -625,61 +625,97 @@ tenants = {
           contract_name = "app1-web-to-db"
           description   = "Allow all traffic from Web to DB Tier"
           scope         = "tenant" # "global", "tenant", "application-profile" and "context"
-          filters = {
-            allow-ipv4 = {
-              filter_name = "allow-ipv4"
+          subjects = {
+            default = {
+              subject_name = "default"
+              description = "Default subject"
+              filters = {
+                allow-ipv4 = {
+                  filter_name = "allow-ipv4"
+                  }
+                }
+              }
             }
-          }
         }
         app2-web-to-db = {
           contract_name = "app2-web-to-db"
           description   = "Allow all traffic from Web to DB Tier"
           scope         = "tenant" # "global", "tenant", "application-profile" and "context"
-          filters = {
-            allow-ipv4 = {
-              filter_name = "allow-ipv4"
+          subjects = {
+            default = {
+              subject_name = "default"
+              description = "Default subject"
+              filters = {
+                allow-ipv4 = {
+                  filter_name = "allow-ipv4"
+                  }
+                }
+              }
             }
-          }
         }
         app3-web-to-db = {
           contract_name = "app2-web-to-db"
           description   = "Allow all traffic from Web to DB Tier"
           scope         = "tenant" # "global", "tenant", "application-profile" and "context"
-          filters = {
-            allow-ipv4 = {
-              filter_name = "allow-ipv4"
+          subjects = {
+            default = {
+              subject_name = "default"
+              description = "Default subject"
+              filters = {
+                allow-ipv4 = {
+                  filter_name = "allow-ipv4"
+                  }
+                }
+              }
             }
-          }
         }
         app4-web-to-db = {
           contract_name = "app2-web-to-db"
           description   = "Allow all traffic from Web to DB Tier"
           scope         = "tenant" # "global", "tenant", "application-profile" and "context"
-          filters = {
-            allow-ipv4 = {
-              filter_name = "allow-ipv4"
+          subjects = {
+            default = {
+              subject_name = "default"
+              description = "Default subject"
+              filters = {
+                allow-ipv4 = {
+                  filter_name = "allow-ipv4"
+                  }
+                }
+              }
             }
-          }
         }
         rfc1918-to-web = {
           contract_name = "rfc1918-to-web"
           description   = "Allow all traffic from External RFC1918 to all App Web Tiers"
           scope         = "tenant" # "global", "tenant", "application-profile" and "context"
-          filters = {
-            allow-ipv4 = {
-              filter_name = "allow-ipv4"
+          subjects = {
+            default = {
+              subject_name = "default"
+              description = "Default subject"
+              filters = {
+                allow-ipv4 = {
+                  filter_name = "allow-ipv4"
+                  }
+                }
+              }
             }
-          }
         }
         dbadmins-to-db = {
           contract_name = "dbadmins-to-db"
           description   = "Allow all traffic from DB Admins to all App DB Tiers"
           scope         = "tenant" # "global", "tenant", "application-profile" and "context"
-          filters = {
-            allow-ipv4 = {
-              filter_name = "allow-ipv4"
+          subjects = {
+            default = {
+              subject_name = "default"
+              description = "Default subject"
+              filters = {
+                allow-ipv4 = {
+                  filter_name = "allow-ipv4"
+                  }
+                }
+              }
             }
-          }
         }
       }
       filters = {
