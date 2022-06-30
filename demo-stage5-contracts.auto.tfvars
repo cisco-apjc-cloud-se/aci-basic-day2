@@ -49,12 +49,12 @@ tenants = {
             }
             ### STAGE 5 - Associate Contracts ###
             consumed_contracts = {
-              cons-1 = {
+              app1-web-to-db = {
                 contract_name = "app1-web-to-db"
               }
             }
             provided_contracts = {
-              prov-1 = {
+              rfc1918-to-web = {
                 contract_name = "rfc1918-to-web"
               }
             }
@@ -70,10 +70,10 @@ tenants = {
             ### STAGE 5 - Associate Contracts ###
             consumed_contracts = {}
             provided_contracts = {
-              prov-1 = {
+              app1-web-to-db = {
                 contract_name = "app1-web-to-db"
               }
-              prov-2 = {
+              dbadmins-to-db = {
                 contract_name = "dbadmins-to-db"
               }
             }
@@ -178,18 +178,18 @@ tenants = {
             }
             ### STAGE 5 - Associate Contracts ###
             consumed_contracts = {
-              cons-1 = {
+              app2-web-to-db = {
                 contract_name = "app2-web-to-db"
               }
-              cons-2 = {
+              servers-to-internet = {
                 contract_name = "servers-to-internet"
               }
             }
             provided_contracts = {
-              prov-1 = {
+              rfc1918-to-web = {
                 contract_name = "rfc1918-to-web"
               }
-              prov-2 = {
+              webadmins-to-web = {
                 contract_name = "webadmins-to-web"
               }
             }
@@ -205,10 +205,10 @@ tenants = {
             ### STAGE 5 - Associate Contracts ###
             consumed_contracts = {}
             provided_contracts = {
-              prov-1 = {
+              app2-web-to-db = {
                 contract_name = "app2-web-to-db"
               }
-              prov-2 = {
+              dbadmins-to-db = {
                 contract_name = "dbadmins-to-db"
               }
             }
@@ -312,12 +312,12 @@ tenants = {
             }
             ### STAGE 5 - Associate Contracts ###
             consumed_contracts = {
-              cons-1 = {
+              app3-web-to-db = {
                 contract_name = "app3-web-to-db"
               }
             }
             provided_contracts = {
-              prov-1 = {
+              rfc1918-to-web = {
                 contract_name = "rfc1918-to-web"
               }
             }
@@ -333,10 +333,10 @@ tenants = {
             ### STAGE 5 - Associate Contracts ###
             consumed_contracts = {}
             provided_contracts = {
-              prov-1 = {
+              app3-web-to-db = {
                 contract_name = "app3-web-to-db"
               }
-              prov-2 = {
+              dbadmins-to-db = {
                 contract_name = "dbadmins-to-db"
               }
             }
@@ -440,12 +440,12 @@ tenants = {
             }
             ### STAGE 5 - Associate Contracts ###
             consumed_contracts = {
-              cons-1 = {
+              app4-web-to-db = {
                 contract_name = "app4-web-to-db"
               }
             }
             provided_contracts = {
-              prov-1 = {
+              rfc1918-to-web = {
                 contract_name = "rfc1918-to-web"
               }
             }
@@ -461,10 +461,10 @@ tenants = {
             ### STAGE 5 - Associate Contracts ###
             consumed_contracts = {}
             provided_contracts = {
-              prov-1 = {
+              app4-web-to-db = {
                 contract_name = "app4-web-to-db"
               }
-              prov-2 = {
+              dbadmins-to-db = {
                 contract_name = "dbadmins-to-db"
               }
             }
@@ -669,7 +669,7 @@ tenants = {
               preferred_group     = "exclude"
               ### STAGE 5 - Associate Contracts ###
               consumed_contracts = {
-                cons-1 = {
+                rfc1918-to-web = {
                   contract_name = "rfc1918-to-web"
                 }
               }
@@ -710,7 +710,7 @@ tenants = {
               ## NOTE: Contract Master External EPGS MUST ALREADY EXIST - CURRENT NO METHOD TO ENSURE MASTER EXEPG BUILT FIRST
               contract_master_epgs = {
                 demo-l3out = {
-                  l3out_name = "demo-l3out" 
+                  l3out_name = "demo-l3out"
                   extepg_name= "rfc1918"
                 }
               }
