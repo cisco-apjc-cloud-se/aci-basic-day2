@@ -198,13 +198,12 @@ tenants = {
             vrf_name        = "vrf-1"
           }
           l3_domain       = "LAB-N9348"
-          ospf_profiles   = {
-            ospf-1 = {
-              description = "OSPF Peering to Lab"
-              area_cost   = 1
-              area_id     = "0.0.0.1"
-              area_type   = "nssa"
-            }
+          ospf_policy = {
+            enabled     = true
+            description = "OSPF Peering to Lab"
+            area_cost   = 1
+            area_id     = "0.0.0.1"
+            area_type   = "nssa"
           }
           logical_node_profiles = {
             lprof-1 = {
