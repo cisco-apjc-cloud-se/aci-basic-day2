@@ -1,3 +1,5 @@
+### NOTE: Contract Master EPG must be built first - may require running plan twice
+
 ### Tenant Model ###
 tenants = {
   ### Tenants ###
@@ -707,8 +709,8 @@ tenants = {
               provided_contracts = {}
               ## NOTE: Contract Master External EPGS MUST ALREADY EXIST - CURRENT NO METHOD TO ENSURE MASTER EXEPG BUILT FIRST
               contract_master_epgs = {
-                extepg-1 = {
-                  l3out_name = "demo-l3out"
+                demo-l3out = {
+                  l3out_name = "demo-l3out" 
                   extepg_name= "rfc1918"
                 }
               }
