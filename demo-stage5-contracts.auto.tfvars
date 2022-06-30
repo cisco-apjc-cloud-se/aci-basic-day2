@@ -702,7 +702,7 @@ tenants = {
               description         = "DB Admin Users"
               preferred_group     = "exclude"
               consumed_contracts = {
-                cons-1 = {
+                dbadmins-to-db = {
                   contract_name = "dbadmins-to-db"
                 }
               }
