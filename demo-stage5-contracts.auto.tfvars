@@ -45,8 +45,17 @@ tenants = {
             vrf = {
               vrf_name        = "vrf-1"
             }
-            consumed_contracts = {}
-            provided_contracts = {}
+            ### STAGE 5 - Associate Contracts ###
+            consumed_contracts = {
+              cons-1 = {
+                contract_name = "app1-web-to-db"
+              }
+            }
+            provided_contracts = {
+              prov-1 = {
+                contract_name = "rfc1918-to-web"
+              }
+            }
           }
           db = {
             esg_name        = "db"
@@ -56,8 +65,16 @@ tenants = {
             vrf = {
               vrf_name        = "vrf-1"
             }
+            ### STAGE 5 - Associate Contracts ###
             consumed_contracts = {}
-            provided_contracts = {}
+            provided_contracts = {
+              prov-1 = {
+                contract_name = "app1-web-to-db"
+              }
+              prov-2 = {
+                contract_name = "dbadmins-to-db"
+              }
+            }
           }
         }
         epgs = {
@@ -157,8 +174,23 @@ tenants = {
             vrf = {
               vrf_name        = "vrf-1"
             }
-            consumed_contracts = {}
-            provided_contracts = {}
+            ### STAGE 5 - Associate Contracts ###
+            consumed_contracts = {
+              cons-1 = {
+                contract_name = "app2-web-to-db"
+              }
+              cons-2 = {
+                contract_name = "servers-to-internet"
+              }
+            }
+            provided_contracts = {
+              prov-1 = {
+                contract_name = "rfc1918-to-web"
+              }
+              prov-2 = {
+                contract_name = "webadmins-to-web"
+              }
+            }
           }
           db = {
             esg_name        = "db"
@@ -168,8 +200,16 @@ tenants = {
             vrf = {
               vrf_name        = "vrf-1"
             }
+            ### STAGE 5 - Associate Contracts ###
             consumed_contracts = {}
-            provided_contracts = {}
+            provided_contracts = {
+              prov-1 = {
+                contract_name = "app2-web-to-db"
+              }
+              prov-2 = {
+                contract_name = "dbadmins-to-db"
+              }
+            }
           }
         }
         epgs = {
@@ -268,8 +308,17 @@ tenants = {
             vrf = {
               vrf_name        = "vrf-1"
             }
-            consumed_contracts = {}
-            provided_contracts = {}
+            ### STAGE 5 - Associate Contracts ###
+            consumed_contracts = {
+              cons-1 = {
+                contract_name = "app3-web-to-db"
+              }
+            }
+            provided_contracts = {
+              prov-1 = {
+                contract_name = "rfc1918-to-web"
+              }
+            }
           }
           db = {
             esg_name        = "db"
@@ -279,8 +328,16 @@ tenants = {
             vrf = {
               vrf_name        = "vrf-1"
             }
+            ### STAGE 5 - Associate Contracts ###
             consumed_contracts = {}
-            provided_contracts = {}
+            provided_contracts = {
+              prov-1 = {
+                contract_name = "app3-web-to-db"
+              }
+              prov-2 = {
+                contract_name = "dbadmins-to-db"
+              }
+            }
           }
         }
         epgs = {
@@ -379,8 +436,17 @@ tenants = {
             vrf = {
               vrf_name        = "vrf-1"
             }
-            consumed_contracts = {}
-            provided_contracts = {}
+            ### STAGE 5 - Associate Contracts ###
+            consumed_contracts = {
+              cons-1 = {
+                contract_name = "app4-web-to-db"
+              }
+            }
+            provided_contracts = {
+              prov-1 = {
+                contract_name = "rfc1918-to-web"
+              }
+            }
           }
           db = {
             esg_name        = "db"
@@ -390,8 +456,16 @@ tenants = {
             vrf = {
               vrf_name        = "vrf-1"
             }
+            ### STAGE 5 - Associate Contracts ###
             consumed_contracts = {}
-            provided_contracts = {}
+            provided_contracts = {
+              prov-1 = {
+                contract_name = "app4-web-to-db"
+              }
+              prov-2 = {
+                contract_name = "dbadmins-to-db"
+              }
+            }
           }
         }
         epgs = {
@@ -589,8 +663,14 @@ tenants = {
             rfc1918 = {
               extepg_name         = "rfc1918"
               description         = "External users in RFC1918 subnets"
-              preferred_group     = "include"
-              consumed_contracts = {}
+              ### STAGE 5 - Move to Exclude ###
+              preferred_group     = "exclude"
+              ### STAGE 5 - Associate Contracts ###
+              consumed_contracts = {
+                cons-1 = {
+                  contract_name = "rfc1918-to-web"
+                }
+              }
               provided_contracts = {}
               contract_master_epgs = {}
               subnets = {
@@ -610,6 +690,33 @@ tenants = {
                   description = "192.168.0.0/16"
                   aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
                   ip = "192.168.0.0/16"
+                  scope = ["import-security"]
+                }
+              }
+            }
+            ### STAGE 5 - New DB Admin Users Group, Add Contracts ###
+            dbadmins = {
+              extepg_name         = "dbadmins"
+              description         = "DB Admin Users"
+              preferred_group     = "exclude"
+              consumed_contracts = {
+                cons-1 = {
+                  contract_name = "dbadmins-to-db"
+                }
+              }
+              provided_contracts = {}
+              ## NOTE: Contract Master External EPGS MUST ALREADY EXIST - CURRENT NO METHOD TO ENSURE MASTER EXEPG BUILT FIRST
+              contract_master_epgs = {
+                extepg-1 = {
+                  l3out_name = "demo-l3out"
+                  extepg_name= "rfc1918"
+                }
+              }
+              subnets = {
+                H-10-67-29-4 = {
+                  description = "10.67.29.4/32"
+                  aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+                  ip = "10.67.29.4/32"
                   scope = ["import-security"]
                 }
               }
