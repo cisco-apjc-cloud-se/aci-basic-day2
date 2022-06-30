@@ -225,14 +225,13 @@ tenants = {
                 intprof-1 = {
                   intprof_name  = "demo-l3out-intprof"
                   description   = "Demo L3Out Logical Interface Profile created from Terraform"
-                  ospf_profiles = {
-                    ospf-1 = {
-                      description = "OSPF Interface Auth and Policy Config"
-                      auth_key    = "key"
-                      auth_key_id = 255
-                      auth_type   = "none"
-                      # ospf_policy = "default"
-                    }
+                  ospf_profile = {
+                    enabled = true
+                    description = "OSPF Interface Auth and Policy Config"
+                    auth_key    = "key"
+                    auth_key_id = 255
+                    auth_type   = "none"
+                    # ospf_policy = "default"
                   }
                   paths = {
                     path-1 = {
