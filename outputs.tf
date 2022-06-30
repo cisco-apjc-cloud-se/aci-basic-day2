@@ -18,6 +18,11 @@ output "bd_map" {
 output "contract_map" {
   value = module.aci_tenants.contract_map
 }
+
+output "internal_testing" {
+  value = module.aci_tenants.internal_testing
+}
+
 #
 # output "ap_map" {
 #   value = module.aci_tenants.ap_map
