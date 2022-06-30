@@ -250,7 +250,7 @@ tenants = {
               }
             }
           }
-          extepgs = {
+          external_epgs = {
             rfc1918 = {
               extepg_name         = "rfc1918"
               description         = "External users in RFC1918 subnets"
