@@ -189,7 +189,99 @@ tenants = {
         }
       }
       ### Layer3 Outs and External EPGs ###
-      l3outs = {}
+      l3outs = {
+        ### STAGE 2 - Enable L3Out with OSPF & External EPG (RFC1918)
+        demo-l3out = {
+          l3out_name      = "demo-l3out"
+          description     = "Demo L3Out built from Terraform"
+          vrf = {
+            vrf_name        = "vrf-1"
+          }
+          l3_domain       = "LAB-N9348"
+          ospf_profiles   = {
+            ospf-1 = {
+              description = "OSPF Peering to Lab"
+              area_cost   = 1
+              area_id     = "0.0.0.1"
+              area_type   = "nssa"
+            }
+          }
+          logical_profiles = {
+            lprof-1 = {
+              lprof_name  = "demo-l3out"
+              description = "Demo L3Out Logical Profile created from Terraform"
+              nodes = {
+                node-1 = {
+                  pod = 1
+                  leaf_node = 101
+                  loopback_ip = "101.1.1.1"
+                }
+                node-2 = {
+                  pod = 1
+                  leaf_node = 102
+                  loopback_ip = "102.1.1.1"
+                }
+              }
+              interface_profiles = {
+                intprof-1 = {
+                  intprof_name  = "demo-l3out-intprof"
+                  description   = "Demo L3Out Logical Interface Profile created from Terraform"
+                  ospf_profiles = {
+                    ospf-1 = {
+                      description = "OSPF Interface Auth and Policy Config"
+                      auth_key    = "key"
+                      auth_key_id = 255
+                      auth_type   = "none"
+                      # ospf_policy = "default"
+                    }
+                  }
+                  paths = {
+                    path-1 = {
+                      description     = "Demo L3 SVI Path"
+                      type            = "ext-svi"
+                      ip              = "10.66.209.22/30"
+                      vlan_id         = 302
+                      pod             = 1
+                      leaf_node       = 102
+                      port            = "eth1/1"
+                    }
+                  }
+                }
+              }
+            }
+          }
+          extepgs = {
+            rfc1918 = {
+              extepg_name         = "rfc1918"
+              description         = "External users in RFC1918 subnets"
+              preferred_group     = "include"
+              consumed_contracts = {}
+              provided_contracts = {}
+              contract_master_epgs = {}
+              subnets = {
+                N-10-0-0-0-8 = {
+                  description = "10.0.0.0/8"
+                  aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+                  ip = "10.0.0.0/8"
+                  scope = ["import-security"]
+                }
+                N-172-16-0-0-12 = {
+                  description = "172.16.0.0/12"
+                  aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+                  ip = "172.16.0.0/12"
+                  scope = ["import-security"]
+                }
+                N-192-168-0-0-16 = {
+                  description = "192.168.0.0/16"
+                  aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+                  ip = "192.168.0.0/16"
+                  scope = ["import-security"]
+                }
+              }
+            }
+          }
+        }
+      }
     }
     contracts = {
       standard = {}
