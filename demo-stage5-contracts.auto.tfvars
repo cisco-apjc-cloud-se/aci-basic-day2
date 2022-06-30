@@ -104,8 +104,8 @@ tenants = {
             mapped_esg = {
               esg_name = "web"
             }
-            ### STAGE 5 - Move to Exclude ###
-            preferred_group = "exclude"
+            ### STAGE 5 - Remove - manged by ESG ###
+            # preferred_group = "include"
             paths = {}
           }
           db = {
@@ -127,8 +127,8 @@ tenants = {
             mapped_esg = {
               esg_name = "db"
             }
-            ### STAGE 5 - Move to Exclude ###
-            preferred_group = "exclude"
+            ### STAGE 5 - Remove - manged by ESG ###
+            # preferred_group = "include"
             paths = {}
           }
         }
@@ -215,8 +215,8 @@ tenants = {
             mapped_esg = {
               esg_name = "web"
             }
-            ### STAGE 5 - Move to Exclude ###
-            preferred_group = "exclude"
+            ### STAGE 5 - Remove - manged by ESG ###
+            # preferred_group = "include"
             paths = {}
           }
           db = {
@@ -238,8 +238,8 @@ tenants = {
             mapped_esg = {
               esg_name = "db"
             }
-            ### STAGE 5 - Move to Exclude ###
-            preferred_group = "exclude"
+            ### STAGE 5 - Remove - manged by ESG ###
+            # preferred_group = "include"
             paths = {}
           }
         }
@@ -326,8 +326,8 @@ tenants = {
             mapped_esg = {
               esg_name = "web"
             }
-            ### STAGE 5 - Move to Exclude ###
-            preferred_group = "exclude"
+            ### STAGE 5 - Remove - manged by ESG ###
+            # preferred_group = "include"
             paths = {}
           }
           db = {
@@ -349,8 +349,8 @@ tenants = {
             mapped_esg = {
               esg_name = "db"
             }
-            ### STAGE 5 - Move to Exclude ###
-            preferred_group = "exclude"
+            ### STAGE 5 - Remove - manged by ESG ###
+            # preferred_group = "include"
             paths = {}
           }
         }
@@ -437,8 +437,8 @@ tenants = {
             mapped_esg = {
               esg_name = "web"
             }
-            ### STAGE 5 - Move to Exclude ###
-            preferred_group = "exclude"
+            ### STAGE 5 - Remove - manged by ESG ###
+            # preferred_group = "include"
             paths = {}
           }
           db = {
@@ -460,8 +460,8 @@ tenants = {
             mapped_esg = {
               esg_name = "db"
             }
-            ### STAGE 5 - Move to Exclude ###
-            preferred_group = "exclude"
+            ### STAGE 5 - Remove - manged by ESG ###
+            # preferred_group = "include"
             paths = {}
           }
         }
