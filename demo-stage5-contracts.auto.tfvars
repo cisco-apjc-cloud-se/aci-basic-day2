@@ -627,7 +627,7 @@ tenants = {
           scope         = "tenant" # "global", "tenant", "application-profile" and "context"
           filters = {
             allow-ipv4 = {
-              filter_name "allow-ipv4"
+              filter_name = "allow-ipv4"
             }
           }
         }
@@ -637,7 +637,7 @@ tenants = {
           scope         = "tenant" # "global", "tenant", "application-profile" and "context"
           filters = {
             allow-ipv4 = {
-              filter_name "allow-ipv4"
+              filter_name = "allow-ipv4"
             }
           }
         }
@@ -647,7 +647,7 @@ tenants = {
           scope         = "tenant" # "global", "tenant", "application-profile" and "context"
           filters = {
             allow-ipv4 = {
-              filter_name "allow-ipv4"
+              filter_name = "allow-ipv4"
             }
           }
         }
@@ -657,7 +657,7 @@ tenants = {
           scope         = "tenant" # "global", "tenant", "application-profile" and "context"
           filters = {
             allow-ipv4 = {
-              filter_name "allow-ipv4"
+              filter_name = "allow-ipv4"
             }
           }
         }
@@ -667,7 +667,7 @@ tenants = {
           scope         = "tenant" # "global", "tenant", "application-profile" and "context"
           filters = {
             allow-ipv4 = {
-              filter_name "allow-ipv4"
+              filter_name = "allow-ipv4"
             }
           }
         }
@@ -677,7 +677,7 @@ tenants = {
           scope         = "tenant" # "global", "tenant", "application-profile" and "context"
           filters = {
             allow-ipv4 = {
-              filter_name "allow-ipv4"
+              filter_name = "allow-ipv4"
             }
           }
         }
