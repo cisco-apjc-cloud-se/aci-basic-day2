@@ -532,7 +532,7 @@ tenants = {
                     ospf_policy = {}
                   }
                   floating_svis = {
-                    node-1 = {
+                    node-101 = {
                       pod         = 1
                       node        = 101
                       vlan_id     = 303
@@ -549,7 +549,7 @@ tenants = {
                         }
                       }
                     }
-                    node-2 = {
+                    node-102 = {
                       pod         = 1
                       node        = 102
                       vlan_id     = 303
