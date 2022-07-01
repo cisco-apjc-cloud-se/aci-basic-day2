@@ -778,11 +778,9 @@ tenants = {
                 allow-icmp = {
                   filter_name = "allow-icmp"
                   }
-                }
                 allow-ssh = {
                   filter_name = "allow-ssh"
                   }
-                }
                 allow-mysql = {
                   filter_name = "allow-mysql"
                   }
