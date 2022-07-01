@@ -556,7 +556,9 @@ tenants = {
           description = " Bridge Domain for Legacy VLAN 303 in Tenant #1"
           mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
           arp_flood   = "no" ## "yes", "no"
-          l3outs      = [] ## List of associated L3outs for BD's Subnets
+          l3outs      = {
+            l3out_name = "demo-l3out"
+            }
           subnets = {
             sub-1 = {
               ip          = "10.66.209.81/28"
@@ -574,7 +576,9 @@ tenants = {
           description = " Bridge Domain for Legacy VLAN 304 in Tenant #1"
           mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
           arp_flood   = "no" ## "yes", "no"
-          l3outs      = [] ## List of associated L3outs for BD's Subnets
+          l3outs      = {
+            l3out_name = "demo-l3out"
+            }
           subnets = {
             sub-1 = {
               ip          = "10.66.209.97/28"
@@ -592,7 +596,7 @@ tenants = {
         #   description = " Bridge Domain for Legacy VLAN 305 in Tenant #1"
         #   mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
         #   arp_flood   = "yes" ## "yes", "no"
-        #   l3outs      = [] ## List of associated L3outs for BD's Subnets
+        #   l3outs      = {} ## List of associated L3outs for BD's Subnets
         #   subnets = {}
         # }
       }

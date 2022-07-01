@@ -145,7 +145,9 @@ tenants = {
           mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
           ### STAGE 2 - ARP Flood No Longer Required, Set BD vMAC to HSRP MAC & Map to L3Out
           arp_flood   = "no" ## "yes", "no"
-          l3outs      = [] ## List of associated L3outs for BD's Subnets
+          l3outs      = {
+            l3out_name = "demo-l3out"
+            }
           subnets = {
             ### STAGE 2 - Move Gateway to Bridge Domain
             sub-1 = {
@@ -165,7 +167,9 @@ tenants = {
           mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
           ### STAGE 2 - ARP Flood No Longer Required, Set BD vMAC to HSRP MAC & Map to L3Out
           arp_flood   = "no" ## "yes", "no"
-          l3outs      = [] ## List of associated L3outs for BD's Subnets
+          l3outs      = {
+            l3out_name = "demo-l3out"
+            }
           subnets = {
             ### STAGE 2 - Move Gateway to Bridge Domain
             sub-1 = {
