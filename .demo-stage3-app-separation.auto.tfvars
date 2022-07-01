@@ -270,7 +270,9 @@ tenants = {
           mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
           arp_flood   = "no" ## "yes", "no"
           l3outs      = {
-            l3out_name = "demo-l3out"
+            demo-l3out = {
+              l3out_name = "demo-l3out"
+              }
             }
           subnets = {
             sub-1 = {
@@ -290,7 +292,9 @@ tenants = {
           mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
           arp_flood   = "no" ## "yes", "no"
           l3outs      = {
-            l3out_name = "demo-l3out"
+            demo-l3out = {
+              l3out_name = "demo-l3out"
+              }
             }
           subnets = {
             sub-1 = {

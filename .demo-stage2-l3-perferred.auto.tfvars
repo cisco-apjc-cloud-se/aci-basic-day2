@@ -146,7 +146,9 @@ tenants = {
           ### STAGE 2 - ARP Flood No Longer Required, Set BD vMAC to HSRP MAC & Map to L3Out
           arp_flood   = "no" ## "yes", "no"
           l3outs      = {
-            l3out_name = "demo-l3out"
+            demo-l3out = {
+              l3out_name = "demo-l3out"
+              }
             }
           subnets = {
             ### STAGE 2 - Move Gateway to Bridge Domain
@@ -168,7 +170,9 @@ tenants = {
           ### STAGE 2 - ARP Flood No Longer Required, Set BD vMAC to HSRP MAC & Map to L3Out
           arp_flood   = "no" ## "yes", "no"
           l3outs      = {
-            l3out_name = "demo-l3out"
+            demo-l3out = {
+              l3out_name = "demo-l3out"
+              }
             }
           subnets = {
             ### STAGE 2 - Move Gateway to Bridge Domain
