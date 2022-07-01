@@ -361,6 +361,7 @@ tenants = {
                     auth_type   = "none"
                     ospf_policy = {}
                   }
+                  floating_svis = {}
                   paths = {
                     path-1 = {
                       description     = "Demo L3 SVI Path"
