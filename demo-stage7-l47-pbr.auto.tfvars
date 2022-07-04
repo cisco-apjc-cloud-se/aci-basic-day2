@@ -22,6 +22,7 @@ tenants = {
     services = {
       l4-l7 = {
         devices = {}
+        service_graph_templates = {}
       }
     }
   }
@@ -1060,6 +1061,23 @@ tenants = {
             }
           }
         }
+        service_graph_templates = {
+          inside-one-arm-fw = {
+            template_name                     = "inside-one-arm-fw"
+            description                       = "One-Arm Firewall Redirect Template"
+            ui_template_type                  = "ONE_NODE_FW_ROUTED" # (or lower)
+            function_nodes = {
+              fw = {
+                node_name = "fw"
+                description = "Firewall service node"
+                func_template_type = "FW_ROUTED" # (or lower)
+                func_type = "GoTo"
+                routing_mode = "Redirect"
+                sequence_number = 1
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -1083,6 +1101,7 @@ tenants = {
     services = {
       l4-l7 = {
         devices = {}
+        service_graph_templates = {}
       }
     }
   }
