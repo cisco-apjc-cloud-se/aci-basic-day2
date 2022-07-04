@@ -1045,6 +1045,12 @@ tenants = {
                 device_name = "ftd-aci-1"
                 vmm_controller_name = "MEL-DC4-VC"
                 vm_name = "ftd-aci-1"
+                interfaces = {
+                  inside = {
+                    interface_name  = "inside"
+                    vnic_name       = "Network adapter 3"
+                  }
+                }
               }
             }
           }
