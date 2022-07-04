@@ -16,6 +16,9 @@ tenants = {
       standard = {}
       filters = {}
     }
+    policies = {
+      service_redirect_policies = {}
+    }
   }
   demo-basic-1 = {
     name          = "demo-basic-1"
@@ -1016,6 +1019,9 @@ tenants = {
     contracts = {
       standard = {}
       filters = {}
+    }
+    policies = {
+      service_redirect_policies = {}
     }
   }
 }
