@@ -999,6 +999,9 @@ tenants = {
         }
       }
     }
+    policies = {
+      service_redirect_policies = {}
+    }
   }
   demo-basic-2 = {
     name = "demo-basic-2"
