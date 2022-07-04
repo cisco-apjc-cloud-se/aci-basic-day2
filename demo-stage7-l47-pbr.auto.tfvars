@@ -1053,6 +1053,11 @@ tenants = {
                 }
               }
             }
+            logical_interfaces = {
+              inside = {
+                interface_name = "inside"
+              }
+            }
           }
         }
       }
