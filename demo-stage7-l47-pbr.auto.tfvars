@@ -19,6 +19,11 @@ tenants = {
     policies = {
       service_redirect_policies = {}
     }
+    services = {
+      l4-l7 = {
+        devices = {}
+      }
+    }
   }
   demo-basic-1 = {
     name          = "demo-basic-1"
@@ -1024,6 +1029,21 @@ tenants = {
     policies = {
       service_redirect_policies = {}
     }
+    services = {
+      l4-l7 = {
+        devices = {
+          ftd-aci-1 = {
+            device_name      = "ftd-aci-1"
+            device_type      = "virtual"
+            service_type     = "fw"
+            domain = {
+              name = "DVS-VMM"
+              type = "vmware"
+            }
+          }
+        }
+      }
+    }
   }
   demo-basic-2 = {
     name = "demo-basic-2"
@@ -1041,6 +1061,11 @@ tenants = {
     }
     policies = {
       service_redirect_policies = {}
+    }
+    services = {
+      l4-l7 = {
+        devices = {}
+      }
     }
   }
 }
