@@ -1040,6 +1040,13 @@ tenants = {
               name = "DVS-VMM"
               type = "vmware"
             }
+            concrete_devices = {
+              ftd-aci-1 = {
+                device_name = "ftd-aci-1"
+                vmm_controller_name = "MEL-DC4-VC"
+                vm_name = "ftd-aci-1"
+              }
+            }
           }
         }
       }
