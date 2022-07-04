@@ -489,6 +489,25 @@ tenants = {
         #   l3outs      = [] ## List of associated L3outs for BD's Subnets
         #   subnets = {}
         # }
+        ### STAGE 7 - FIREWALL TRANSIT ###
+        fw-int-306 = {
+          bd_name     = "FW-INT-306"
+          vrf = {
+            vrf_name    = "vrf-1"      ## VRF to add BD to
+          }
+          description = " Bridge Domain for Firewall Transit Internal VLAN 306 in Tenant #1"
+          mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
+          arp_flood   = "yes" ## "yes", "no"
+          l3outs      = {}
+          subnets = {
+            sub-1 = {
+              ip          = "10.66.209.41/28"
+              description = "Primary Subnet for FW Transit VLAN 306"
+              scope       = ["public"]
+              preferred   = "yes"
+            }
+          }
+        }
       }
       ### Layer3 Outs and External EPGs ###
       l3outs = {
