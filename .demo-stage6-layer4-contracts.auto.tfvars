@@ -31,47 +31,45 @@ tenants = {
         tenant_name = "demo-basic-1"    ## Tenant to add AP to
         description = "App Profile for Separated App #1"
         esgs = {
-          ### STAGE 5 - Tidy-up Legacy ESG ###
-          # app-1 = {
-          #   esg_name        = "app-1"
-          #   description     = "App #1 ESG"
-          #   preferred_group = "include"
-          #   vrf = {
-          #     vrf_name        = "vrf-1"
-          #   }
-          #   consumed_contracts = {}
-          #   provided_contracts = {}
-          # }
           web = {
             esg_name        = "web"
             description     = "App #1 Web Tier ESG"
-            ### STAGE 5 - Move to Exclude ###
             preferred_group = "exclude"
             vrf = {
               vrf_name        = "vrf-1"
             }
-            ### STAGE 5 - Associate Contracts ###
             consumed_contracts = {
               app1-web-to-db = {
                 contract_name = "app1-web-to-db"
+              }
+              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
+              servers-to-internet = {
+                contract_name = "servers-to-internet"
               }
             }
             provided_contracts = {
               rfc1918-to-web = {
                 contract_name = "rfc1918-to-web"
               }
+              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
+              webadmins-to-web = {
+                contract_name = "webadmins-to-web"
+              }
             }
           }
           db = {
             esg_name        = "db"
             description     = "App #1 DB Tier ESG"
-            ### STAGE 5 - Move to Exclude ###
             preferred_group = "exclude"
             vrf = {
               vrf_name        = "vrf-1"
             }
-            ### STAGE 5 - Associate Contracts ###
-            consumed_contracts = {}
+            consumed_contracts = {
+              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
+              servers-to-internet = {
+                contract_name = "servers-to-internet"
+              }
+            }
             provided_contracts = {
               app1-web-to-db = {
                 contract_name = "app1-web-to-db"
@@ -83,30 +81,6 @@ tenants = {
           }
         }
         epgs = {
-          ### STAGE 5 - Tidy-up Legacy EPG ###
-          # app-1 = {
-          #   epg_name = "app-1"
-          #   bd = {
-          #     bd_name = "bd-303"       ## Bridge Domain to add EPG to
-          #   }
-          #   description = "App #1 EPG"
-          #   domains = {
-          #     vmm = {
-          #       name = "DVS-VMM"
-          #       type = "vmware"
-          #     }
-          #     phys = {
-          #       name = "LAB-N9348"
-          #       type = "physical"
-          #     }
-          #   }
-          #   mapped_esg = {
-          #     esg_name = "app-1"
-          #   }
-          #   ### STAGE 5 - Move to Exclude ###
-          #   preferred_group = "exclude"
-          #   paths = {}
-          # }
           web = {
             epg_name = "web"
             bd = {
@@ -126,8 +100,6 @@ tenants = {
             mapped_esg = {
               esg_name = "web"
             }
-            ### STAGE 5 - Remove - manged by ESG ###
-            # preferred_group = "include"
             paths = {}
           }
           db = {
@@ -149,8 +121,6 @@ tenants = {
             mapped_esg = {
               esg_name = "db"
             }
-            ### STAGE 5 - Remove - manged by ESG ###
-            # preferred_group = "include"
             paths = {}
           }
         }
@@ -160,47 +130,45 @@ tenants = {
         tenant_name = "demo-basic-1"    ## Tenant to add AP to
         description = "App Profile for Separated App #2"
         esgs = {
-          ### STAGE 5 - Tidy-up Legacy ESG ###
-          # app-2 = {
-          #   esg_name        = "app-2"
-          #   description     = "App #2 ESG"
-          #   preferred_group = "include"
-          #   vrf = {
-          #     vrf_name        = "vrf-1"
-          #   }
-          #   consumed_contracts = {}
-          #   provided_contracts = {}
-          # }
           web = {
             esg_name        = "web"
             description     = "App #2 Web Tier ESG"
-            ### STAGE 5 - Move to Exclude ###
             preferred_group = "exclude"
             vrf = {
               vrf_name        = "vrf-1"
             }
-            ### STAGE 5 - Associate Contracts ###
             consumed_contracts = {
               app2-web-to-db = {
                 contract_name = "app2-web-to-db"
+              }
+              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
+              servers-to-internet = {
+                contract_name = "servers-to-internet"
               }
             }
             provided_contracts = {
               rfc1918-to-web = {
                 contract_name = "rfc1918-to-web"
               }
+              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
+              webadmins-to-web = {
+                contract_name = "webadmins-to-web"
+              }
             }
           }
           db = {
             esg_name        = "db"
             description     = "App #2 DB Tier ESG"
-            ### STAGE 5 - Move to Exclude ###
             preferred_group = "exclude"
             vrf = {
               vrf_name        = "vrf-1"
             }
-            ### STAGE 5 - Associate Contracts ###
-            consumed_contracts = {}
+            consumed_contracts = {
+              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
+              servers-to-internet = {
+                contract_name = "servers-to-internet"
+              }
+            }
             provided_contracts = {
               app2-web-to-db = {
                 contract_name = "app2-web-to-db"
@@ -212,29 +180,6 @@ tenants = {
           }
         }
         epgs = {
-          ### STAGE 5 - Tidy-up Legacy EPG ###
-          # app-2 = {
-          #   epg_name = "app-2"
-          #   bd = {
-          #     bd_name = "bd-303"       ## Bridge Domain to add EPG to
-          #   }
-          #   description = "App #2 EPG"
-          #   domains = {
-          #     vmm = {
-          #       name = "DVS-VMM"
-          #       type = "vmware"
-          #     }
-          #     phys = {
-          #       name = "LAB-N9348"
-          #       type = "physical"
-          #     }
-          #   }
-          #   mapped_esg = {
-          #     esg_name = "app-2"
-          #   }
-          #   preferred_group = "include"  ## Must be the same as ESG!
-          #   paths = {}
-          # }
           web = {
             epg_name = "web"
             bd = {
@@ -254,8 +199,6 @@ tenants = {
             mapped_esg = {
               esg_name = "web"
             }
-            ### STAGE 5 - Remove - manged by ESG ###
-            # preferred_group = "include"
             paths = {}
           }
           db = {
@@ -277,8 +220,6 @@ tenants = {
             mapped_esg = {
               esg_name = "db"
             }
-            ### STAGE 5 - Remove - manged by ESG ###
-            # preferred_group = "include"
             paths = {}
           }
         }
@@ -288,47 +229,45 @@ tenants = {
         tenant_name = "demo-basic-1"    ## Tenant to add AP to
         description = "App Profile for Separated App #3"
         esgs = {
-          ### STAGE 5 - Tidy-up Legacy ESG ###
-          # app-3 = {
-          #   esg_name        = "app-3"
-          #   description     = "App #3 ESG"
-          #   preferred_group = "include"
-          #   vrf = {
-          #     vrf_name        = "vrf-1"
-          #   }
-          #   consumed_contracts = {}
-          #   provided_contracts = {}
-          # }
           web = {
             esg_name        = "web"
             description     = "App #3 Web Tier ESG"
-            ### STAGE 5 - Move to Exclude ###
             preferred_group = "exclude"
             vrf = {
               vrf_name        = "vrf-1"
             }
-            ### STAGE 5 - Associate Contracts ###
             consumed_contracts = {
               app3-web-to-db = {
                 contract_name = "app3-web-to-db"
+              }
+              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
+              servers-to-internet = {
+                contract_name = "servers-to-internet"
               }
             }
             provided_contracts = {
               rfc1918-to-web = {
                 contract_name = "rfc1918-to-web"
               }
+              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
+              webadmins-to-web = {
+                contract_name = "webadmins-to-web"
+              }
             }
           }
           db = {
             esg_name        = "db"
             description     = "App #3 DB Tier ESG"
-            ### STAGE 5 - Move to Exclude ###
             preferred_group = "exclude"
             vrf = {
               vrf_name        = "vrf-1"
             }
-            ### STAGE 5 - Associate Contracts ###
-            consumed_contracts = {}
+            consumed_contracts = {
+              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
+              servers-to-internet = {
+                contract_name = "servers-to-internet"
+              }
+            }
             provided_contracts = {
               app3-web-to-db = {
                 contract_name = "app3-web-to-db"
@@ -340,29 +279,6 @@ tenants = {
           }
         }
         epgs = {
-          ### STAGE 5 - Tidy-up Legacy EPG ###
-          # app-3 = {
-          #   epg_name = "app-3"
-          #   bd = {
-          #     bd_name = "bd-304"       ## Bridge Domain to add EPG to
-          #   }
-          #   description = "App #3 EPG"
-          #   domains = {
-          #     vmm = {
-          #       name = "DVS-VMM"
-          #       type = "vmware"
-          #     }
-          #     phys = {
-          #       name = "LAB-N9348"
-          #       type = "physical"
-          #     }
-          #   }
-          #   mapped_esg = {
-          #     esg_name = "app-3"
-          #   }
-          #   preferred_group = "include"  ## Must be the same as ESG!
-          #   paths = {}
-          # }
           web = {
             epg_name = "web"
             bd = {
@@ -382,8 +298,6 @@ tenants = {
             mapped_esg = {
               esg_name = "web"
             }
-            ### STAGE 5 - Remove - manged by ESG ###
-            # preferred_group = "include"
             paths = {}
           }
           db = {
@@ -405,8 +319,6 @@ tenants = {
             mapped_esg = {
               esg_name = "db"
             }
-            ### STAGE 5 - Remove - manged by ESG ###
-            # preferred_group = "include"
             paths = {}
           }
         }
@@ -416,47 +328,45 @@ tenants = {
         tenant_name = "demo-basic-1"    ## Tenant to add AP to
         description = "App Profile for Separated App #4"
         esgs = {
-          ### STAGE 5 - Tidy-up Legacy ESG ###
-          # app-4 = {
-          #   esg_name        = "app-4"
-          #   description     = "App #4 ESG"
-          #   preferred_group = "include"
-          #   vrf = {
-          #     vrf_name        = "vrf-1"
-          #   }
-          #   consumed_contracts = {}
-          #   provided_contracts = {}
-          # }
           web = {
             esg_name        = "web"
             description     = "App #4 Web Tier ESG"
-            ### STAGE 5 - Move to Exclude ###
             preferred_group = "exclude"
             vrf = {
               vrf_name        = "vrf-1"
             }
-            ### STAGE 5 - Associate Contracts ###
             consumed_contracts = {
               app4-web-to-db = {
                 contract_name = "app4-web-to-db"
+              }
+              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
+              servers-to-internet = {
+                contract_name = "servers-to-internet"
               }
             }
             provided_contracts = {
               rfc1918-to-web = {
                 contract_name = "rfc1918-to-web"
               }
+              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
+              webadmins-to-web = {
+                contract_name = "webadmins-to-web"
+              }
             }
           }
           db = {
             esg_name        = "db"
             description     = "App #4 DB Tier ESG"
-            ### STAGE 5 - Move to Exclude ###
             preferred_group = "exclude"
             vrf = {
               vrf_name        = "vrf-1"
             }
-            ### STAGE 5 - Associate Contracts ###
-            consumed_contracts = {}
+            consumed_contracts = {
+              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
+              servers-to-internet = {
+                contract_name = "servers-to-internet"
+              }
+            }
             provided_contracts = {
               app4-web-to-db = {
                 contract_name = "app4-web-to-db"
@@ -468,29 +378,6 @@ tenants = {
           }
         }
         epgs = {
-          ### STAGE 5 - Tidy-up Legacy EPG ###
-          # app-4 = {
-          #   epg_name = "app-4"
-          #   bd = {
-          #     bd_name = "bd-304"       ## Bridge Domain to add EPG to
-          #   }
-          #   description = "App #4 EPG"
-          #   domains = {
-          #     vmm = {
-          #       name = "DVS-VMM"
-          #       type = "vmware"
-          #     }
-          #     phys = {
-          #       name = "LAB-N9348"
-          #       type = "physical"
-          #     }
-          #   }
-          #   mapped_esg = {
-          #     esg_name = "app-4"
-          #   }
-          #   preferred_group = "include"  ## Must be the same as ESG!
-          #   paths = {}
-          # }
           web = {
             epg_name = "web"
             bd = {
@@ -510,8 +397,6 @@ tenants = {
             mapped_esg = {
               esg_name = "web"
             }
-            ### STAGE 5 - Remove - manged by ESG ###
-            # preferred_group = "include"
             paths = {}
           }
           db = {
@@ -533,8 +418,6 @@ tenants = {
             mapped_esg = {
               esg_name = "db"
             }
-            ### STAGE 5 - Remove - manged by ESG ###
-            # preferred_group = "include"
             paths = {}
           }
         }
@@ -606,6 +489,25 @@ tenants = {
         #   l3outs      = {} ## List of associated L3outs for BD's Subnets
         #   subnets = {}
         # }
+        ### STAGE 7 - FIREWALL TRANSIT ###
+        fw-int-306 = {
+          bd_name     = "FW-INT-306"
+          vrf = {
+            vrf_name    = "vrf-1"      ## VRF to add BD to
+          }
+          description = " Bridge Domain for Firewall Transit Internal VLAN 306 in Tenant #1"
+          mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
+          arp_flood   = "yes" ## "yes", "no"
+          l3outs      = {}
+          subnets = {
+            sub-1 = {
+              ip          = "10.66.209.41/28"
+              description = "Primary Subnet for FW Transit VLAN 306"
+              scope       = ["public"]
+              preferred   = "yes"
+            }
+          }
+        }
       }
       ### Layer3 Outs and External EPGs ###
       l3outs = {
@@ -651,7 +553,33 @@ tenants = {
                     auth_type   = "none"
                     ospf_policy = {}
                   }
-                  floating_svis = {}
+                  floating_svis = {
+                    node-101 = {
+                      pod         = 1
+                      node        = 101
+                      vlan_id     = 400
+                      ip          = "169.254.1.101/24"
+                      description = "Floating SVI Test Node 101"
+                      domains = {
+                        vmm = {
+                          name              = "DVS-VMM"
+                          type              = "vmware"
+                          floating_ip       = "169.254.1.1/24"
+                          forged_transmit   = "Enabled"
+                          mac_change        = "Enabled"
+                          promiscuous_mode  = "Enabled"
+                        }
+                      }
+                    }
+                    node-102 = {
+                      pod         = 1
+                      node        = 102
+                      vlan_id     = 400
+                      ip          = "169.254.1.102/24"
+                      description = "Floating SVI Test Node 102"
+                      domains = {}
+                    }
+                  }
                   paths = {
                     path-1 = {
                       description     = "Demo L3 SVI Path"
@@ -671,9 +599,7 @@ tenants = {
             rfc1918 = {
               extepg_name         = "rfc1918"
               description         = "External users in RFC1918 subnets"
-              ### STAGE 5 - Move to Exclude ###
               preferred_group     = "exclude"
-              ### STAGE 5 - Associate Contracts ###
               consumed_contracts = {
                 rfc1918-to-web = {
                   contract_name = "rfc1918-to-web"
@@ -702,7 +628,6 @@ tenants = {
                 }
               }
             }
-            ### STAGE 5 - New DB Admin Users Group, Add Contracts ###
             dbadmins = {
               extepg_name         = "dbadmins"
               description         = "DB Admin Users"
@@ -729,13 +654,58 @@ tenants = {
                 }
               }
             }
+            webadmins = {
+              extepg_name         = "webadmins"
+              description         = "Web Admin Users"
+              preferred_group     = "exclude"
+              consumed_contracts = {
+                webadmins-to-web = {
+                  contract_name = "webadmins-to-web"
+                }
+              }
+              provided_contracts = {}
+              ## NOTE: Contract Master External EPGS MUST ALREADY EXIST - CURRENT NO METHOD TO ENSURE MASTER EXEPG BUILT FIRST
+              contract_master_epgs = {
+                rfc1918 = {
+                  l3out_name = "demo-l3out"
+                  extepg_name= "rfc1918"
+                }
+              }
+              subnets = {
+                H-10-67-16-241 = {
+                  description = "10.67.16.241/32"
+                  aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+                  ip = "10.67.16.241/32"
+                  scope = ["import-security"]
+                }
+              }
+            }
+            internet = {
+              extepg_name         = "internet"
+              description         = "External Servers"
+              preferred_group     = "exclude"
+              consumed_contracts = {}
+              provided_contracts = {
+                servers-to-internet = {
+                  contract_name = "servers-to-internet"
+                }
+              }
+              contract_master_epgs = {}
+              subnets = {
+                N-0-0-0-0 = {
+                  description = "0.0.0.0/0"
+                  aggregate    = "none" # "import-rtctrl", "export-rtctrl","shared-rtctrl" and "none".
+                  ip = "0.0.0.0/0"
+                  scope = ["import-security"]
+                }
+              }
+            }
           }
         }
       }
     }
     contracts = {
       standard = {
-        ### STAGE 5 - Add New Contracts ###
         app1-web-to-db = {
           contract_name = "app1-web-to-db"
           description   = "Allow all traffic from Web to DB Tier"
@@ -745,8 +715,11 @@ tenants = {
               subject_name = "default"
               description = "Default subject"
               filters = {
-                allow-ipv4 = {
-                  filter_name = "allow-ipv4"
+                allow-icmp = {
+                  filter_name = "allow-icmp"
+                  }
+                allow-mysql = {
+                  filter_name = "allow-mysql"
                   }
                 }
               }
@@ -761,8 +734,11 @@ tenants = {
               subject_name = "default"
               description = "Default subject"
               filters = {
-                allow-ipv4 = {
-                  filter_name = "allow-ipv4"
+                allow-icmp = {
+                  filter_name = "allow-icmp"
+                  }
+                allow-mysql = {
+                  filter_name = "allow-mysql"
                   }
                 }
               }
@@ -777,8 +753,11 @@ tenants = {
               subject_name = "default"
               description = "Default subject"
               filters = {
-                allow-ipv4 = {
-                  filter_name = "allow-ipv4"
+                allow-icmp = {
+                  filter_name = "allow-icmp"
+                  }
+                allow-mysql = {
+                  filter_name = "allow-mysql"
                   }
                 }
               }
@@ -793,8 +772,11 @@ tenants = {
               subject_name = "default"
               description = "Default subject"
               filters = {
-                allow-ipv4 = {
-                  filter_name = "allow-ipv4"
+                allow-icmp = {
+                  filter_name = "allow-icmp"
+                  }
+                allow-mysql = {
+                  filter_name = "allow-mysql"
                   }
                 }
               }
@@ -809,8 +791,11 @@ tenants = {
               subject_name = "default"
               description = "Default subject"
               filters = {
-                allow-ipv4 = {
-                  filter_name = "allow-ipv4"
+                allow-icmp = {
+                  filter_name = "allow-icmp"
+                  }
+                allow-web = {
+                  filter_name = "allow-web"
                   }
                 }
               }
@@ -825,8 +810,55 @@ tenants = {
               subject_name = "default"
               description = "Default subject"
               filters = {
-                allow-ipv4 = {
-                  filter_name = "allow-ipv4"
+                allow-icmp = {
+                  filter_name = "allow-icmp"
+                  }
+                allow-ssh = {
+                  filter_name = "allow-ssh"
+                  }
+                allow-mysql = {
+                  filter_name = "allow-mysql"
+                  }
+                }
+              }
+            }
+        }
+        webadmins-to-web = {
+          contract_name = "webadmins-to-web"
+          description   = "Allow SSH traffic from Web Admins to all App Web Tiers"
+          scope         = "tenant" # "global", "tenant", "application-profile" and "context"
+          subjects = {
+            default = {
+              subject_name = "default"
+              description = "Default subject"
+              filters = {
+                allow-ssh = {
+                  filter_name = "allow-ssh"
+                  }
+                }
+              }
+            }
+        }
+        servers-to-internet = {
+          contract_name = "servers-to-internet"
+          description   = "Allow limited traffic from all servers to external servers"
+          scope         = "tenant" # "global", "tenant", "application-profile" and "context"
+          subjects = {
+            default = {
+              subject_name = "default"
+              description = "Default subject"
+              filters = {
+                allow-dns = {
+                  filter_name = "allow-dns"
+                  }
+                allow-ssh = {
+                  filter_name = "allow-ssh"
+                  }
+                allow-icmp = {
+                  filter_name = "allow-icmp"
+                  }
+                allow-web = {
+                  filter_name = "allow-web"
                   }
                 }
               }
@@ -834,18 +866,112 @@ tenants = {
         }
       }
       filters = {
-        ### STAGE 5 - Add New Filters ###
-        allow-ipv4 = {
-          filter_name = "allow-ipv4"
-          description = "Allow all IPv4 traffic"
+        allow-icmp = {
+          filter_name = "allow-icmp"
+          description = "Allow ICMP traffic"
           entries = {
-            all-ip = {
-              name = "all-ip"
-              description = "Allow all IPv4 traffic"
+            icmp = {
+              name = "icmp"
+              description = "Allow ICMP traffic"
               ether_t       = "ipv4"
               d_from_port   = "unspecified"
               d_to_port     = "unspecified"
-              prot          = "unspecified"
+              prot          = "icmp"
+              s_from_port   = "unspecified"
+              s_to_port     = "unspecified"
+            }
+          }
+        }
+        allow-dns = {
+          filter_name = "allow-dns"
+          description = "Allow DNS traffic"
+          entries = {
+            dns-udp = {
+              name = "dns-udp"
+              description = "Allow ICMP traffic"
+              ether_t       = "ipv4"
+              d_from_port   = "53"
+              d_to_port     = "53"
+              prot          = "udp"
+              s_from_port   = "unspecified"
+              s_to_port     = "unspecified"
+            }
+            dns-tcp = {
+              name = "dns-tcp"
+              description = "Allow ICMP traffic"
+              ether_t       = "ipv4"
+              d_from_port   = "53"
+              d_to_port     = "53"
+              prot          = "tcp"
+              s_from_port   = "unspecified"
+              s_to_port     = "unspecified"
+            }
+          }
+        }
+        allow-mysql = {
+          filter_name = "allow-mysql"
+          description = "Allow MySQL TCP 3306 traffic"
+          entries = {
+            mysql = {
+              name = "mysql"
+              description = "Allow MySQL TCP 3306 traffic"
+              ether_t       = "ipv4"
+              d_from_port   = "3306"
+              d_to_port     = "3306"
+              prot          = "tcp"
+              s_from_port   = "unspecified"
+              s_to_port     = "unspecified"
+            }
+          }
+        }
+        allow-ssh = {
+          filter_name = "allow-ssh"
+          description = "Allow SSH traffic"
+          tenant_name = "demo-basic-1"    ## Tenant to add filter to
+          entries = {
+            ssh = {
+              name = "ssh"
+              description = "Allow SSH traffic"
+              ether_t       = "ipv4"
+              d_from_port   = "ssh" # 22
+              d_to_port     = "ssh" # 22
+              prot          = "tcp"
+              s_from_port   = "unspecified"
+              s_to_port     = "unspecified"
+            }
+          }
+        }
+        allow-web = {
+          filter_name = "allow-web"
+          description = "Allow Web traffic on TCP 80, 443 and 8080"
+          entries = {
+            http = {
+              name = "http"
+              description = "Allow HTTP TCP 80 traffic"
+              ether_t       = "ipv4"
+              d_from_port   = "http" # 80
+              d_to_port     = "http" # 80
+              prot          = "tcp"
+              s_from_port   = "unspecified"
+              s_to_port     = "unspecified"
+            },
+            https = {
+              name = "https"
+              description = "Allow HTTPS TCP 443 traffic"
+              ether_t       = "ipv4"
+              d_from_port   = "https" # 443
+              d_to_port     = "https" # 443
+              prot          = "tcp"
+              s_from_port   = "unspecified"
+              s_to_port     = "unspecified"
+            },
+            http-8080 = {
+              name = "http-8080"
+              description = "Allow HTTP TCP 8080 traffic"
+              ether_t       = "ipv4"
+              d_from_port   = "8080"
+              d_to_port     = "8080"
+              prot          = "tcp"
               s_from_port   = "unspecified"
               s_to_port     = "unspecified"
             }
