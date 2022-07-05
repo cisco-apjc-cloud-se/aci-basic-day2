@@ -1075,7 +1075,7 @@ tenants = {
                 routing_mode = "Redirect"
                 sequence_number = 1
                 device = {
-                  devide_name = "ftd-aci-1"
+                  device_name = "ftd-aci-1"
                 }
               }
             }
