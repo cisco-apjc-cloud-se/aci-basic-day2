@@ -735,6 +735,7 @@ tenants = {
                   }
                 }
               }
+              service_graph = {}
             }
         }
         app2-web-to-db = {
@@ -757,6 +758,7 @@ tenants = {
                   }
                 }
               }
+              service_graph = {}
             }
         }
         app3-web-to-db = {
@@ -779,6 +781,7 @@ tenants = {
                   }
                 }
               }
+              service_graph = {}
             }
         }
         app4-web-to-db = {
@@ -790,9 +793,6 @@ tenants = {
               subject_name = "default"
               description = "Default subject"
               filters = {
-                # allow-ipv4 = {
-                #   filter_name = "allow-ipv4"
-                #   }
                 allow-icmp = {
                   filter_name = "allow-icmp"
                   }
@@ -801,6 +801,7 @@ tenants = {
                   }
                 }
               }
+              service_graph = {}
             }
         }
         rfc1918-to-web = {
@@ -812,9 +813,6 @@ tenants = {
               subject_name = "default"
               description = "Default subject"
               filters = {
-                # allow-ipv4 = {
-                #   filter_name = "allow-ipv4"
-                #   }
                 allow-icmp = {
                   filter_name = "allow-icmp"
                   }
@@ -823,6 +821,7 @@ tenants = {
                   }
                 }
               }
+              service_graph = {}
             }
         }
         dbadmins-to-db = {
@@ -834,10 +833,6 @@ tenants = {
               subject_name = "default"
               description = "Default subject"
               filters = {
-                # allow-ipv4 = {
-                #   filter_name = "allow-ipv4"
-                #   }
-                # }
                 allow-icmp = {
                   filter_name = "allow-icmp"
                   }
@@ -849,6 +844,7 @@ tenants = {
                   }
                 }
               }
+              service_graph = {}
             }
         }
         ### STAGE 6 - New Web Admins Contract for SSH Access
@@ -866,6 +862,7 @@ tenants = {
                   }
                 }
               }
+              service_graph = {}
             }
         }
         ### STAGE 6 - External Traffic Egress
@@ -892,6 +889,7 @@ tenants = {
                   }
                 }
               }
+              service_graph = {}
             }
         }
       }
