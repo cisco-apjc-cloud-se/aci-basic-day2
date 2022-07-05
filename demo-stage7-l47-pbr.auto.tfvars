@@ -743,7 +743,7 @@ tenants = {
                     description   = "Service graph instance applied from Terraform"
                     consumer_interface = {
                       type                = "general"
-                      conn_name           = "consumer"
+                      conn_name           = "consumer"   # Must match template connection names
                       cluster_interface   = "inside"
                       redirect_policy     = "to-inside-fw"
                       description         = "Consumer side service graph interface"
@@ -754,7 +754,7 @@ tenants = {
                     }
                     provider_interface = {
                       type                = "general"
-                      conn_name           = "provider"
+                      conn_name           = "provider"  # Must match template connection names
                       cluster_interface   = "inside"
                       redirect_policy     = "to-inside-fw"
                       description         = "Provider side service graph interface"
