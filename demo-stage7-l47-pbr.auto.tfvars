@@ -1028,7 +1028,19 @@ tenants = {
       }
     }
     policies = {
-      service_redirect_policies = {}
+      service_redirect_policies = {
+        to-inside-fw = {
+          policy_name  = "to-inside-fw"
+          description  = "Redirect traffic to FW Inside IP"
+          destinations = {
+            fw-inside-ip = {
+              ip        = "10.66.209.42"
+              mac       = "00:50:56:98:AE:2C"
+              dest_name = "FTD-ACI-1 Network Adapter #3 INSIDE"
+            }
+          }
+        }
+      }
     }
     services = {
       l4-l7 = {
