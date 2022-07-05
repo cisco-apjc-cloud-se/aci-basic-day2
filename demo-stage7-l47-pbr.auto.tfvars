@@ -743,7 +743,7 @@ tenants = {
                     description   = "Service graph instance applied from Terraform"
                     consumer_interface = {
                       type                = "general"
-                      conn_name           = "Consumer"
+                      conn_name           = "consumer"
                       cluster_interface   = "inside"
                       redirect_policy     = "to-inside-fw"
                       description         = "Consumer side service graph interface"
@@ -754,10 +754,10 @@ tenants = {
                     }
                     provider_interface = {
                       type                = "general"
-                      conn_name           = "Provider"
+                      conn_name           = "provider"
                       cluster_interface   = "inside"
                       redirect_policy     = "to-inside-fw"
-                      description         = "Provier side service graph interface"
+                      description         = "Provider side service graph interface"
                       bd = {
                         bd_name     = "fw-int-306"
                       }
