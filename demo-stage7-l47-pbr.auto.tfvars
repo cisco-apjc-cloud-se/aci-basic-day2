@@ -724,19 +724,16 @@ tenants = {
               subject_name = "default"
               description = "Default subject"
               filters = {
-                # allow-ipv4 = {
-                #   filter_name = "allow-ipv4"
-                #   }
                 allow-icmp = {
                   filter_name = "allow-icmp"
-                  }
+                }
                 allow-mysql = {
                   filter_name = "allow-mysql"
-                  }
                 }
               }
               service_graph = {}
             }
+          }
         }
         app2-web-to-db = {
           contract_name = "app2-web-to-db"
@@ -747,19 +744,16 @@ tenants = {
               subject_name = "default"
               description = "Default subject"
               filters = {
-                # allow-ipv4 = {
-                #   filter_name = "allow-ipv4"
-                #   }
                 allow-icmp = {
                   filter_name = "allow-icmp"
-                  }
+                }
                 allow-mysql = {
                   filter_name = "allow-mysql"
-                  }
                 }
               }
               service_graph = {}
             }
+          }
         }
         app3-web-to-db = {
           contract_name = "app2-web-to-db"
@@ -770,19 +764,16 @@ tenants = {
               subject_name = "default"
               description = "Default subject"
               filters = {
-                # allow-ipv4 = {
-                #   filter_name = "allow-ipv4"
-                #   }
                 allow-icmp = {
                   filter_name = "allow-icmp"
-                  }
+                }
                 allow-mysql = {
                   filter_name = "allow-mysql"
-                  }
                 }
               }
               service_graph = {}
             }
+          }
         }
         app4-web-to-db = {
           contract_name = "app2-web-to-db"
@@ -795,14 +786,14 @@ tenants = {
               filters = {
                 allow-icmp = {
                   filter_name = "allow-icmp"
-                  }
+                }
                 allow-mysql = {
                   filter_name = "allow-mysql"
-                  }
                 }
               }
               service_graph = {}
             }
+          }
         }
         rfc1918-to-web = {
           contract_name = "rfc1918-to-web"
@@ -815,14 +806,14 @@ tenants = {
               filters = {
                 allow-icmp = {
                   filter_name = "allow-icmp"
-                  }
+                }
                 allow-web = {
                   filter_name = "allow-web"
-                  }
                 }
               }
               service_graph = {}
             }
+          }
         }
         dbadmins-to-db = {
           contract_name = "dbadmins-to-db"
@@ -835,17 +826,17 @@ tenants = {
               filters = {
                 allow-icmp = {
                   filter_name = "allow-icmp"
-                  }
+                }
                 allow-ssh = {
                   filter_name = "allow-ssh"
-                  }
+                }
                 allow-mysql = {
                   filter_name = "allow-mysql"
-                  }
                 }
               }
               service_graph = {}
             }
+          }
         }
         ### STAGE 6 - New Web Admins Contract for SSH Access
         webadmins-to-web = {
@@ -859,11 +850,11 @@ tenants = {
               filters = {
                 allow-ssh = {
                   filter_name = "allow-ssh"
-                  }
                 }
               }
               service_graph = {}
             }
+          }
         }
         ### STAGE 6 - External Traffic Egress
         servers-to-internet = {
@@ -877,20 +868,20 @@ tenants = {
               filters = {
                 allow-dns = {
                   filter_name = "allow-dns"
-                  }
+                }
                 allow-ssh = {
                   filter_name = "allow-ssh"
-                  }
+                }
                 allow-icmp = {
                   filter_name = "allow-icmp"
-                  }
+                }
                 allow-web = {
                   filter_name = "allow-web"
-                  }
                 }
               }
               service_graph = {}
             }
+          }
         }
       }
       filters = {
