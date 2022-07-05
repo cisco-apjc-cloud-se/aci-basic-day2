@@ -731,7 +731,9 @@ tenants = {
                   filter_name = "allow-mysql"
                 }
               }
-              service_graph = {}
+              service_graph = {
+                nodes = {}
+              }
             }
           }
         }
@@ -751,7 +753,9 @@ tenants = {
                   filter_name = "allow-mysql"
                 }
               }
-              service_graph = {}
+              service_graph = {
+                nodes = {}
+              }
             }
           }
         }
@@ -771,7 +775,9 @@ tenants = {
                   filter_name = "allow-mysql"
                 }
               }
-              service_graph = {}
+              service_graph = {
+                nodes = {}
+              }
             }
           }
         }
@@ -791,7 +797,9 @@ tenants = {
                   filter_name = "allow-mysql"
                 }
               }
-              service_graph = {}
+              service_graph = {
+                nodes = {}
+              }
             }
           }
         }
@@ -811,7 +819,9 @@ tenants = {
                   filter_name = "allow-web"
                 }
               }
-              service_graph = {}
+              service_graph = {
+                nodes = {}
+              }
             }
           }
         }
@@ -834,7 +844,9 @@ tenants = {
                   filter_name = "allow-mysql"
                 }
               }
-              service_graph = {}
+              service_graph = {
+                nodes = {}
+              }
             }
           }
         }
@@ -852,7 +864,9 @@ tenants = {
                   filter_name = "allow-ssh"
                 }
               }
-              service_graph = {}
+              service_graph = {
+                nodes = {}
+              }
             }
           }
         }
@@ -879,7 +893,9 @@ tenants = {
                   filter_name = "allow-web"
                 }
               }
-              service_graph = {}
+              service_graph = {
+                nodes = {}
+              }
             }
           }
         }
