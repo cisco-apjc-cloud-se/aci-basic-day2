@@ -1074,6 +1074,9 @@ tenants = {
                 func_type = "GoTo"
                 routing_mode = "Redirect"
                 sequence_number = 1
+                device = {
+                  devide_name = "ftd-aci-1"
+                }
               }
             }
           }
