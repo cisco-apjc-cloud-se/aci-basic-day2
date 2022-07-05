@@ -497,7 +497,7 @@ tenants = {
         # }
         ### STAGE 7 - FIREWALL TRANSIT ###
         fw-int-306 = {
-          bd_name     = "FW-INT-306"
+          bd_name     = "fw-int-306"
           vrf = {
             vrf_name    = "vrf-1"      ## VRF to add BD to
           }
@@ -731,8 +731,37 @@ tenants = {
                   filter_name = "allow-mysql"
                 }
               }
+              ### STAGE 7 - APPLY SERVICE GRAPH TEMPLATE TO CONTRACT ###
               service_graph = {
-                nodes = {}
+                template_name = "inside-one-arm-fw"
+                nodes = {
+                  node_name     = "fw"
+                  device = {
+                    device_name = "ftd-aci-1"
+                  }
+                  description   = "Service graph instance applied from Terraform"
+                  consumer_interface = {
+                    type                = "general"
+                    conn_name           = "Consumer"
+                    cluster_interface   = "inside"
+                    redirect_policy     = "to-inside-fw"
+                    description         = "Consumer side service graph interface"
+                    bd = {
+                      bd_name     = "fw-int-306"
+                    })
+                    extepg = {}
+                  }
+                  provider_interface = object({
+                    type                = "general"
+                    conn_name           = "Provider"
+                    cluster_interface   = "inside"
+                    redirect_policy     = "to-inside-fw"
+                    description         = "Provier side service graph interface"
+                    bd = {
+                      bd_name     = "fw-int-306"
+                    })
+                    extepg = {}
+                  })
               }
             }
           }
