@@ -749,7 +749,7 @@ tenants = {
                       description         = "Consumer side service graph interface"
                       bd = {
                         bd_name     = "fw-int-306"
-                      })
+                      }
                       extepg = {}
                     }
                     provider_interface = {
