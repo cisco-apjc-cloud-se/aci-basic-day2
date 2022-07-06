@@ -705,10 +705,9 @@ tenants = {
               filters = {
                 allow-icmp = {
                   filter_name = "allow-icmp"
-                  }
+                }
                 allow-mysql = {
                   filter_name = "allow-mysql"
-                  }
                 }
               }
               service_graph = {
@@ -730,7 +729,6 @@ tenants = {
                   }
                 allow-mysql = {
                   filter_name = "allow-mysql"
-                  }
                 }
               }
               service_graph = {
@@ -749,10 +747,9 @@ tenants = {
               filters = {
                 allow-icmp = {
                   filter_name = "allow-icmp"
-                  }
+                }
                 allow-mysql = {
                   filter_name = "allow-mysql"
-                  }
                 }
               }
               service_graph = {
@@ -771,10 +768,9 @@ tenants = {
               filters = {
                 allow-icmp = {
                   filter_name = "allow-icmp"
-                  }
+                }
                 allow-mysql = {
                   filter_name = "allow-mysql"
-                  }
                 }
               }
               service_graph = {
@@ -793,10 +789,9 @@ tenants = {
               filters = {
                 allow-icmp = {
                   filter_name = "allow-icmp"
-                  }
+                }
                 allow-web = {
                   filter_name = "allow-web"
-                  }
                 }
               }
               service_graph = {
@@ -840,7 +835,6 @@ tenants = {
               filters = {
                 allow-ssh = {
                   filter_name = "allow-ssh"
-                  }
                 }
               }
               service_graph = {
@@ -859,16 +853,15 @@ tenants = {
               filters = {
                 allow-dns = {
                   filter_name = "allow-dns"
-                  }
+                }
                 allow-ssh = {
                   filter_name = "allow-ssh"
-                  }
+                }
                 allow-icmp = {
                   filter_name = "allow-icmp"
-                  }
+                }
                 allow-web = {
                   filter_name = "allow-web"
-                  }
                 }
               }
               service_graph = {
