@@ -753,7 +753,7 @@ tenants = {
               filters = {
                 allow-ipv4 = {
                   filter_name = "allow-ipv4"
-                  }
+                }
               }
               service_graph = {
                 nodes = {}
@@ -772,8 +772,10 @@ tenants = {
               filters = {
                 allow-ipv4 = {
                   filter_name = "allow-ipv4"
-                  }
                 }
+              }
+              service_graph = {
+                nodes = {}
               }
             }
         }
