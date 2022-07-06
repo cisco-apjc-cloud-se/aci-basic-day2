@@ -19,6 +19,12 @@ tenants = {
     policies = {
       service_redirect_policies = {}
     }
+    services = {
+      l4-l7 = {
+        devices = {}
+        service_graph_templates = {}
+      }
+    }
   }
   demo-basic-1 = {
     name          = "demo-basic-1"
@@ -535,6 +541,7 @@ tenants = {
                     ospf_policy = {}
                   }
                   floating_svis = {
+                    ### STAGE 6 - FLOATING SVI DEMO ###
                     node-101 = {
                       pod         = 1
                       node        = 101
@@ -704,6 +711,9 @@ tenants = {
                   }
                 }
               }
+              service_graph = {
+                nodes = {}
+              }
             }
         }
         app2-web-to-db = {
@@ -722,6 +732,9 @@ tenants = {
                   filter_name = "allow-mysql"
                   }
                 }
+              }
+              service_graph = {
+                nodes = {}
               }
             }
         }
@@ -742,6 +755,9 @@ tenants = {
                   }
                 }
               }
+              service_graph = {
+                nodes = {}
+              }
             }
         }
         app4-web-to-db = {
@@ -761,6 +777,9 @@ tenants = {
                   }
                 }
               }
+              service_graph = {
+                nodes = {}
+              }
             }
         }
         rfc1918-to-web = {
@@ -779,6 +798,9 @@ tenants = {
                   filter_name = "allow-web"
                   }
                 }
+              }
+              service_graph = {
+                nodes = {}
               }
             }
         }
@@ -802,6 +824,9 @@ tenants = {
                   }
                 }
               }
+              service_graph = {
+                nodes = {}
+              }
             }
         }
         webadmins-to-web = {
@@ -817,6 +842,9 @@ tenants = {
                   filter_name = "allow-ssh"
                   }
                 }
+              }
+              service_graph = {
+                nodes = {}
               }
             }
         }
@@ -842,6 +870,9 @@ tenants = {
                   filter_name = "allow-web"
                   }
                 }
+              }
+              service_graph = {
+                nodes = {}
               }
             }
         }
@@ -963,6 +994,12 @@ tenants = {
     policies = {
       service_redirect_policies = {}
     }
+    services = {
+      l4-l7 = {
+        devices = {}
+        service_graph_templates = {}
+      }
+    }
   }
   demo-basic-2 = {
     name = "demo-basic-2"
@@ -980,6 +1017,12 @@ tenants = {
     }
     policies = {
       service_redirect_policies = {}
+    }
+    services = {
+      l4-l7 = {
+        devices = {}
+        service_graph_templates = {}
+      }
     }
   }
 }

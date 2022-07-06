@@ -17,6 +17,12 @@ tenants = {
     policies = {
       service_redirect_policies = {}
     }
+    services = {
+      l4-l7 = {
+        devices = {}
+        service_graph_templates = {}
+      }
+    }
   }
   demo-basic-1 = {
     name          = "demo-basic-1"
@@ -684,6 +690,12 @@ tenants = {
     policies = {
       service_redirect_policies = {}
     }
+    services = {
+      l4-l7 = {
+        devices = {}
+        service_graph_templates = {}
+      }
+    }
   }
   demo-basic-2 = {
     name = "demo-basic-2"
@@ -701,6 +713,12 @@ tenants = {
     }
     policies = {
       service_redirect_policies = {}
+    }
+    services = {
+      l4-l7 = {
+        devices = {}
+        service_graph_templates = {}
+      }
     }
   }
 }

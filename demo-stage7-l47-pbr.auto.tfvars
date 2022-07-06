@@ -48,7 +48,6 @@ tenants = {
               app1-web-to-db = {
                 contract_name = "app1-web-to-db"
               }
-              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
               servers-to-internet = {
                 contract_name = "servers-to-internet"
               }
@@ -57,7 +56,6 @@ tenants = {
               rfc1918-to-web = {
                 contract_name = "rfc1918-to-web"
               }
-              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
               webadmins-to-web = {
                 contract_name = "webadmins-to-web"
               }
@@ -71,7 +69,6 @@ tenants = {
               vrf_name        = "vrf-1"
             }
             consumed_contracts = {
-              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
               servers-to-internet = {
                 contract_name = "servers-to-internet"
               }
@@ -147,7 +144,6 @@ tenants = {
               app2-web-to-db = {
                 contract_name = "app2-web-to-db"
               }
-              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
               servers-to-internet = {
                 contract_name = "servers-to-internet"
               }
@@ -156,7 +152,6 @@ tenants = {
               rfc1918-to-web = {
                 contract_name = "rfc1918-to-web"
               }
-              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
               webadmins-to-web = {
                 contract_name = "webadmins-to-web"
               }
@@ -170,7 +165,6 @@ tenants = {
               vrf_name        = "vrf-1"
             }
             consumed_contracts = {
-              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
               servers-to-internet = {
                 contract_name = "servers-to-internet"
               }
@@ -246,7 +240,6 @@ tenants = {
               app3-web-to-db = {
                 contract_name = "app3-web-to-db"
               }
-              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
               servers-to-internet = {
                 contract_name = "servers-to-internet"
               }
@@ -255,7 +248,6 @@ tenants = {
               rfc1918-to-web = {
                 contract_name = "rfc1918-to-web"
               }
-              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
               webadmins-to-web = {
                 contract_name = "webadmins-to-web"
               }
@@ -269,7 +261,6 @@ tenants = {
               vrf_name        = "vrf-1"
             }
             consumed_contracts = {
-              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
               servers-to-internet = {
                 contract_name = "servers-to-internet"
               }
@@ -345,7 +336,6 @@ tenants = {
               app4-web-to-db = {
                 contract_name = "app4-web-to-db"
               }
-              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
               servers-to-internet = {
                 contract_name = "servers-to-internet"
               }
@@ -354,7 +344,6 @@ tenants = {
               rfc1918-to-web = {
                 contract_name = "rfc1918-to-web"
               }
-              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
               webadmins-to-web = {
                 contract_name = "webadmins-to-web"
               }
@@ -368,7 +357,6 @@ tenants = {
               vrf_name        = "vrf-1"
             }
             consumed_contracts = {
-              ### STAGE 6 - NEW LAYER 4 EGRESS CONTRACTS ###
               servers-to-internet = {
                 contract_name = "servers-to-internet"
               }
@@ -495,7 +483,7 @@ tenants = {
         #   l3outs      = [] ## List of associated L3outs for BD's Subnets
         #   subnets = {}
         # }
-        ### STAGE 7 - FIREWALL TRANSIT ###
+        ### STAGE 7 - NEW FIREWALL TRANSIT BRIDGE DOMAIN ###
         fw-int-306 = {
           bd_name     = "fw-int-306"
           vrf = {

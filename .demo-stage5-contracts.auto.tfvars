@@ -19,6 +19,12 @@ tenants = {
     policies = {
       service_redirect_policies = {}
     }
+    services = {
+      l4-l7 = {
+        devices = {}
+        service_graph_templates = {}
+      }
+    }
   }
   demo-basic-1 = {
     name          = "demo-basic-1"
@@ -748,9 +754,12 @@ tenants = {
                 allow-ipv4 = {
                   filter_name = "allow-ipv4"
                   }
-                }
+              }
+              service_graph = {
+                nodes = {}
               }
             }
+          }
         }
         app2-web-to-db = {
           contract_name = "app2-web-to-db"
@@ -779,10 +788,13 @@ tenants = {
               filters = {
                 allow-ipv4 = {
                   filter_name = "allow-ipv4"
-                  }
                 }
               }
+              service_graph = {
+                nodes = {}
+              }
             }
+          }
         }
         app4-web-to-db = {
           contract_name = "app2-web-to-db"
@@ -795,10 +807,13 @@ tenants = {
               filters = {
                 allow-ipv4 = {
                   filter_name = "allow-ipv4"
-                  }
                 }
               }
+              service_graph = {
+                nodes = {}
+              }
             }
+          }
         }
         rfc1918-to-web = {
           contract_name = "rfc1918-to-web"
@@ -811,10 +826,13 @@ tenants = {
               filters = {
                 allow-ipv4 = {
                   filter_name = "allow-ipv4"
-                  }
                 }
               }
+              service_graph = {
+                nodes = {}
+              }
             }
+          }
         }
         dbadmins-to-db = {
           contract_name = "dbadmins-to-db"
@@ -827,10 +845,13 @@ tenants = {
               filters = {
                 allow-ipv4 = {
                   filter_name = "allow-ipv4"
-                  }
                 }
               }
+              service_graph = {
+                nodes = {}
+              }
             }
+          }
         }
       }
       filters = {
@@ -856,6 +877,12 @@ tenants = {
     policies = {
       service_redirect_policies = {}
     }
+    services = {
+      l4-l7 = {
+        devices = {}
+        service_graph_templates = {}
+      }
+    }
   }
   demo-basic-2 = {
     name = "demo-basic-2"
@@ -873,6 +900,12 @@ tenants = {
     }
     policies = {
       service_redirect_policies = {}
+    }
+    services = {
+      l4-l7 = {
+        devices = {}
+        service_graph_templates = {}
+      }
     }
   }
 }
