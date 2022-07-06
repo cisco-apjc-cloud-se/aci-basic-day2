@@ -778,6 +778,7 @@ tenants = {
                 nodes = {}
               }
             }
+          }
         }
         app3-web-to-db = {
           contract_name = "app2-web-to-db"

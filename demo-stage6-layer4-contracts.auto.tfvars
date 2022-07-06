@@ -714,6 +714,7 @@ tenants = {
                 nodes = {}
               }
             }
+          }
         }
         app2-web-to-db = {
           contract_name = "app2-web-to-db"
@@ -735,6 +736,7 @@ tenants = {
                 nodes = {}
               }
             }
+          }
         }
         app3-web-to-db = {
           contract_name = "app2-web-to-db"
@@ -756,6 +758,7 @@ tenants = {
                 nodes = {}
               }
             }
+          }
         }
         app4-web-to-db = {
           contract_name = "app2-web-to-db"
@@ -777,6 +780,7 @@ tenants = {
                 nodes = {}
               }
             }
+          }
         }
         rfc1918-to-web = {
           contract_name = "rfc1918-to-web"
@@ -798,6 +802,7 @@ tenants = {
                 nodes = {}
               }
             }
+          }
         }
         dbadmins-to-db = {
           contract_name = "dbadmins-to-db"
@@ -823,6 +828,7 @@ tenants = {
                 nodes = {}
               }
             }
+          }
         }
         webadmins-to-web = {
           contract_name = "webadmins-to-web"
@@ -841,6 +847,7 @@ tenants = {
                 nodes = {}
               }
             }
+          }
         }
         servers-to-internet = {
           contract_name = "servers-to-internet"
@@ -868,6 +875,7 @@ tenants = {
                 nodes = {}
               }
             }
+          }
         }
       }
       filters = {
