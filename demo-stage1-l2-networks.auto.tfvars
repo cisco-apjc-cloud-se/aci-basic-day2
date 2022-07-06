@@ -108,6 +108,42 @@ tenants = {
               }
             }
           }
+          vl-305 = {
+            epg_name = "vl-305"
+            bd = {
+              bd_name = "bd-305"       ## Bridge Domain to add EPG to
+            }
+            description = "EPG for VLAN 305"
+            # vmm_enabled = true
+            domains = {
+              vmm = {
+                name = "DVS-VMM"
+                type = "vmware"
+              }
+              phys = {
+                name = "LAB-N9348"
+                type = "physical"
+              }
+            }
+            mapped_esg = {}
+            preferred_group = "exclude"
+            paths = {
+              # path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
+              #   pod       = 1
+              #   leaf_node = 101
+              #   port      = "eth1/1"
+              #   vlan_id   = 333
+              #   mode      = "regular" # regular, native, untagged
+              # }
+              path2 = { # topology/pod-1/paths-101/pathep-[eth1/23]
+                pod       = 1
+                leaf_node = 102
+                port      = "eth1/1"
+                vlan_id   = 305
+                mode      = "regular" # regular, native, untagged
+              }
+            }
+          }
         }
       }
     }
@@ -146,9 +182,10 @@ tenants = {
         }
         bd-305 = {
           bd_name     = "bd-305"
-          vrf_name    = "vrf-1"      ## VRF to add BD to
+          vrf = {
+            vrf_name    = "vrf-1"      ## VRF to add BD to
+          }
           description = " Bridge Domain for Legacy VLAN 305 in Tenant #1"
-          tenant_name = "demo-basic-1"    ## Tenant to add VRF to
           mac_address = "00:22:BD:F8:19:FF"  ## Default MAC Address
           arp_flood   = "yes" ## "yes", "no"
           l3outs      = {} ## List of associated L3outs for BD's Subnets
