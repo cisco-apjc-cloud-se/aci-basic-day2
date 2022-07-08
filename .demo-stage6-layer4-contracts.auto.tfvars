@@ -922,7 +922,6 @@ tenants = {
         allow-ssh = {
           filter_name = "allow-ssh"
           description = "Allow SSH traffic"
-          tenant_name = "demo-basic-1"    ## Tenant to add filter to
           entries = {
             ssh = {
               name = "ssh"
