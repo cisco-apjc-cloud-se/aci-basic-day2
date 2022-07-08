@@ -592,6 +592,7 @@ tenants = {
                         side_a = {}
                         side_b = {}
                       }
+                      bgp_peers = {}
                     }
                   }
                 }
