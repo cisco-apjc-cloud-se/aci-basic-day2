@@ -215,6 +215,7 @@ tenants = {
             vrf_name        = "vrf-1"
           }
           l3_domain       = "LAB-N9348"
+          bgp_policy = {}
           ospf_policy = {
             enabled     = true
             description = "OSPF Peering to Lab"
