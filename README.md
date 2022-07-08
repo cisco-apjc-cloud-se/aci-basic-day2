@@ -17,20 +17,20 @@ This includes the management of:
   * Endpoint Groups (EPGs)
     * Optional static server or network interface mapping (Static EPGs)
     * Optional dynamic VMM integration with VMware to create port group automatically (Dynamic EPGs)
-  * Optional New Endpoint Security Groups (ESGs) mapped to one or more EPGs (ACI 5.2 Required)
+  * Optional New Endpoint Security Groups (ESGs) mapped to one or more EPGs (ACI 5.2+ Required)
   * Optional Preferred Group security
-* Optional L3Outs
-  * OSPF Peering
+* L3Outs
+  * OSPF or BGP Peering
   * External Endpoint Groups (External Users Groups or Applications)
   * Optional Preferred Group security
-* Optional Contracts & Filters
+* Contracts & Filters
   * Bound to ESGs and External EPGs
 
 ![Logical Topology](/images/logical-topology.png)
 
 In this example, we are using a custom Terraform module and set of input variable files (.auto.tfvars).  Each input variable file represents a customers ACI maturity journey from basic L2 services only to a full application-centric segmentation deployment with Layer 4 filters (ACLs) between applications, tiers & user groups.
 
-**NOTE:** 5 of the 6 input auto.tfvars files are hidden.  To change between stages rename and unhide the required stage file (i.e. remove "." prefix) and hide the current file (i.e. add "." prefix) before executing the Terraform plan.
+**NOTE:** 6 of the 7 input auto.tfvars files are hidden.  To change between stages rename and unhide the required stage file (i.e. remove "." prefix) and hide the current file (i.e. add "." prefix) before executing the Terraform plan.
 
 * Stage 1 - Basic L2 "Network Centric" Deployments
   * Layer 2 only, Layer 3 gateways on external/legacy network devices
@@ -68,6 +68,12 @@ In this example, we are using a custom Terraform module and set of input variabl
     * DNS (UDP/TCP 53)
   * Further Restricted External Users to Application traffic (i.e. Web Admins to Web Servers)
   * Allow Servers' restricted external access to Internet
+
+* Stage 7 - Layer 4-7 Service Graphs with Policy Based Redirection
+  * Example L4-7 Device (FTDv) and Logical Cluster Interface (Inside) created
+  * New Bridge Domain and L3 Subnet for Firewall interface
+  * New L4-7 Service Graph Template and associated policies created. Uses 1-ARM-FIREWALL-ROUTED type template
+  * L4-7 Service Graph Template instance applied to existing App1-Web-to-DB contract to redirect traffic to the firewalls' inside interface and back.
 
 We will use the Intersight Service for Terraform to provide Terraform Cloud with secure managed API access to traditionally isolated domain managers within the on-premises data center such as the ACI APIC controller(s).  
 
