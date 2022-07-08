@@ -595,10 +595,10 @@ tenants = {
               provided_contracts = {}
               ## NOTE: Contract Master External EPGS MUST ALREADY EXIST - CURRENT NO METHOD TO ENSURE MASTER EXEPG BUILT FIRST
               contract_master_epgs = {
-                demo-l3out = {
-                  l3out_name = "demo-l3out"
-                  extepg_name= "rfc1918"
-                }
+                # demo-l3out = {
+                #   l3out_name = "demo-l3out"
+                #   extepg_name= "rfc1918"
+                # }
               }
               subnets = {
                 H-10-67-29-4 = {
@@ -622,10 +622,10 @@ tenants = {
               provided_contracts = {}
               ## NOTE: Contract Master External EPGS MUST ALREADY EXIST - CURRENT NO METHOD TO ENSURE MASTER EXEPG BUILT FIRST
               contract_master_epgs = {
-                rfc1918 = {
-                  l3out_name = "demo-l3out"
-                  extepg_name= "rfc1918"
-                }
+                # rfc1918 = {
+                #   l3out_name = "demo-l3out"
+                #   extepg_name= "rfc1918"
+                # }
               }
               subnets = {
                 H-10-67-16-241 = {
