@@ -571,12 +571,16 @@ tenants = {
                   paths = {
                     path-1 = {
                       description     = "Demo L3 SVI Path"
-                      type            = "ext-svi"
+                      path_type       = "ext-svi"
                       ip              = "10.66.209.22/30"
                       vlan_id         = 302
-                      pod             = 1
-                      leaf_node       = 102
-                      port            = "eth1/1"
+                      interface_type  = "port"
+                      port = {
+                        pod        = 1
+                        node       = 102
+                        port_name  = "eth1/1"
+                      }
+                      vpc = {}
                     }
                   }
                 }
