@@ -3,29 +3,6 @@
 ### Tenant Model ###
 tenants = {
   ### Tenants ###
-  common = {
-    name = "common"
-    use_existing = true
-    aps = {}
-    networking = {
-      vrfs = {}
-      bds = {}
-      l3outs = {}
-    }
-    contracts = {
-      standard = {}
-      filters = {}
-    }
-    policies = {
-      service_redirect_policies = {}
-    }
-    services = {
-      l4-l7 = {
-        devices = {}
-        service_graph_templates = {}
-      }
-    }
-  }
   demo-basic-1 = {
     name          = "demo-basic-1"
     use_existing  = false
@@ -984,7 +961,6 @@ tenants = {
         allow-ssh = {
           filter_name = "allow-ssh"
           description = "Allow SSH traffic"
-          tenant_name = "demo-basic-1"    ## Tenant to add filter to
           entries = {
             ssh = {
               name = "ssh"
