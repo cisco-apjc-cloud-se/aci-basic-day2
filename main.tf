@@ -26,37 +26,9 @@ provider "aci" {
 
 ## ACI Tenant Module
 module "aci_tenants" {
-  # source = "./modules/aci"
-  source = "github.com/cisco-apjc-cloud-se/terraform-aci-day2"
+  for_each = var.tenants
+  source = "github.com/cisco-apjc-cloud-se/terraform-aci-tenant-object"
 
   ### Tenants ###
-  tenants   = var.tenants
+  tenant   = each.value
 }
-
-# ## ACI Networking Module
-# module "aci" {
-#   # source = "./modules/aci"
-#   source = "github.com/cisco-apjc-cloud-se/terraform-aci-day2"
-#
-#   ### Tenants ###
-#   tenants   = var.tenants
-#
-#   ### VRFs ###
-#   vrfs      = var.vrfs
-#
-#   ### Bridge Domains ###
-#   bds       = var.bds
-#
-#   ### Application Profiles & End Point Groups ###
-#   aps       = var.aps
-#   vmm_name  = var.vmm_name # "DVS-VMM"
-#   phys_name = var.phys_name # "LAB-N9348"
-#
-#   ### L3Outs & External EPGs ###
-#   l3outs    = var.l3outs
-#
-#   ### Contract & Filters ###
-#   filters   = var.filters
-#   contracts = var.contracts
-#
-# }

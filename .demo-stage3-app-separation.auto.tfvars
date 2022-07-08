@@ -346,6 +346,7 @@ tenants = {
             lprof-1 = {
               lprof_name  = "demo-l3out"
               description = "Demo L3Out Logical Profile created from Terraform"
+              bgp_peers = {}
               nodes = {
                 node-1 = {
                   pod = 1
@@ -383,7 +384,10 @@ tenants = {
                         node       = 102
                         port_name  = "eth1/1"
                       }
-                      vpc = {}
+                      vpc = {
+                        side_a = {}
+                        side_b = {}
+                      }
                     }
                   }
                 }
