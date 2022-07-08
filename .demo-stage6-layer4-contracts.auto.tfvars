@@ -542,34 +542,7 @@ tenants = {
                     auth_type   = "none"
                     ospf_policy = {}
                   }
-                  floating_svis = {
-                    ### STAGE 6 - FLOATING SVI DEMO ###
-                    node-101 = {
-                      pod         = 1
-                      node        = 101
-                      vlan_id     = 400
-                      ip          = "169.254.1.101/24"
-                      description = "Floating SVI Test Node 101"
-                      domains = {
-                        vmm = {
-                          name              = "DVS-VMM"
-                          type              = "vmware"
-                          floating_ip       = "169.254.1.1/24"
-                          forged_transmit   = "Enabled"
-                          mac_change        = "Enabled"
-                          promiscuous_mode  = "Enabled"
-                        }
-                      }
-                    }
-                    node-102 = {
-                      pod         = 1
-                      node        = 102
-                      vlan_id     = 400
-                      ip          = "169.254.1.102/24"
-                      description = "Floating SVI Test Node 102"
-                      domains = {}
-                    }
-                  }
+                  floating_svis = {}
                   paths = {
                     path-1 = {
                       description     = "Demo L3 SVI Path"
