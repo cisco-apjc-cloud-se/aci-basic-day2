@@ -1,4 +1,4 @@
-### NOTE: Contract Master EPG must be built first - may require running plan twice
+### NOTE: L4-7 FIREWALL TRANSIT BD must be built first - may require running plan twice - 7A and 7B
 
 ### Tenant Model ###
 tenants = {
@@ -460,7 +460,7 @@ tenants = {
         #   l3outs      = [] ## List of associated L3outs for BD's Subnets
         #   subnets = {}
         # }
-        ### STAGE 7 - NEW FIREWALL TRANSIT BRIDGE DOMAIN ###
+        ### STAGE 7A - NEW FIREWALL TRANSIT BRIDGE DOMAIN ###
         fw-int-306 = {
           bd_name     = "fw-int-306"
           vrf = {
@@ -680,7 +680,7 @@ tenants = {
                   filter_name = "allow-mysql"
                 }
               }
-              ### STAGE 7 - APPLY SERVICE GRAPH TEMPLATE TO CONTRACT ###
+              ### STAGE 7A - APPLY SERVICE GRAPH TEMPLATE TO CONTRACT - ENABLED IN 7B ###
               service_graph = {
                 # template_name = "inside-one-arm-fw"
                 nodes = {
@@ -882,24 +882,6 @@ tenants = {
         }
       }
       filters = {
-        ### STAGE 6 - Remove IPv4 Filter ###
-        # allow-ipv4 = {
-        #   filter_name = "allow-ipv4"
-        #   description = "Allow all IPv4 traffic"
-        #   entries = {
-        #     all-ip = {
-        #       name = "all-ip"
-        #       description = "Allow all IPv4 traffic"
-        #       ether_t       = "ipv4"
-        #       d_from_port   = "unspecified"
-        #       d_to_port     = "unspecified"
-        #       prot          = "unspecified"
-        #       s_from_port   = "unspecified"
-        #       s_to_port     = "unspecified"
-        #     }
-        #   }
-        # }
-        ### STAGE 6 - Add new Layer 4 Filters ###
         allow-icmp = {
           filter_name = "allow-icmp"
           description = "Allow ICMP traffic"
@@ -1030,6 +1012,7 @@ tenants = {
     services = {
       l4-l7 = {
         devices = {
+          ### STAGE 7A - CREATE NEW L4-7 DEVICE ###
           ftd-aci-1 = {
             device_name      = "ftd-aci-1"
             device_type      = "virtual"
@@ -1059,6 +1042,7 @@ tenants = {
           }
         }
         service_graph_templates = {
+          ### STAGE 7A - CREATE NEW L4-7 SERVICE GRAPH TEMPLATE ###
           inside-one-arm-fw = {
             template_name     = "inside-one-arm-fw"
             description       = "One-Arm Firewall Redirect Template"
