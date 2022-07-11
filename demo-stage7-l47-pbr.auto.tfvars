@@ -683,37 +683,37 @@ tenants = {
               ### STAGE 7 - APPLY SERVICE GRAPH TEMPLATE TO CONTRACT ###
               service_graph = {
                 # template_name = "inside-one-arm-fw"
-                # nodes = {
-                #   fw = {
-                #     node_name     = "fw"
-                #     device = {
-                #       device_name = "ftd-aci-1"
-                #     }
-                #     description   = "Service graph instance applied from Terraform"
-                #     consumer_interface = {
-                #       type                = "general"
-                #       conn_name           = "consumer"   # Must match template connection names
-                #       cluster_interface   = "inside"
-                #       redirect_policy     = "to-inside-fw"
-                #       description         = "Consumer side service graph interface"
-                #       bd = {
-                #         bd_name     = "fw-int-306"
-                #       }
-                #       extepg = {}
-                #     }
-                #     provider_interface = {
-                #       type                = "general"
-                #       conn_name           = "provider"  # Must match template connection names
-                #       cluster_interface   = "inside"
-                #       redirect_policy     = "to-inside-fw"
-                #       description         = "Provider side service graph interface"
-                #       bd = {
-                #         bd_name     = "fw-int-306"
-                #       }
-                #       extepg = {}
-                #     }
-                #   }
-                # }
+                nodes = {
+                  # fw = {
+                  #   node_name     = "fw"
+                  #   device = {
+                  #     device_name = "ftd-aci-1"
+                  #   }
+                  #   description   = "Service graph instance applied from Terraform"
+                  #   consumer_interface = {
+                  #     type                = "general"
+                  #     conn_name           = "consumer"   # Must match template connection names
+                  #     cluster_interface   = "inside"
+                  #     redirect_policy     = "to-inside-fw"
+                  #     description         = "Consumer side service graph interface"
+                  #     bd = {
+                  #       bd_name     = "fw-int-306"
+                  #     }
+                  #     extepg = {}
+                  #   }
+                  #   provider_interface = {
+                  #     type                = "general"
+                  #     conn_name           = "provider"  # Must match template connection names
+                  #     cluster_interface   = "inside"
+                  #     redirect_policy     = "to-inside-fw"
+                  #     description         = "Provider side service graph interface"
+                  #     bd = {
+                  #       bd_name     = "fw-int-306"
+                  #     }
+                  #     extepg = {}
+                  #   }
+                  # }
+                }
               }
             }
           }
