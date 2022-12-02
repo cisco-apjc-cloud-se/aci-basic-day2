@@ -65,6 +65,7 @@ tenants = {
                 type = "physical"
               }
             }
+            ### STAGE 2 - Mapped EPG to ESG
             mapped_esg = {
               esg_name = "legacy-esg"
             }
@@ -106,6 +107,7 @@ tenants = {
                 type = "physical"
               }
             }
+            ### STAGE 2 - Mapped EPG to ESG
             mapped_esg = {
               esg_name = "legacy-esg"
             }
