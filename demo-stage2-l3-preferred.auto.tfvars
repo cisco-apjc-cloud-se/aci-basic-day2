@@ -288,6 +288,7 @@ tenants = {
                       ip              = "10.66.209.22/30"
                       vlan_id         = 302
                       interface_type  = "port"
+                      bgp_peers = {}
                       port = {
                         pod        = 1
                         node       = 102
