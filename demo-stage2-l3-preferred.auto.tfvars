@@ -294,7 +294,10 @@ tenants = {
                         node       = 102
                         port_name  = "eth1/1"
                       }
-                      vpc = {}
+                      vpc = {
+                        side_a = {}
+                        side_b = {}
+                      }
                     }
                   }
                 }
