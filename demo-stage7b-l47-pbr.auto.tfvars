@@ -460,7 +460,6 @@ tenants = {
         #   l3outs      = [] ## List of associated L3outs for BD's Subnets
         #   subnets = {}
         # }
-        ### STAGE 7A - NEW FIREWALL TRANSIT BRIDGE DOMAIN ###
         fw-int-306 = {
           bd_name     = "fw-int-306"
           vrf = {
@@ -609,7 +608,6 @@ tenants = {
                 }
               }
             }
-            ### STAGE 6 - New Web Admin User Group
             webadmins = {
               extepg_name         = "webadmins"
               description         = "Web Admin Users"
@@ -1008,7 +1006,6 @@ tenants = {
     services = {
       l4-l7 = {
         devices = {
-          ### STAGE 7A - CREATE NEW L4-7 DEVICE ###
           ftd-aci-1 = {
             device_name      = "ftd-aci-1"
             device_type      = "virtual"
@@ -1038,7 +1035,6 @@ tenants = {
           }
         }
         service_graph_templates = {
-          ### STAGE 7A - CREATE NEW L4-7 SERVICE GRAPH TEMPLATE ###
           inside-one-arm-fw = {
             template_name     = "inside-one-arm-fw"
             description       = "One-Arm Firewall Redirect Template"
