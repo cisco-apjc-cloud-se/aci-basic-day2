@@ -609,7 +609,6 @@ tenants = {
                 }
               }
             }
-            ### STAGE 6 - New Web Admin User Group
             webadmins = {
               extepg_name         = "webadmins"
               description         = "Web Admin Users"
@@ -636,7 +635,6 @@ tenants = {
                 }
               }
             }
-            ### STAGE 6 - New Internet Server User Group for External Egress Traffic
             internet = {
               extepg_name         = "internet"
               description         = "External Servers"
@@ -663,7 +661,6 @@ tenants = {
     }
     contracts = {
       standard = {
-        ### STAGE 6 - Add Layer 4 Filters to Contracts ###
         app1-web-to-db = {
           contract_name = "app1-web-to-db"
           description   = "Allow all traffic from Web to DB Tier"
@@ -831,7 +828,6 @@ tenants = {
             }
           }
         }
-        ### STAGE 6 - New Web Admins Contract for SSH Access
         webadmins-to-web = {
           contract_name = "webadmins-to-web"
           description   = "Allow SSH traffic from Web Admins to all App Web Tiers"
@@ -851,7 +847,6 @@ tenants = {
             }
           }
         }
-        ### STAGE 6 - External Traffic Egress
         servers-to-internet = {
           contract_name = "servers-to-internet"
           description   = "Allow limited traffic from all servers to external servers"
