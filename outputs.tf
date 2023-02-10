@@ -32,6 +32,6 @@
 #   value = module.aci_tenants[*].epg_map
 # }
 
-output "test" {
-    value = { for k,v in module.aci_tenants: k => v.epg_map }
+output "ap_epg_map" {
+    value = { for k,v in module.aci_tenants: k => v.ap_epg_map }
 }
