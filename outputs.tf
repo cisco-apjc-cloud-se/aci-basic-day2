@@ -28,6 +28,10 @@
 # #   value = module.aci_tenants.ap_map
 # # }
 
-output "epg_map" {
-  value = module.aci_tenants[*].epg_map
+# output "epg_map" {
+#   value = module.aci_tenants[*].epg_map
+# }
+
+output "test" {
+    value = module.aci_tenants[*]
 }
