@@ -55,7 +55,7 @@ tenants = {
             }
             mapped_esg = {}
             fwd_ctrl = "proxy-arp"
-            intraepg_isolated = "enforced"
+            intraepg_isolation = "enforced"
             preferred_group = "exclude"
             paths = {
               # path1 = { # topology/pod-1/paths-101/pathep-[eth1/23]
