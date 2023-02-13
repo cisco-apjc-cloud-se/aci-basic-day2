@@ -435,7 +435,8 @@ tenants = {
         vrf-1 = {
           vrf_name    = "vrf-1"
           description = "VRF #1 for Tenant #1"
-          preferred_group = "enabled"
+          ### Section 6 Disabled Preferred Group on VRF ###
+          preferred_group = "disabled"
         }
       }
       ### Bridge Domains & L3 Subnets ###
@@ -722,7 +723,7 @@ tenants = {
           }
         }
         app3-web-to-db = {
-          contract_name = "app2-web-to-db"
+          contract_name = "app3-web-to-db"
           description   = "Allow all traffic from Web to DB Tier"
           scope         = "tenant" # "global", "tenant", "application-profile" and "context"
           subjects = {
@@ -744,7 +745,7 @@ tenants = {
           }
         }
         app4-web-to-db = {
-          contract_name = "app2-web-to-db"
+          contract_name = "app4-web-to-db"
           description   = "Allow all traffic from Web to DB Tier"
           scope         = "tenant" # "global", "tenant", "application-profile" and "context"
           subjects = {

@@ -791,7 +791,7 @@ tenants = {
           }
         }
         app3-web-to-db = {
-          contract_name = "app2-web-to-db"
+          contract_name = "app3-web-to-db"
           description   = "Allow all traffic from Web to DB Tier"
           scope         = "tenant" # "global", "tenant", "application-profile" and "context"
           subjects = {
@@ -810,7 +810,7 @@ tenants = {
           }
         }
         app4-web-to-db = {
-          contract_name = "app2-web-to-db"
+          contract_name = "app4-web-to-db"
           description   = "Allow all traffic from Web to DB Tier"
           scope         = "tenant" # "global", "tenant", "application-profile" and "context"
           subjects = {
